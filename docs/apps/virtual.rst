@@ -1,7 +1,7 @@
 Virtual K8s
 ===========
 
-Configure a Virtual k8s cluster, deploy and scale a containerized :term:`workload` from a private registry.
+Configure a |vk8s how-to| cluster, deploy and scale a containerized :term:`workload` from a private :term:`registry`.
 
 
 A service with one or more containers with configurable number of replicas that can be deployed on a selection of Regional Edge sites or customer sites and advertised within the cluster where is it deployed, on the Internet, or on other sites using TCP or HTTP or HTTPS load balancer.
