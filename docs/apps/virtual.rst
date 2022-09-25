@@ -1,8 +1,9 @@
-Virtual K8s
-===========
+Virtual K8s (vK8s)
+==================
 
-Configure a |vk8s how-to| cluster, deploy and scale a containerized :term:`workload` from a private :term:`registry`.
+This gudied lab guide is based the :vk8s:`\VK8s How-to` and the provides instructions to create a vK8s object and associate it with a virtual site that groups network cloud (RE) sites or customer edge (CE) cloud sites. To know more about virtual sites, see Virtual Site.
 
+Configure a :vk8s:`\ ` cluster, deploy and scale a containerized :term:`workload` from a private :term:`registry`.
 
 A service with one or more containers with configurable number of replicas that can be deployed on a selection of Regional Edge sites or customer sites and advertised within the cluster where is it deployed, on the Internet, or on other sites using TCP or HTTP or HTTPS load balancer.
 
@@ -15,8 +16,6 @@ For more core concepts, please review `F5 Distributed Cloud documentation <https
 
 Create Cluster
 --------------
-
-Create a Virtual Kubernetes Cluster on a Virtual Site.
 
 Sites and Virtual Sites
 ^^^^^^^^^^^^^^^^^^^^^^^

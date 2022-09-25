@@ -28,6 +28,7 @@ autosectionlabel_prefix_document = True
 copybutton_prompt_text = "$ "
 copybutton_only_copy_prompt_lines = True
 copybutton_remove_prompts = True
+extlinks_detect_hardcoded_links = True
 
 hoverxref_roles = [
     'numref',
@@ -218,7 +219,11 @@ html_context = {"github_url": github_repo}
 
 html_last_updated_fmt = "%Y-%m-%d %H:%M:%S"
 
-extlinks = {'issue': ('https://github.com/f5devcentral/f5-agility-labs-xc/issues/%s','issue %s')}
+extlinks = {
+   'issue': ('https://github.com/f5devcentral/f5-agility-labs-xc/issues/%s','issue %s'),
+   'vk8s': ('https://docs.cloud.f5.com/docs/how-to/app-management/create-vk8s-obj','VK8s'),
+}
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
