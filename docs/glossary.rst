@@ -1,7 +1,11 @@
 .. glossary::
 
-   Sphinx
-Sphinx is a tool that makes it easy to create intelligent and beautiful documentation.It was originally created
-for the Python documentation, and it has excellent facilities
-for the documentation of software projects in a range of languages.
+   environment
+      A structure where information about all documents under the root is
+      saved, and used for cross-referencing.  The environment is pickled
+      after the parsing stage, so that successive runs only need to read
+      and parse new and changed documents.
 
+   source directory
+      The directory which, including its subdirectories, contains all
+      source files for one Sphinx project.

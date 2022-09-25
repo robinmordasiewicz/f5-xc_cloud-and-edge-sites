@@ -95,4 +95,4 @@ Cards Clickable
 
 :bdg-primary-line:`primary-line`
 
-:term:`Sphinx`
+:term:`environment`
