@@ -24,12 +24,12 @@ Create a Virtual Kubernetes Cluster on a Virtual Site.
 Sites and Virtual Sites
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Select the ``Distributed Apps`` tile on the F5 Distributed Cloud Services home page.
+#. Select the :guilabel:`Distributed Apps` tile on the F5 Distributed Cloud Services home page.
 
    .. image:: images/distributedappclick.png
       :width: 800px
 
-#. Within the Distributed Apps side menu and under ``Manage``, click ``Virtual Sites``. A Virtual site has been pre-configured for the lab and shared to all students. The Virtual site **agility-k8s-vsite** contains three customer edge sites.
+#. Click ``Manage`` > ``Virtual Sites``. A Virtual site has been pre-configured for the lab and shared to all students. The Virtual site **agility-k8s-vsite** contains three customer edge sites.
 
    .. image:: images/manage-virtualsites.png
       :width: 800px
@@ -37,7 +37,7 @@ Sites and Virtual Sites
 Create Virtual k8s
 ^^^^^^^^^^^^^^^^^^
 
-#. Click ``Applications`` > ``Virtual K8s``, and then click |add-virtual-K8s|
+#. Click :menuselection:`Applications --> Virtual K8s`, and then click |add-virtual-K8s|
 
    .. image:: images/distributedappclickaddvirtualk8s.png
       :width: 800px
@@ -97,12 +97,12 @@ Container Service
 Associate to Virtual Site
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Within the **Deploy Options** section, set **Where to Deploy the Workload** to *Customer Virtual Sites*, then **Configure** within the **Customer Virtual Sites** section.
+#. Within the **Deploy Options** section, set ``Where to Deploy the workload`` to **Customer Virtual Sites**, then click **Configure**.
 
    .. image:: images/8deploy_options.png
       :width: 800px
 
-#. Select your vK8s site name from **List of Virtual Sites to Deploy**, then |apply|
+#. Select the VK8s site name from **List of Virtual Sites to Deploy**, then |apply|
 
    .. image:: images/9select_customer_site.png
       :width: 800px
@@ -110,17 +110,27 @@ Associate to Virtual Site
 Service Advertisement
 ^^^^^^^^^^^^^^^^^^^^^
 
-#. Within the **Advertise Options** section, set **Options to Advertise the Workload** to *Advertise in Cluster*, then select **Configure** within the **Advertise in Cluster** section.
+#. Within the **Advertise Options** section, set **Options to Advertise the Workload** to **Advertise in Cluster**, then select **Configure**.
 
    .. image:: images/10select_advertise_options.png
       :width: 800px
 
-#. Within the **Select Port to Advertise** section, set **Select Port to Advertise** to *Port*, click |apply| and then |save-and-exit|
+#. Within the **Select Port to Advertise** section, set **Select Port to Advertise** to *Port*, click |apply|
 
    - **Port**: 3000
    - **Application Protocol**: HTTP
 
    .. image:: images/11set_advertise_port.png
+      :width: 800px
+
+#. Click |apply|
+
+   .. image:: images/apply-vk8s-workload.png
+      :width: 800px
+
+#. Click |save-and-exit|
+
+   .. image:: images/create-workload-save-and-exit.png
       :width: 800px
 
 #. The workload has been added. The vsite that vk8s is deployed on consists of 3 sites, so there are 3 pods in total.
@@ -133,20 +143,25 @@ Scale Deployment
 
 Modify Virtual K8s Deployment to Scale Replicas.
 
-#. Select ``Deployments``, then select the menu under **Actions** for your deployment, then ``Edit``
+Edit JSON
+^^^^^^^^^
+
+#. Select ``Deployments``, then select |three-dots| under **Actions**, then click ``Edit``.
 
    .. image:: images/14edit_deployment.png
       :width: 800px
 
-#. Ensure **Edit** mode is enabled, expand the **spec** section, and modify **replicas** from *1* to *3* and select **Save**
+#. Enable |edit-mode|, and expand the ``spec`` section by clicking |out-arrows|
 
    .. image:: images/15modify_deployment_spec.png
       :width: 800px
 
-Review Scaled vK8s Deployment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#. Change **replicas: 1** to **replicas: 3** and click |save|
 
-#. It may take a few moments, but on the vK8s cluster dashboard, number of **Running Pods** should increase to 9. Upon refreshing the list, you may notice the number of **Sites with Error** gradually decrease as **Running Pods** increases.
+   .. image:: images/set-three-replicas-save.png
+      :width: 800px
+
+#. After a few moments, the number of **Running Pods** increase to 9.
 
    .. image:: images/16review_scaled_deployment.png
       :width: 800px
@@ -154,36 +169,20 @@ Review Scaled vK8s Deployment
 View Results with kubectl
 -------------------------
 
-kubectl may be used to manage Virtual k8s.
-
 Install kubectl
 ^^^^^^^^^^^^^^^
 
 Insert instructions to install kubectl
 
-Configure kubeconfig
+Download kubeconfig
 ^^^^^^^^^^^^^^^^^^^^
 
-Download the kubeconfig file to access virtual k8s.
-
-#. Click the distributed apps tile on the F5 Distributed Cloud Services home page.
-
-   .. image:: images/distributedappclick.png
-      :width: 800px
-
-#. Click virtual K8s under the applications section.
-
-   .. image:: images/distributedappclickvirtualk8s.png
-      :width: 250pt
-
-#. Click the three dots under the "Action" column and then click Kubeconfig.
+#. Navigate away from the details pane by clicking ``Applications`` > ``Virtual K8s``, click |three-dots|, and then click |download-kubeconfig-button|
 
    .. image:: images/distributedappclickvirtualk8kubeconfig.png
       :width: 800px
 
-#. Click the config kubeconfig is downloaded, and follow the Kubernetes documentation to configure your local kubctl tool. 
-
-   `Organizing Cluster Access Using kubeconfig Files <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
+#. `Follow the kubernetes.io guide to install the kubeconfiug <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
 
 kubectl commands
 ^^^^^^^^^^^^^^^^
@@ -192,35 +191,35 @@ Run the following commands and view the outputs.  Why are there different output
 
 *View Nodes*
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ kubectl get nodes
-   $ kubectl get nodes -o wide
+   kubectl get nodes
+   kubectl get nodes -o wide
    
 *View pods*
 
-.. code-block:: console
+.. code-block:: sh
  
-   $ kubectl get pods
-   $ kubectl get pods -o wide
-   $ kubectl describe pod <podname>
+   kubectl get pods
+   kubectl get pods -o wide
+   kubectl describe pod <podname>
    
 *View deployment and service*
 
 .. code-block:: console
 
-   $ kubectl get deployment agility
-   $ kubectl get svc agility
+   kubectl get deployment agility
+   kubectl get svc agility
 
 *View all resources in your namespace*
 
-.. code-block:: console
+.. code-block:: bash
 
    $ kubectl get all
 
 *View output of the pod in yaml format*
 
-.. code-block:: console
+.. code-block:: sh
 
    $ kubectl get pods <podname> -o yaml
  
@@ -344,6 +343,9 @@ Please note the country name.
 
 Refresh your browser a few times and notice what happens to the country name. 
 
+.. |save| image:: images/save.png
+   :height: 20px
+
 .. |save-and-exit| image:: images/save-and-exit.png
    :height: 20px
 
@@ -365,4 +367,14 @@ Refresh your browser a few times and notice what happens to the country name.
 .. |Add-VK8s-Workload| image:: images/Add-VK8s-Workload.png
    :height: 20px
 
+.. |three-dots| image:: images/three-dots.png
+   :height: 28px
 
+.. |out-arrows| image:: images/out-arrows.png
+   :height: 26px
+
+.. |edit-mode| image:: images/edit-mode.png
+   :height: 24px
+
+.. |download-kubeconfig-button| image:: images/download-kubeconfig-buton.png
+   :height: 20px

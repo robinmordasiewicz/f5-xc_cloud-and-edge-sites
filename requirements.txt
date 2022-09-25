@@ -11,3 +11,5 @@ sphinxcontrib-youtube
 sphinx-toolbox
 sphinx-hoverxref
 sphinxcontrib-details-directive
+sphinx-js
+sphinx-design

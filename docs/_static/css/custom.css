@@ -15,7 +15,15 @@ ol > li {
     margin-bottom: 30px;
 }
 
-code {
+.menuselection {
+padding: 2px 4px;
+font-size: 90%;
+color: #0D1345;
+background-color: #E2E7FF;
+border-radius: 0;
+}
+
+.guilabel {
 padding: 2px 4px;
 font-size: 90%;
 color: #0D1345;

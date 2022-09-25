@@ -23,6 +23,18 @@ html_show_sourcelink = False
 html_copy_source = False
 html_permalinks = False
 html_show_sphinx = False
+hoverxref_auto_ref = True
+autosectionlabel_prefix_document = True
+copybutton_prompt_text = "$ "
+copybutton_only_copy_prompt_lines = True
+copybutton_remove_prompts = True
+
+hoverxref_roles = [
+    'numref',
+    'confval',
+    'setting',
+    'term',
+]
 
 #
 # END CONFIG
@@ -98,7 +110,8 @@ extensions = [
     "sphinxcontrib.details.directive",
     "hoverxref.extension",
     "sphinx_toolbox.collapse",
-    "sphinx.ext.autosectionlabel"
+    "sphinx.ext.autosectionlabel",
+    "sphinx_design"
 ]
 
 graphviz_output_format = "svg"
@@ -215,6 +228,7 @@ html_static_path = ["_static"]
 # or fully qualified paths (eg. https://...)
 html_css_files = [
     'css/custom.css',
+    'css/bootstrap.css'
 ]
 
 # -- Options for HTMLHelp output ------------------------------------------

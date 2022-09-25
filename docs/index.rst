@@ -13,6 +13,7 @@ F5 Distributed Cloud
    :maxdepth: 1
 
    intro/index.rst
+   concepts/index.rst
    waap/index.rst
    bot-defense/index.rst
    multi-cloud-networking/index.rst
@@ -20,7 +21,13 @@ F5 Distributed Cloud
    client-side-defense/index.rst
    application-traffic-insight/index.rst
 
-Hover Example :hoverxref:`show a tooltip <kubernetes>`
+Hover Example :hoverxref:`show a tooltip <concepts/workload>` |Add-VK8s-Workload|
+
+:guilabel:`Cloud`
+:menuselection:`File --> Settings`
+
+.. image:: images/xcconsoleclickdns.png
+   :class: image-boxshadow`
 
 .. collapse:: Details
 
@@ -55,12 +62,37 @@ Hover Example :hoverxref:`show a tooltip <kubernetes>`
 * Services: https://docs.cloud.f5.com/docs/services
 * Concepts: https://docs.cloud.f5.com/docs/ves-concepts
 
-.. _foo:
+.. _cards-clickable:
 
-foo
----
+Cards Clickable
+...............
 
-this is a foo
+.. card:: Clickable Card (external)
+    :link: https://example.com
+
+    The entire card can be clicked to navigate to https://example.com.
+
+.. card:: Clickable Card (internal)
+    :link: cards-clickable
+    :link-type: ref
+
+    The entire card can be clicked to navigate to the ``cards`` reference target.
+
+.. grid:: 2
+
+    .. grid-item-card::  Title 1
+
+        A
+
+    .. grid-item-card::  Title 2
+
+        B
    
 .. |Add-VK8s-Workload| image:: apps/images/distributedappclick.png
    :class: with-shadow
+
+:bdg-primary:`primary`
+
+:bdg-primary-line:`primary-line`
+
+:term:`Sphinx`

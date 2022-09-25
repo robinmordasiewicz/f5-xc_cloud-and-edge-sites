@@ -1,6 +1,4 @@
-.. _kubernetes:
-
-kubernetes
+Kubernetes
 ==========
 
 .. topic:: Topic Title
