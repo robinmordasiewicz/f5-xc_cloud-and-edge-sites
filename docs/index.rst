@@ -21,7 +21,7 @@ F5 Distributed Cloud
    client-side-defense/index.rst
    application-traffic-insight/index.rst
 
-Hover Example :hoverxref:`show a tooltip <concepts/workload>` |Add-VK8s-Workload|
+Hover Example :hoverxref:`show a tooltip <workload>` |Add-VK8s-Workload|
 
 :guilabel:`Cloud`
 :menuselection:`File --> Settings`
