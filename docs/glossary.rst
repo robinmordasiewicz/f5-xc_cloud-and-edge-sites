@@ -1,11 +1,7 @@
 .. glossary::
 
-   environment
-      A structure where information about all documents under the root is
-      saved, and used for cross-referencing.  The environment is pickled
-      after the parsing stage, so that successive runs only need to read
-      and parse new and changed documents.
+   workload
+      Workload is used to configure and deploy a workload in Virtual Kubernetes. A workload may be part of an application. Workload encapsulates all the operational characteristics of Kubernetes workload, storage, and network objects (deployments, statefulsets, jobs, persistent volume claims, configmaps, secrets, and services) configuration, as well as configuration related to where the workload is deployed and how it is advertised using L7 or L4 load balancers. A workload can be one of simple service, service, stateful service or job. Services are long running workloads like web servers, databases, etc. and jobs are run to completion workloads. Services and jobs can be deployed on regional edges or customer sites. Services can be exposed in-cluster or on Internet by L7 or L4 load balancer or on sites using an advertise policy.
 
-   source directory
-      The directory which, including its subdirectories, contains all
-      source files for one Sphinx project.
+   registry
+      A container registry object is used to configure a private network location from which the application container images are fetched.

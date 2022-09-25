@@ -1,11 +1,8 @@
 Virtual K8s
 ===========
 
-vK8s objects have a reference to the virtual-site which selects the sites on which the application can be deployed, secured, and operated.  The virtual-site reference of vK8s is used as the default virtual-site for the given vK8s.
+Configure a Virtual k8s cluster, deploy and scale a containerized :term:`workload` from a private registry.
 
-Configure a Virtual k8s cluster, deploy and scale a containerized workload from a private registry.
-
-Workload is used to configure and deploy a workload in Virtual Kubernetes. A workload may be part of an application. Workload encapsulates all the operational characteristics of Kubernetes workload, storage, and network objects (deployments, statefulsets, jobs, persistent volume claims, configmaps, secrets, and services) configuration, as well as configuration related to where the workload is deployed and how it is advertised using L7 or L4 load balancers. A workload can be one of simple service, service, stateful service or job. Services are long running workloads like web servers, databases, etc. and jobs are run to completion workloads. Services and jobs can be deployed on regional edges or customer sites. Services can be exposed in-cluster or on Internet by L7 or L4 load balancer or on sites using an advertise policy.
 
 A service with one or more containers with configurable number of replicas that can be deployed on a selection of Regional Edge sites or customer sites and advertised within the cluster where is it deployed, on the Internet, or on other sites using TCP or HTTP or HTTPS load balancer.
 
