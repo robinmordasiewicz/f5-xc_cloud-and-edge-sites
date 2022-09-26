@@ -20,6 +20,7 @@ F5 Distributed Cloud
    apps/index.rst
    client-side-defense/index.rst
    application-traffic-insight/index.rst
+   virtual-site.rst
 
 Hover Example :hoverxref:`show a tooltip <virtual-site>` |Add-VK8s-Workload|
 

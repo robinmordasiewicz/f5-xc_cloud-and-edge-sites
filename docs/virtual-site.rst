@@ -1,4 +1,4 @@
-:: _virtual-site
+.. _virtual-site:
 
 Virtual Site
 ============
