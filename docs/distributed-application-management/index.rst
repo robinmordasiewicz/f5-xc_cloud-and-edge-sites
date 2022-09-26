@@ -1,10 +1,9 @@
-Kubernetes
-==========
+Distributed Application Management
+==================================
 
-.. topic:: Topic Title
+.. topic:: Kubernetes
 
-    Subsequent indented lines comprise
-    the body of the topic, and are
+    F5 Distributed Cloud Services provide a tenant with a representative application cluster where customer deploys their applications and based on configuration our distributed control plane will replicate and manage them across multiple sites. In addition to containerized applications, the platform also provides the ability to manage virtual machines.
     interpreted as body elements.
 
 .. objective

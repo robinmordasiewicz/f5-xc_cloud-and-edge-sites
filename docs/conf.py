@@ -217,7 +217,7 @@ html_last_updated_fmt = "%Y-%m-%d %H:%M:%S"
 
 extlinks = {
    'issue': ('https://github.com/f5devcentral/f5-agility-labs-xc/issues/%s','issue %s'),
-   'vk8s': ('https://docs.cloud.f5.com/docs/how-to/app-management/create-vk8s-obj','VK8s'),
+   'vk8s howto': ('https://docs.cloud.f5.com/docs/how-to/app-management/create-vk8s-obj','VK8s How-to'),
 }
 
 

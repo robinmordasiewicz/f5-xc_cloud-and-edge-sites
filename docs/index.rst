@@ -17,10 +17,9 @@ F5 Distributed Cloud
    waap/index.rst
    bot-defense/index.rst
    multi-cloud-networking/index.rst
-   apps/index.rst
+   distributed-application-management/index.rst
    client-side-defense/index.rst
    application-traffic-insight/index.rst
-   virtual-site.rst
 
 Hover Example :hoverxref:`show a tooltip <virtual-site>`
 
