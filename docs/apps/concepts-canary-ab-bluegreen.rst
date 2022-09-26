@@ -27,4 +27,6 @@ Blue/Green Deployment
 * One of the main benefits of blue-green deployments is disaster recovery. Because there are two identical environments for production, if new changes are rolled out to one (say the blue version) and any issues are discovered, a router can just switch back to the other environment (green version) which has the old version of the code with zero downtime.
 * Blue-green deployment can be used for canary testing by simply having the router direct a percentage of your traffic to new version of the code to see how it performs with live traffic, before rolling out the change to 100% of your users.
 
-.. image
+.. image:: images/ab-canary-bluegreen.png
+   :width: 800px
+

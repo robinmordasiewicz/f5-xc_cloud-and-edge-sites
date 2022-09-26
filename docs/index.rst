@@ -22,7 +22,9 @@ F5 Distributed Cloud
    application-traffic-insight/index.rst
    virtual-site.rst
 
-Hover Example :hoverxref:`show a tooltip <virtual-site>` |Add-VK8s-Workload|
+Hover Example :hoverxref:`show a tooltip <virtual-site>`
+
+:hoverxref:`Canary Testing A/B Blue-Green<canary-ab-bluegreen>`
 
 :guilabel:`Cloud`
 :menuselection:`File --> Settings`
