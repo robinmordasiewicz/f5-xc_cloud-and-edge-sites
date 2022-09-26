@@ -37,6 +37,7 @@ hoverxref_roles = [
     'term',
 ]
 
+
 #
 # END CONFIG
 # ----------
@@ -45,11 +46,6 @@ sys.path.insert(0, os.path.abspath("."))
 
 year = time.strftime("%Y")
 eventname = "Agility %s Hands-on Lab Guide" % (year)
-
-rst_epilog ="""
-with open('links.rst') as f:
-     rst_epilog += f.read()
-"""
 
 rst_prolog = """
 .. |classname| replace:: %s
