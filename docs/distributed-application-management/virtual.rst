@@ -1,7 +1,7 @@
 Virtual K8s (vK8s)
 ==================
 
-This gudied lab guide is based the :vk8s howto:`\ ` and the provides instructions to create a VK8s object and associate it with a virtual site that groups network cloud (RE) sites or customer edge (CE) cloud sites. To know more about virtual sites, see Virtual Site.
+This gudied lab guide is based the :vk8s howto:`\ ` and the provides instructions to create a VK8s object and associate it with a virtual site that groups network cloud (RE) sites or customer edge (CE) cloud sites.
 
 Configure a :vk8s howto:`\ ` cluster, deploy and scale a containerized :term:`workload` from a private :term:`registry`.
 
@@ -25,7 +25,7 @@ Sites and Virtual Sites
    .. image:: images/distributedappclick.png
       :width: 800px
 
-#. Click ``Manage`` > ``Virtual Sites``. A Virtual site has been pre-configured for the lab and shared to all students. The Virtual site **agility-k8s-vsite** contains three customer edge sites.
+#. Click :menuselection:`Manage --> Virtual Sites`. A Virtual site has been pre-configured for the lab and shared to all students. The Virtual site **agility-k8s-vsite** contains three customer edge sites.
 
    .. image:: images/manage-virtualsites.png
       :width: 800px
@@ -33,22 +33,17 @@ Sites and Virtual Sites
 Create Virtual k8s
 ^^^^^^^^^^^^^^^^^^
 
-#. Click :menuselection:`Applications --> Virtual K8s`, and then click |add-virtual-K8s|
+#. Click :menuselection:`Applications --> Virtual K8s`, and then click :bdg-primary:`Add Virtual K8s` 
 
    .. image:: images/distributedappclickaddvirtualk8s.png
       :width: 800px
 
-#. Enter the site **Name** using your Firstname initial and Lastname and append **-vk8s** at the end. Ex: For Andrew Smith, the site name will be **asmith-vk8s**, then click |add-item|
-
-   .. image:: images/distributedappclickvirtualk8ssettings.png
-      :width: 800px
-
-#. Under ``Virtual Sites`` select **agility-k8s-vsite**, then |save-and-exit|
+#. **Name** the Virtual K8s object, then under :guilabel:`Virtual Sites` click |add-item|, select **shared/agility-k8s-vsite**, and click :bdg-primary:`Save and Exit`
 
    .. image:: images/distributedappclickvirtualk8ssettings2.png
       :width: 800px
 
-   .. warning:: Virtual K8s "|create-in-progress|" may take five minutes to complete
+   .. warning:: Virtual K8s "|create-in-progress|" may take five or more minutes to complete. :fa:`coffee`
 
    .. image:: images/distributedappclickvirtualk8screate-in-progress.png
       :width: 800px
@@ -62,7 +57,7 @@ Deploy Workload
    .. image:: images/distributedappclickvirtualk8sready.png
       :width: 800px
 
-#. Click ``Workloads`` in the properties tab, and then click |Add-VK8s-Workload|
+#. Click :guilabel:`Workloads` in the properties tab, and then click :bdg-primary:`Add VK8s Workload`
 
    .. image:: images/apps-vk8s-add-vk8s-workload.png
       :width: 800px
@@ -70,19 +65,19 @@ Deploy Workload
 Container Service
 ^^^^^^^^^^^^^^^^^
 
-#. Complete the **Metadata** section by providing a **Name**, then select **Service** from the **Type of Workload** list. Next, select **Configure** within the **Service** sub-section.
+#. Provide a :guilabel:`Name`, then under :guilabel:`Select Type of Workload` select **Service**, and click :guilabel:`Configure`.
 
    .. image:: images/vk8s-workload-create-workload-configure.png
       :width: 800px
 
-#. Select |add-item| within the **Containers** section.
+#. In :guilabel:`Containers` section click |add-item|
 
    .. image:: images/6add_container.png
       :width: 800px
 
-#. Complete the **Container Configuration** section by providing a **Name** and details for which image to use.
+#. Complete the :guilabel:`Container Configuration` section by providing a **Name** and details for which image to use, then :bdg-primary:`Add Item`
 
-   * **Name**: asmith-container 
+   * **Name**: vk8s-container 
    * **Image Name**: coleman.azurecr.io/f5xcdemoapp
    * **Container Registry**: Private Registry
    * **Private Registry**: shared/azure-registry
@@ -93,12 +88,12 @@ Container Service
 Associate to Virtual Site
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Within the **Deploy Options** section, set ``Where to Deploy the workload`` to **Customer Virtual Sites**, then click **Configure**.
+#. Within the :guilabel:`Deploy Options` section, set :guilabel:`Where to Deploy the workload` to **Customer Virtual Sites**, then click **Configure**.
 
    .. image:: images/8deploy_options.png
       :width: 800px
 
-#. Select the VK8s site name from **List of Virtual Sites to Deploy**, then |apply|
+#. Select **shared/agility-k8s-vsite** under :guilabel:`List of Virtual Sites to Deploy`, then :bdg-primary:`Apply`
 
    .. image:: images/9select_customer_site.png
       :width: 800px
@@ -106,25 +101,22 @@ Associate to Virtual Site
 Service Advertisement
 ^^^^^^^^^^^^^^^^^^^^^
 
-#. Within the **Advertise Options** section, set **Options to Advertise the Workload** to **Advertise in Cluster**, then select **Configure**.
+#. Within the :guilabel:`Advertise Options` section, set :guilabel:`Options to Advertise the Workload` to **Advertise in Cluster**, then select **Configure**.
 
    .. image:: images/10select_advertise_options.png
       :width: 800px
 
-#. Within the **Select Port to Advertise** section, set **Select Port to Advertise** to *Port*, click |apply|
-
-   - **Port**: 3000
-   - **Application Protocol**: HTTP
+#. Set :guilabel:`Select Port to Advertise` to **3000**, select :guilabel:`Application Protocol` to **HTTP**, and click :bdg-primary:`Apply`
 
    .. image:: images/11set_advertise_port.png
       :width: 800px
 
-#. Click |apply|
+#. The :guilabel:`Deploy Options` dialogue is dismissed, and click :bdg-primary:`Apply` to complete the :guilabel:`Containers` dialogue.
 
    .. image:: images/apply-vk8s-workload.png
       :width: 800px
 
-#. Click |save-and-exit|
+#. The :guilabel:`Containers` dialogue is now dismissed, to finalize the :guilabel:`Workload`, Click :bdg-primary:`Save and Exit`
 
    .. image:: images/create-workload-save-and-exit.png
       :width: 800px
@@ -132,6 +124,66 @@ Service Advertisement
 #. The workload has been added. The vsite that vk8s is deployed on consists of 3 sites, so there are 3 pods in total.
 
    .. image:: images/12verify_3_workload_sites_pods.png
+      :width: 800px
+
+Advertise on the Internet
+-------------------------
+
+In order to view the kubernetes workload with a browser, create an HTTP-LB to advertise the site on the internet.
+
+Create Origin Pool
+^^^^^^^^^^^^^^^^^^
+
+#. Navigate the left-side menu to :menuselection:`Manage --> Load Balancers --> Origin Pools`, then click :bdg-primary:`Add Origin Pool`.
+
+   .. image:: images/m-origin-pool.png
+      :width: 800px
+
+#. Enter a **Name**, set the :guilabel:`Port` value to *3000*, and under :guilabel:`Origin Servers` click |add-item|
+
+   .. image:: images/m-origin-pool-name.png
+      :width: 800px
+
+#. Complete the :guilabel:`Origin Server` section with the values below, click :bdg-primary:`Apply`, and :bdg-primary:`Save and Exit` on subsequent screen to complete the origin pool creation.
+
+   * :guilabel:`Select Type of Origin Server`: **K8s Service Name of Origin Server on given Sites**
+   * :guilabel:`Service`: **Service Name**
+   * :guilabel:`Service Name`: **asmith-vk8s-workload.busy-parrot <workloadname.namespace>**
+      * .. attention::
+           Supply the configured workload name from previous steps along with the student namespace.
+   * :guilabel:`Site or Virtual Site`: **Virtual Site**
+   * :guilabel:`Virtual Site`: **shared/agility-k8s-vsite**
+   * :guilabel:`Select Network on the site`: **vK8s Networks on Site**
+
+   .. image:: images/m3-add-origin-server.png
+      :width: 800px
+
+Create HTTP Load-Balancer
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Navigate the left-side menu to :menuselection:`Manage --> Load Balancers --> HTTP Load Balancers`, then click :bdg-primary:`Add HTTP Load Balancer`.
+
+   .. image:: images/m-add-http.png
+      :width: 800px
+
+#. Enter a name, make the following changes, and click :bdg-primary:`Save and Exit`
+
+   * :guilabel:`List of Domains`: Use the assigned {namespace}.lab-app.f5demos.com
+   * :guilabel:`Type of Load Balancer`: HTTPS with Automatic Certificate
+   * :guilabel:`HTTP Redirect to HTTPS`: Make sure this is checked
+   * :guilabel:`Default Origin Servers` Section click |add-item|, and select **asmith-origin-pool**
+
+   .. image:: images/m-http-name.png
+      :width: 800px
+
+#. After a few moments the :guilabel:`Certificate Status` will display |valid|
+
+   .. image:: images/m-http-status.png
+      :width: 800px
+
+#. Open a browser tab and navigate to the configured DNS name `https://busy-parrot.lab-app.f5demos.com/`. Refresh your browser a few times and notice what happens to the country name.
+
+   .. image:: images/m-http-page.png
       :width: 800px
 
 Scale Deployment
@@ -142,7 +194,7 @@ Modify Virtual K8s Deployment to Scale Replicas.
 Edit JSON
 ^^^^^^^^^
 
-#. Select ``Deployments``, then select |three-dots| under **Actions**, then click ``Edit``.
+#. Navigate the left-side menu to :menuselection:`Applications --> Virtual K8s --> asmith-vk8s`, click :guilabel:`Deployments`, :guilabel:`Actions`, |three-dots| then click :guilabel:`Edit`.
 
    .. image:: images/14edit_deployment.png
       :width: 800px
@@ -152,12 +204,12 @@ Edit JSON
    .. image:: images/15modify_deployment_spec.png
       :width: 800px
 
-#. Change **replicas: 1** to **replicas: 3** and click |save|
+#. Change **replicas: 1** to **replicas: 3** and click :bdg-primary:`Save`
 
    .. image:: images/set-three-replicas-save.png
       :width: 800px
 
-#. After a few moments, the number of **Running Pods** increase to 9.
+#. After a few moments, the number of **Running Pods** will increase to 9.
 
    .. image:: images/16review_scaled_deployment.png
       :width: 800px
@@ -173,7 +225,7 @@ Insert instructions to install kubectl
 Download kubeconfig
 ^^^^^^^^^^^^^^^^^^^^
 
-#. Navigate away from the details pane by clicking ``Applications`` > ``Virtual K8s``, click |three-dots|, and then click |download-kubeconfig-button|
+#. Navigate away from the details pane by clicking :menuselection:`Applications --> Virtual K8s`, click |three-dots|, and then click |download-kubeconfig-button|
 
    .. image:: images/distributedappclickvirtualk8kubeconfig.png
       :width: 800px
@@ -187,35 +239,35 @@ Run the following commands and view the outputs.  Why are there different output
 
 *View Nodes*
 
-.. code-block:: bash
+.. code-block:: console
 
-   kubectl get nodes
-   kubectl get nodes -o wide
+   $ kubectl get nodes
+   $ kubectl get nodes -o wide
    
 *View pods*
 
-.. code-block:: sh
+.. code-block:: console
  
-   kubectl get pods
-   kubectl get pods -o wide
-   kubectl describe pod <podname>
+   $ kubectl get pods
+   $ kubectl get pods -o wide
+   $ kubectl describe pod <podname>
    
 *View deployment and service*
 
 .. code-block:: console
 
-   kubectl get deployment agility
-   kubectl get svc agility
+   $ kubectl get deployment asmith-vk8s-workload
+   $ kubectl get svc asmith-vk8s-workload
 
 *View all resources in your namespace*
 
-.. code-block:: bash
+.. code-block:: console
 
    $ kubectl get all
 
 *View output of the pod in yaml format*
 
-.. code-block:: sh
+.. code-block:: console
 
    $ kubectl get pods <podname> -o yaml
  
@@ -243,125 +295,14 @@ Run the following commands and view the outputs.  Why are there different output
 
     $ cat agility.yaml
 
-Advertise on the Internet
--------------------------
-
-In order to view the kubernetes workload with a browser, create an HTTP-LB to advertise the site on the internet.
-
-Create Origin Pool
-^^^^^^^^^^^^^^^^^^
-
-#. Navigate the left-side menu to ``Manage`` > ``Load Balancers``, then click ``Origin Pools``.
-
-   .. image:: images/m-origin-pool.png
-      :width: 800px
-   
-#. Click the **Add Origin Pool** button.
-
-   .. image:: images/m3-add-origin-pools.png
-      :width: 800px
-
-#. On the New Origin Pool form:
-
-   * Enter a **Name** for your pool
-   * Replace the **Port** value of *443* with *3000*
-   * Select |add-item| under ``Origin Servers``
-
-   .. image:: images/m-origin-pool-name.png
-      :width: 800px
-
-#. Complete the **Origin Server** section by make the following changes and click |add-item|
-
-   * **Select Type of Origin Server**: K8s Service Name of Origin Server on given Sites
-   * **Service Name**: workloadname.namespace (make a note to remember this in creation stage)
-   * **Site or Virtual Site**: Virtual Site select shared/agility-k82-site
-   * **Select Network on the site**: vK8s Networks on Site
-
-   .. image:: images/m3-add-origin-server.png
-      :width: 800px
- 
-#. Click |save-and-exit| near the **Origin Pool** dialogue.
-
-Create HTTP Load-Balancer
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Navigate the left-side menu to ``Manage`` > ``Load Balancers`` > ``HTTP Load Balancers``, then click **Add HTTP Load Balancer**.
-
-   .. image:: images/m-add-http.png
-      :width: 800px 
-   
-#. Enter a name for your HTTP Load Balancer in the **Metadata** section.
-
-   .. image:: images/m-http-name.png
-      :width: 800px 
-
-#. In the **Basic Configuration** Section make the following changes:
-
-   - **List of Domains**: Use your {namespace}.lab-app.f5demos.com
-   - **Select Type of Load Balancer**: HTTPS with Automatic Certificate
-   - **Select Type of Load Balancer**: Make sure this is checked
-
-   .. image:: images/m-http-basic.png
-      :width: 800px 
-
-#. In the **Default Origin Servers** Section click |add-item|
-
-   .. image:: images/m-add-origin-server.png
-      :width: 800px 
-
-#. Select the **Origin Pool**, and click |add-item|
-
-   .. image:: images/m-select-origin-pool.png
-      :width: 800px 
-
-#. In the Security Configuration section change the **Security Policies** to *"Do Not Apply Service Policies"* then click |save-and-exit|
-
-   .. image:: images/m-security-configuration.png
-      :width: 800px 
-   
-#. After a few moments you should see a screen like the following:
-
-   .. image:: images/m-http-status.png
-      :width: 800px 
-
-.. note::
-  - Please wait for the VIRTUAL_HOST_READY and Valid certificate status before proceeding
-
-Open a browser tab and navigate to the domain you entered. 
-
-In the example below it is **flying-ox.lab-app.f5demos.com**
-
-Success will render a page like the following:
-
-.. image:: images/m-http-page.png
-
-Please note the country name. 
-
-Refresh your browser a few times and notice what happens to the country name. 
-
-.. |save| image:: images/save.png
-   :height: 20px
-
-.. |save-and-exit| image:: images/save-and-exit.png
-   :height: 20px
-
 .. |add-item| image:: images/add-item.png
    :height: 24px
-
-.. |apply| image:: images/apply.png
-   :height: 24px
-
-.. |add-virtual-K8s| image:: images/add-virtual-K8s.png
-   :height: 20px
 
 .. |ready| image:: images/ready.png
    :height: 16px
 
 .. |create-in-progress| image:: images/create-in-progress.png
    :height: 16px
-
-.. |Add-VK8s-Workload| image:: images/Add-VK8s-Workload.png
-   :height: 20px
 
 .. |three-dots| image:: images/three-dots.png
    :height: 28px
