@@ -148,7 +148,7 @@ Create Origin Pool
 
    * :guilabel:`Select Type of Origin Server`: **K8s Service Name of Origin Server on given Sites**
    * :guilabel:`Service`: **Service Name**
-   * :guilabel:`Service Name`: **asmith-vk8s-workload.busy-parrot <workloadname.namespace>**
+   * :guilabel:`Service Name`: **vk8s-workload.busy-parrot <workloadname.namespace>**
       * .. attention::
            Supply the configured workload name from previous steps along with the student namespace.
    * :guilabel:`Site or Virtual Site`: **Virtual Site**
@@ -171,7 +171,7 @@ Create HTTP Load-Balancer
    * :guilabel:`List of Domains`: Use the assigned {namespace}.lab-app.f5demos.com
    * :guilabel:`Type of Load Balancer`: HTTPS with Automatic Certificate
    * :guilabel:`HTTP Redirect to HTTPS`: Make sure this is checked
-   * :guilabel:`Default Origin Servers` Section click |add-item|, and select **asmith-origin-pool**
+   * :guilabel:`Default Origin Servers` Section click |add-item|, and select **app-origin-pool**
 
    .. image:: images/m-http-name.png
       :width: 800px
@@ -194,7 +194,7 @@ Modify Virtual K8s Deployment to Scale Replicas.
 Edit JSON
 ^^^^^^^^^
 
-#. Navigate the left-side menu to :menuselection:`Applications --> Virtual K8s --> asmith-vk8s`, click :guilabel:`Deployments`, :guilabel:`Actions`, |three-dots| then click :guilabel:`Edit`.
+#. Navigate the left-side menu to :menuselection:`Applications --> Virtual K8s --> virtual-k8s`, click :guilabel:`Deployments`, :guilabel:`Actions`, |three-dots| then click :guilabel:`Edit`.
 
    .. image:: images/14edit_deployment.png
       :width: 800px
@@ -256,8 +256,8 @@ Run the following commands and view the outputs.  Why are there different output
 
 .. code-block:: console
 
-   $ kubectl get deployment asmith-vk8s-workload
-   $ kubectl get svc asmith-vk8s-workload
+   $ kubectl get deployment vk8s-workload
+   $ kubectl get svc vk8s-workload
 
 *View all resources in your namespace*
 
