@@ -225,7 +225,7 @@ Insert instructions to install kubectl
 Download kubeconfig
 ^^^^^^^^^^^^^^^^^^^^
 
-#. Navigate away from the details pane by clicking :menuselection:`Applications --> Virtual K8s`, click |three-dots|, and then click |download-kubeconfig-button|
+#. Navigate to :menuselection:`Applications --> Virtual K8s`, click |three-dots|, and then click |download-kubeconfig-button|
 
    .. image:: images/distributedappclickvirtualk8kubeconfig.png
       :width: 800px
