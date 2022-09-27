@@ -16,7 +16,8 @@ What we are going to learn.
    :maxdepth: 1
 
    virtual.rst
-   managed.rst
+
+..   managed.rst
 
 **Resources**
 

@@ -208,7 +208,7 @@ html_theme_path = f5_sphinx_theme.get_html_theme_path()
 html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
 html_theme_options = {
     "site_name": "Community Training Classes & Labs",
-    "next_prev_link": True
+    "next_prev_link": True,
 }
 html_codeblock_linenos_style = 'table'
 html_context = {"github_url": github_repo}

@@ -14,12 +14,13 @@ F5 Distributed Cloud
 
    intro/index.rst
    concepts/index.rst
-   waap/index.rst
-   bot-defense/index.rst
-   multi-cloud-networking/index.rst
    distributed-application-management/index.rst
-   client-side-defense/index.rst
-   application-traffic-insight/index.rst
+
+..   waap/index.rst
+..   bot-defense/index.rst
+..   multi-cloud-networking/index.rst
+..   client-side-defense/index.rst
+..   application-traffic-insight/index.rst
 
 Hover Example :hoverxref:`show a tooltip <virtual-site>`
 
