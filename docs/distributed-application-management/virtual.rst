@@ -171,7 +171,7 @@ Create HTTP Load-Balancer
    * :guilabel:`Name`: app-http-lb
    * :guilabel:`Domains and LB Type`: Use the assigned {namespace}.lab-app.f5demos.com
    * :guilabel:`HTTP Redirect to HTTPS`: Make sure this is checked
-   * :guilabel:`Origins` Section click |add-item|, and select **app-origin-pool**
+   * :guilabel:`Origins`: Click |add-item|, and select **app-origin-pool**
 
    .. image:: images/m-http-name.png
       :width: 800px
