@@ -11,7 +11,7 @@ Registered attendees have been emailed an invitation to the lab environment:
 
 After following the email invitation to **Update Password**, users may login to the console with the registered email address and new password.
 
-* Login at https://f5-xc-lab-sec.console.ves.volterra.io
+* Login at https://<course-tenant>.console.ves.volterra.io
 
 +-------------+
 | |login-url| |
