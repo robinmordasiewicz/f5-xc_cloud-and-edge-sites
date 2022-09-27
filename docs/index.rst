@@ -8,7 +8,7 @@ F5 Distributed Cloud
 
    intro/index.rst
    concepts/index.rst
-   distributed-application-management/index.rst
+   distributed-application-management/virtual.rst
 
 **Resources**
 
