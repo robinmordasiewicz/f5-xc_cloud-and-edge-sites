@@ -166,10 +166,10 @@ Create HTTP Load-Balancer
    .. image:: images/m-add-http.png
       :width: 800px
 
-#. Enter a name, make the following changes, and click :bdg-primary:`Save and Exit`
+#. Add the following values, and click :bdg-primary:`Save and Exit`
 
-   * :guilabel:`List of Domains`: Use the assigned {namespace}.lab-app.f5demos.com
-   * :guilabel:`Type of Load Balancer`: HTTPS with Automatic Certificate
+   * :guilabel:`Name`: app-http-lb
+   * :guilabel:`Domains and LB Type`: Use the assigned {namespace}.lab-app.f5demos.com
    * :guilabel:`HTTP Redirect to HTTPS`: Make sure this is checked
    * :guilabel:`Origins` Section click |add-item|, and select **app-origin-pool**
 
