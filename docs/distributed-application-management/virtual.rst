@@ -275,25 +275,26 @@ Run the following commands and view the outputs.  Why are there different output
 
 .. code-block:: console
 
-   $ kubectl get deployment agility -o yaml
+   $ kubectl get deployment vk8s-workload -o yaml
 
 *View output of the service in yaml format*
 
 .. code-block:: console
 
-   $ kubectl get svc agility -o yaml
+   $ kubectl get svc vk8s-workload -o yaml
    
 *Save the output of the deployment in yaml format*
 
 .. code-block:: console
 
-   $ kubectl get deployment -o yaml > agility.yaml
+   $ kubectl get deployment -o yaml > vk8s-workload.yaml
 
 *View the saved yaml deployment*
 
 .. code-block:: console
 
-    $ cat agility.yaml
+    $ cat vk8s-workload.yaml
+
 
 .. |add-item| image:: images/add-item.png
    :height: 24px
