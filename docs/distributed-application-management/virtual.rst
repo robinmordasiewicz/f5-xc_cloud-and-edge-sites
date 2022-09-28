@@ -175,7 +175,7 @@ Create HTTP Load-Balancer
    .. image:: images/m-http-name.png
       :width: 800px
 
-#. It may take a minutes :fa:`coffee` for the :guilabel:`DNS Info` to display **VIRTUAL_HOST_READY**
+#. It may take a minute :fa:`coffee` for the :guilabel:`DNS Info` to display **VIRTUAL_HOST_READY**
 
    .. image:: images/m-http-status.png
       :width: 800px
