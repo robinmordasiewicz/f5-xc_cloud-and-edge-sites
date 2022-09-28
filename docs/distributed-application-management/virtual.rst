@@ -228,7 +228,7 @@ Download kubeconfig
    .. image:: images/distributedappclickvirtualk8kubeconfig.png
       :width: 800px
 
-#. `Follow the kubernetes.io guide to install the kubeconfiug <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
+#. `Follow the kubernetes.io guide to install the kubeconfig <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
 
 kubectl commands
 ^^^^^^^^^^^^^^^^
