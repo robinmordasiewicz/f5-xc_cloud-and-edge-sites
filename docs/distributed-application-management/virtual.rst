@@ -174,7 +174,7 @@ Create HTTP Load-Balancer
    .. image:: images/m-http-name.png
       :width: 800px
 
-#. After a few moments the :guilabel:`Certificate Status` will display |valid|
+#. It may take five or more minutes :fa:`coffee` for the :guilabel:`Certificate Status` to display |valid|
 
    .. image:: images/m-http-status.png
       :width: 800px
@@ -299,6 +299,9 @@ Run the following commands and view the vk8s configuration.
 
    $ kubectl get deployment -o yaml
 
+
+.. |valid| image:: images/valid.png
+   :height: 16px
 
 .. |add-item| image:: images/add-item.png
    :height: 24px
