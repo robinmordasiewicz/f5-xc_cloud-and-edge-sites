@@ -168,18 +168,19 @@ Create HTTP Load-Balancer
 
    * :guilabel:`Name`: app-http-lb
    * :guilabel:`Domains and LB Type`: Use the assigned {namespace}.lab-app.f5demos.com
-   * :guilabel:`HTTP Redirect to HTTPS`: Make sure this is checked
+   * :guilabel:`Load Balancer Type`: **HTTP**
+   * :guilabel:`Automatically Manage DNS Records`: Make sure this is checked
    * :guilabel:`Origins`: Click |add-item|, and select **app-origin-pool**
 
    .. image:: images/m-http-name.png
       :width: 800px
 
-#. It may take five or more minutes :fa:`coffee` for the :guilabel:`Certificate Status` to display |valid|
+#. It may take a minutes :fa:`coffee` for the :guilabel:`DNS Info` to display **VIRTUAL_HOST_READY**
 
    .. image:: images/m-http-status.png
       :width: 800px
 
-#. Open a browser tab and navigate to the configured DNS name `https://busy-parrot.lab-app.f5demos.com/`. Refresh your browser a few times and notice what happens to the country name.
+#. Open a browser tab and navigate to the configured DNS name `http://busy-parrot.lab-app.f5demos.com/`. Refresh your browser a few times and notice what happens to the country name.
 
    .. image:: images/m-http-page.png
       :width: 800px
