@@ -1,13 +1,11 @@
 Virtual K8s (vK8s)
 ==================
 
-This gudied lab guide is based the :vk8s howto:`\ ` and the provides instructions to create a VK8s object and associate it with a virtual site that groups network cloud (RE) sites or customer edge (CE) cloud sites.
+Configure a virtual k8s cluster, deploy and scale a containerized :term:`workload` from a private :term:`registry`.
 
-Configure a :vk8s howto:`\ ` cluster, deploy and scale a containerized :term:`workload` from a private :term:`registry`.
+A service with one or more containers with configurable number of replicas may be deployed on a selection of Regional Edge sites or customer sites and advertised within the cluster where is it deployed, on the Internet, or on other sites using TCP or HTTP or HTTPS load balancer.
 
-A service with one or more containers with configurable number of replicas that can be deployed on a selection of Regional Edge sites or customer sites and advertised within the cluster where is it deployed, on the Internet, or on other sites using TCP or HTTP or HTTPS load balancer.
-
-For more core concepts, please review `F5 Distributed Cloud documentation <https://docs.cloud.f5.com/docs/ves-concepts/dist-app-mgmt>`_
+`F5 Distributed Cloud documentation <https://docs.cloud.f5.com/docs/ves-concepts/dist-app-mgmt>`_
 
 ..  contents:: The following topics will be covered in this lab.
     :local:
@@ -235,65 +233,71 @@ Download kubeconfig
 kubectl commands
 ^^^^^^^^^^^^^^^^
 
-Run the following commands and view the outputs.  Why are there different outputs before and after increasing the replicas?
+Run the following commands and view the vk8s configuration.
 
-*View Nodes*
+**View Nodes**
 
 .. code-block:: console
 
    $ kubectl get nodes
-   $ kubectl get nodes -o wide
+   NAME                                                 STATUS   ROLES        AGE   VERSION
+   agility-vpc-site-one-agility-vpc-site-one-1w2h       Ready    ves-master   28s   v1.21.7-vesdev
+   agility-vpc-site-three-agility-vpc-site-three-xn79   Ready    ves-master   32s   v1.21.7-vesdev
+   agility-vpc-site-two-agility-vpc-site-two-j735       Ready    ves-master   33s   v1.21.7-vesdev
    
-*View pods*
+**View pods**
 
 .. code-block:: console
  
    $ kubectl get pods
-   $ kubectl get pods -o wide
+   NAME                             READY   STATUS    RESTARTS   AGE
+   vk8s-workload-574ffc5cdd-sb5bm   2/2     Running   0          2m40s
+   vk8s-workload-64f8f87976-kh8zz   2/2     Running   0          2m37s
+   vk8s-workload-67b54bd74b-bqdx8   2/2     Running   0          2m41s
    $ kubectl describe pod <podname>
    
-*View deployment and service*
+**View deployment**
 
 .. code-block:: console
 
    $ kubectl get deployment vk8s-workload
-   $ kubectl get svc vk8s-workload
+   NAME            READY   UP-TO-DATE   AVAILABLE   AGE
+   vk8s-workload   3/1     3            3           4m43s
 
-*View all resources in your namespace*
+**View service**
+
+.. code-block:: console
+
+   $ kubectl get svc vk8s-workload
+   NAME            TYPE        CLUSTER-IP        EXTERNAL-IP   PORT(S)    AGE
+   vk8s-workload   ClusterIP   192.168.167.169   <none>        3000/TCP   8m33s
+
+**View all resources in the namespace**
 
 .. code-block:: console
 
    $ kubectl get all
+   NAME                                 READY   STATUS    RESTARTS   AGE
+   pod/vk8s-workload-574ffc5cdd-sb5bm   2/2     Running   0          9m18s
+   pod/vk8s-workload-64f8f87976-kh8zz   2/2     Running   0          9m15s
+   pod/vk8s-workload-67b54bd74b-bqdx8   2/2     Running   0          9m19s
 
-*View output of the pod in yaml format*
+   NAME                    TYPE        CLUSTER-IP        EXTERNAL-IP   PORT(S)    AGE
+   service/vk8s-workload   ClusterIP   192.168.167.169   <none>        3000/TCP   9m21s
 
-.. code-block:: console
+   NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+   deployment.apps/vk8s-workload   3/1     3            3           9m22s
 
-   $ kubectl get pods <podname> -o yaml
- 
-*View output of the deployment in yaml format*
+   NAME                                       DESIRED   CURRENT   READY   AGE
+   replicaset.apps/vk8s-workload-574ffc5cdd   1         1         1       9m22s
+   replicaset.apps/vk8s-workload-64f8f87976   1         1         1       9m22s
+   replicaset.apps/vk8s-workload-67b54bd74b   1         1         1       9m22s
 
-.. code-block:: console
-
-   $ kubectl get deployment vk8s-workload -o yaml
-
-*View output of the service in yaml format*
-
-.. code-block:: console
-
-   $ kubectl get svc vk8s-workload -o yaml
-   
-*Save the output of the deployment in yaml format*
+**View the output of the deployment in yaml format**
 
 .. code-block:: console
 
-   $ kubectl get deployment -o yaml > vk8s-workload.yaml
-
-*View the saved yaml deployment*
-
-.. code-block:: console
-
-    $ cat vk8s-workload.yaml
+   $ kubectl get deployment -o yaml
 
 
 .. |add-item| image:: images/add-item.png
