@@ -146,7 +146,7 @@ Create Origin Pool
 
    * :guilabel:`Select Type of Origin Server`: **K8s Service Name of Origin Server on given Sites**
    * :guilabel:`Service`: **Service Name**
-   * :guilabel:`Service Name`: **vk8s-workload.busy-parrot <workloadname.namespace>**
+   * :guilabel:`Service Name`: **vk8s-workload.<namespace>**
       * .. attention::
            Supply the configured workload name from previous steps along with the student namespace.
    * :guilabel:`Site or Virtual Site`: **Virtual Site**
