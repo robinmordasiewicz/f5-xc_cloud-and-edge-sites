@@ -1,4 +1,5 @@
 f5_sphinx_theme
+sphinx-rtd-theme
 pre-commit
 recommonmark
 sphinx
@@ -13,3 +14,5 @@ sphinx-hoverxref
 sphinxcontrib-details-directive
 sphinx-js
 sphinx-design
+sphinx_design
+sphinx-tabs
