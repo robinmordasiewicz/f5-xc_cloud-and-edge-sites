@@ -1,0 +1,46 @@
+metadata:
+  annotations: {}
+  description: ""
+  disable: false
+  labels: {}
+  name: <site-name>
+  namespace: system
+spec:
+  address: 801 5th Ave Seattle, WA 98104 United States
+  coordinates:
+    latitude: 47.605198
+    longitude: -122.33099
+  default_blocked_services: {}
+  default_network_config: {}
+  default_storage_config: {}
+  deny_all_usb: {}
+  disable_gpu: {}
+  disable_vm: {}
+  k8s_cluster:
+    name: <site-name>
+    namespace: system
+    tenant: <tenant-name>
+  logs_streaming_disabled: {}
+  master_nodes:
+  - <node-name>
+  no_bond_devices: {}
+  offline_survivability_mode: null
+  operating_system_version: ""
+  site_local_control_plane: null
+  site_state: ONLINE
+  volterra_certified_hw: kvm-voltstack-combo
+  volterra_software_version: ""
+  worker_nodes: []
+system_metadata:
+  creation_timestamp: "2022-10-08T01:46:33.251494607Z"
+  creator_class: prism
+  creator_id: email@example.com
+  deletion_timestamp: null
+  finalizers: []
+  initializers: null
+  labels: {}
+  modification_timestamp: null
+  object_index: 0
+  owner_view: null
+  tenant: <tenant-name>
+  uid: 64aa1918-a401-4e4d-963d-4f7dfbd41c3f

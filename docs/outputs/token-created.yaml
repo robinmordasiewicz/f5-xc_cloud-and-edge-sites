@@ -1,0 +1,22 @@
+metadata:
+  annotations: {}
+  description: ""
+  disable: false
+  labels: {}
+  name: <site-name>-token
+  namespace: system
+spec:
+  state: VALID
+system_metadata:
+  creation_timestamp: "2022-10-08T02:18:57.753819583Z"
+  creator_class: prism
+  creator_id: email@example.com
+  deletion_timestamp: null
+  finalizers: []
+  initializers: null
+  labels: {}
+  modification_timestamp: null
+  object_index: 0
+  owner_view: null
+  tenant: <tenant>
+  uid: bd42d5f5-a2a1-4bf3-b493-94b19de1c858

@@ -1,0 +1,45 @@
+metadata:
+  annotations: {}
+  description: ""
+  disable: false
+  labels: {}
+  name: <site-name>
+  namespace: system
+spec:
+  cluster_scoped_access_deny: {}
+  cluster_wide_app_list:
+    cluster_wide_apps:
+    - argo_cd:
+        generated_yaml: ""
+        local_domain:
+          default_port: {}
+          local_domain: localdomain.local
+          password:
+            blindfold_secret_info:
+              decryption_provider: ""
+              location: string:///AAAAFmY1LXhjLWxhYi1hcHAtanFndWlzZ2kAAAABAAAAAAAAAGUCAAAABQMIQu6zAAABALA3EV+wz43qsex7kSlAz2FSdn8FM1inXCHrRgIbPflBH5xSyEhop2w9eRbXW84MFRblsuR4dpM1YtmmIvEQIuNjaCPIbz3z4GQvvZrcyYarH3x6Ha2OgcmU8FzvHVEoHzqmxqCkqvFcrkfQfdz3wArGUWEmZLjKilBa1TR7ydiZQjkXSGGT4PvTyqjMyHEqdZyDgS51k7nucEWBlHCCRoIoQn/PXmWgDOgQtDFfNYvMr4sfIN9U9gGWbAGNsnKk4XTQAiSdCb0uDEtA20G5oHufvF6zTKdm4S3cUS4+5TbapP52Wzw6DtVbqQ6DYeGzGlakGohFRAtWb8qZCisSfEUAAAEAXvwAtOU3BT5By4tU1+nx6BNNoSmvo7s2WmauVTSmG9mf5l4OKkY5PtwN3ZYtnwdQnHvAGdyedMIBGM+leFZefTHfWZ4VtnFsIZDe6Qe7HyNOmf0ydIcsvMqmQbK/x0Ri801pmAx/rVQMPU3fvJIfttM4pJLszwHYriCreQVdX+31xMqbhqEdGMOZi0LKJMzmWzBwkaLBkZNPJR6sN5YDjCoiw74MgRoMwkScGEdhVCjy7GBUplf8vpbYQSQ1DjcT50Q==
+              store_provider: ""
+            blindfold_secret_info_internal:
+              decryption_provider: ""
+              location: string:///AAAABnZlcy1pbwAAAAEAAAAAAA9CRgIAAAAFAxeny5cAAAEA4ZeMZ8dKObTSU4+JQAh2ZMkNJgocAkkMeG2nr/HcyDdWVtH0Z6jspl0o19gWIzI4spO1foFlPKcnQtL2duJ86sSi/OBoL8ydw6WCw7MmRg99ppcSBYWsP5He/kH8dC+l4hTBmtFoJErSDRktd4WiiL39QPIZWjaD3sDdefwQ/iFftFPlUIZBn60bwa6y3sh6TYF+1kpNzxA5d3V0xtZU7E7kpIkWmb+sSiFKZl+h8xmsA9dQoS6QX3/kLFVmAGCmdMKOFnVg0VLetHuRuiBR5ouwvyttIKpGt6gMGyUI+qwNit1lD6UNk2MlJ7oRXkfdNXnxOH7pxLXDxlHwxpHIAwAAAQBqmFX+khHvk+/7TvEE43tyrU8Rb0HkuxLonsLc8nCG0B+zfHip6FxEU4/uDIh7jJG+Gbs/EFi/cjCTGOdFw40OUFLMs3YkCdl+CxLHQWU30Wuq5ILUZ0w4GCvvT5Au6RKRlRXp3Q865harTlc/Fi76w9227inLa8lEYOCY4oNGPrIg9wTNHLBLy0ZyVmbyTgZiTvWZLZLDRE6WhIjbCPxOlC4kJZ/Ni2cUnV+RRwgCr8tugdctSwCJaMmkVEuSvcpUTEvVJB1EgNGdBeCZNXTWb1dcU
+              store_provider: ""
+            secret_encoding_type: EncodingNone
+  global_access_enable: {}
+  no_insecure_registries: {}
+  no_local_access: {}
+  use_default_cluster_role_bindings: {}
+  use_default_cluster_roles: {}
+  use_default_psp: {}
+system_metadata:
+  creation_timestamp: "2022-10-08T02:31:41.703393327Z"
+  creator_class: prism
+  creator_id: email@example.com
+  deletion_timestamp: null
+  finalizers: []
+  initializers: null
+  labels: {}
+  modification_timestamp: null
+  object_index: 0
+  owner_view: null
+  tenant: <tenant>
+  uid: 326990d0-d2e9-436f-8677-8a66f869d1e5

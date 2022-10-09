@@ -1,0 +1,81 @@
+{
+  "object": null,
+  "create_form": null,
+  "replace_form": null,
+  "resource_version": "516963783",
+  "metadata": {
+    "name": "<site-name>",
+    "namespace": "system",
+    "labels": {
+    },
+    "annotations": {
+    },
+    "description": "",
+    "disable": false
+  },
+  "system_metadata": {
+    "uid": "ac77a666-da1c-4a10-81d0-4029a4890550",
+    "creation_timestamp": "2022-10-09T18:47:47.509505535Z",
+    "deletion_timestamp": null,
+    "modification_timestamp": null,
+    "initializers": null,
+    "finalizers": [
+    ],
+    "tenant": "<tenant-id>",
+    "creator_class": "prism",
+    "creator_id": "email@example.com",
+    "object_index": 0,
+    "owner_view": null,
+    "labels": {
+    }
+  },
+  "spec": {
+    "volterra_certified_hw": "kvm-voltstack-combo",
+    "master_nodes": [
+      "<node-name>"
+    ],
+    "worker_nodes": [
+    ],
+    "volterra_software_version": "",
+    "operating_system_version": "",
+    "no_bond_devices": {
+
+    },
+    "default_network_config": {
+
+    },
+    "default_storage_config": {
+
+    },
+    "disable_gpu": {
+
+    },
+    "address": "801 5th Ave Seattle, WA 98104 United States",
+    "coordinates": {
+      "latitude": 47.605198,
+      "longitude": -122.33099
+    },
+    "no_k8s_cluster": {
+
+    },
+    "logs_streaming_disabled": {
+
+    },
+    "deny_all_usb": {
+
+    },
+    "site_state": "WAITING_FOR_REGISTRATION",
+    "disable_vm": {
+
+    },
+    "default_blocked_services": {
+
+    },
+    "site_local_control_plane": null,
+    "offline_survivability_mode": null
+  },
+  "status": [
+  ],
+  "referring_objects": [
+  ]
+}

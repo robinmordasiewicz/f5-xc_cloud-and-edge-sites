@@ -12,7 +12,7 @@
 }
 
 ol > li {
-    margin-bottom: 30px;
+    margin-bottom: 4px;
 }
 
 .menuselection {
@@ -36,22 +36,189 @@ padding-bottom: 20px;
 }
 
 #right-sidebar, .github-link {
-width: 280px;
-display: block;
-margin-right: 20px;
-position: fixed;
-top: 150px;
-max-height: 80vh;
-transition: all 0.3s;
-float: left;
-/* margin-top: 22px; */
-margin-left: 0px;
-overflow-x: auto;
-overflow-y: auto;
-padding: 10px 10px 16px 16px;
-margin-top: 10px;
+width: 200px;
 }
 
 #right-sidebar, .section-nav {
 top: 210px;
+}
+
+#sidebar, .section-nav {
+width: 250px;
+margin-right: 0px;
+}
+
+@media (min-width: 1271px) {
+    #content.active {
+      margin-left: 250px;
+      margin-right: 200px;
+    }
+}
+
+#content {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.topic {
+  font-size: 18px;
+  margin-left: 40px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  max-width: 750px;
+  padding: 15px;
+/*  box-shadow: 4px 4px 4px gray; */
+  border-radius: 4px;
+  border-left-width: 6px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: #0E5C8D;
+  border-left-color: #0E5C8D;
+  border-top-color: #0E5C8D;
+  border-right-color: #0E5C8D;
+  border-bottom-color: #0E5C8D;
+}
+
+.topic-title {
+  font-size: 22px;
+  margin-left: 0px;
+}
+
+.highlight-yaml, .highlight-json {
+  background-color: #EEE;
+  color: #000000;
+  font-family: "Courier Prime", monospace;
+ /* font: 1.3rem Inconsolata, monospace; */
+  /* font-family: Menlo,Monaco,Consolas,Courier New,monospace; */
+  font-size: 12px;
+  line-height: 1.0;
+  width: 800px;
+  box-shadow: 2px 2px 2px gray;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #FFFFFF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+
+.highlight-console {
+  background-color: black;
+  color: #FFFFFF;
+ /* font-family: "Courier Prime", monospace; */
+  display: inline-block;
+  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+ /* font: 1.3rem Inconsolata, monospace; */
+  /* font-family: Menlo,Monaco,Consolas,Courier New,monospace; */
+  font-size: 12px;
+  line-height: 1.0;
+  width: 800px;
+  box-shadow: 2px 2px 2px gray;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #FFFFFF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+ol > li:nth-child(1) > div > div > pre,
+div[class^='highlight'] > div > pre,
+pre,
+.span.pre {
+    background: transparent;
+}
+
+#codecell11 {
+    display: block;
+    padding: 10.5px;
+    margin: 0 0 0px;
+    font-size: 15px;
+    line-height: 1.375;
+    color: #d0d0d0;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #292929;
+    border: 1px solid #ccc;
+    border-radius: 0;
+}
+
+.highlight .go {
+  color: #d0d0d0;
+}
+
+span.l-Scalar-Plain, span.p , span.s2, span.pre {
+  color: #000000;
+}
+
+code.file {
+  border-style: solid;
+  border-color: rgb(0, 77, 255);
+  padding: 4px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+/*
+override bootstrap pre settings in sphinx literal blocks
+ */
+div[class~='docutils'], code, .code.descname {
+width: auto;
+padding: 1px;
+font-family: Proxima,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+line-height: 1.5;
+overflow: auto;
+border-radius: 0;
+color: #000;
+border: 0;
+/* background: #e4e4e4; */
+    background: rgba(255, 255, 255, 0);
+}
+
+div[class^='highlight'] pre,
+code,
+.code.descname {
+    width: auto;
+    padding: 1px;
+    /* font-family: Menlo,Monaco,Consolas,Courier New,monospace; */
+    /* font-family: Proxima,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
+    font-family: unset;
+    line-height: 1.5;
+    overflow: auto;
+    border-radius: 0;
+    color: #FFFFFF; 
+    border: 0;
+    background: rgba(255, 255, 255, 0);
+}
+
+/*
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 30px;
+}
+*/
+
+.sd-badge {
+vertical-align: bottom;
+font-weight: 400;
+padding: .5em 1em;
+}
+
+ol.arabic {
+  padding-left: 25px;
+}
+
+ul li p {
+margin-bottom: 10px;
+}
+
+pre {
+  margin: 0 0 0px;
 }

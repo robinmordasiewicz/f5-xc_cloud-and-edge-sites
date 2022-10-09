@@ -6,6 +6,7 @@ import pkgutil
 import string
 import f5_sphinx_theme
 
+CURDIR = os.path.abspath(os.path.dirname(__file__))
 # -*- coding: utf-8 -*-
 #
 #
@@ -29,6 +30,8 @@ copybutton_prompt_text = "$ "
 copybutton_only_copy_prompt_lines = True
 copybutton_remove_prompts = True
 extlinks_detect_hardcoded_links = True
+sphinx_tabs_disable_css_loading = False
+nitpicky = True
 
 hoverxref_roles = [
     'numref',
@@ -91,6 +94,10 @@ if "github_repo" in locals() and len(github_repo) > 0:
 else:
     rst_prolog += ".. |repoinfo| replace:: \\n"
 
+# rst_epilog = open(os.path.join(CURDIR, 'epilog.inc'),'r').read().decode('utf8')
+#rst_epilog = open('epilog.inc', 'r').read()
+rst_epilog = open(os.path.join(CURDIR, 'epilog.inc'),'r').read()
+
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -112,7 +119,9 @@ extensions = [
     "sphinxcontrib.details.directive",
     "hoverxref.extension",
     "sphinx_toolbox.collapse",
+    "sphinx_toolbox.code",
     "sphinx.ext.autosectionlabel",
+    "sphinx_tabs.tabs",
     "sphinx_design"
 ]
 
@@ -192,6 +201,8 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "links.rst"]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = "sphinx"
+#pygments_style = 'github-dark'
+
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_emit_warnings = True
@@ -202,7 +213,8 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html4_writer = True
+# html4_writer = True
+html_title = project
 html_theme = "f5_sphinx_theme"
 html_theme_path = f5_sphinx_theme.get_html_theme_path()
 html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
@@ -234,7 +246,7 @@ html_static_path = ["_static"]
 # or fully qualified paths (eg. https://...)
 html_css_files = [
     'css/custom.css',
-    'css/bootstrap.css'
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
 ]
 
 # -- Options for HTMLHelp output ------------------------------------------
