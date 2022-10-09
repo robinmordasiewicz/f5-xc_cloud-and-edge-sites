@@ -113,7 +113,6 @@ Install Tools
          $ echo 'python3 powerline_setup()' >> $HOME/.vimrc
          $ echo 'python3 del powerline_setup' >> $HOME/.vimrc
          $ echo 'set laststatus=2' >> $HOME/.vimrc
-         $
 
 
 Authentication
