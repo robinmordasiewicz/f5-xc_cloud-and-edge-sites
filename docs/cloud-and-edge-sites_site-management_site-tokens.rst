@@ -35,7 +35,7 @@ Site Tokens
 
       **vesctl command output**
 
-      .. literalinclude:: manifests/token-created.yaml
+      .. literalinclude:: outputs/token.yaml
          :emphasize-lines: 22
          :language: yaml
       
