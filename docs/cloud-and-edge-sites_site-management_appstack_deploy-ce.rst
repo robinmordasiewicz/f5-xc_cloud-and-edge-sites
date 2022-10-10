@@ -1,57 +1,117 @@
 Deploy CE
-===========
+=========
+
+Configure CE
+------------
 
 .. tabs::
 
    .. group-tab:: UI
 
-      #. Navigate to :menuselection:`Manage --> Site Management --> Site Tokens` and click :bdg-primary-line:`Add K8s Cluster`
+      * Using a browser log-in to the CE https://<CE-IP-ADDRESS>:65500 with the default username:**admin** and password:**Volterra123**, and click :bdg-primary:`Configure Now`
 
-         .. image:: images/cloud-and-edge-sites_site-management_deploy-appstack-ce-1.png
+        .. image:: images/cloud-and-edge-sites_site-management_deploy-appstack-ce-1.png
+            :class: no-scaled-link
             :width: 100%
 
-      #. Name the token, and click :bdg-primary:`Add Site Tokenn`
+      * Fill in the form using the following values, and click :bdg-primary`Save configuration`
 
-         .. image:: images/cloud-and-edge-sites-site-token-create.png
+        #. :menuselection:`Device Configuration --> * Cluster name`: Provide the site cluster name
+        #. :menuselection:`Device Configuration --> Hostname`: provide a unique hostname.
+        #. :menuselection:`Device Configuration --> Certified Hardware`: select :bdg-primary-line:`kvm-voltstack-combo`
+        #. :menuselection:`Location --> Latitude`: provide :bdg-primary-line:`<47.605199>`
+        #. :menuselection:`Location --> Longitude`: provide :bdg-primary-line:`<-122.330996>`
+
+        .. image:: images/cloud-and-edge-sites_site-management_deploy-appstack-ce-2.png
+           :class: no-scaled-link
+           :width: 100%
+
+      * The CE advances to the :bdg-warning:`Approval` stage.
+
+        .. image:: images/cloud-and-edge-sites_site-management_deploy-appstack-ce-3.png
+           :class: no-scaled-link
+           :width: 100%
+
+   .. group-tab:: console
+
+      * SSH or access the console with default username: **admin** and default password **Volterra123**
+      * Enter command: **configure**
+         * Enter token from `token link`
+         * Enter the <site-name>
+         * Enter the <host-name>
+         * Enter latitude and longitude
+         * Leave **fleet name** ``empty``
+         * Select certified hardware: **kvm-volstack-combo**
+   
+      .. code-block:: console
+
+         $ ssh admin@10.1.1.5
+
+         UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED
+         All actions performed on this device are audited
+         admin@10.1.1.5's password:
+
+         |     $$$$$$\  $$\   $$\                $$$$$$\  $$\       $$$$$$\
+         |     $$  __$$\ \__|  $$ |              $$  __$$\ $$ |      \_$$  _|
+         |     $$ /  \__|$$\ $$$$$$\    $$$$$$\  $$ /  \__|$$ |        $$ |
+         |     \$$$$$$\  $$ |\_$$  _|  $$  __$$\ $$ |      $$ |        $$ |
+         |      \____$$\ $$ |  $$ |    $$$$$$$$ |$$ |      $$ |        $$ |
+         |     $$\   $$ |$$ |  $$ |$$\ $$   ____|$$ |  $$\ $$ |        $$ |
+         |     \$$$$$$  |$$ |  \$$$$  |\$$$$$$$\ \$$$$$$  |$$$$$$$$\ $$$$$$\
+         |      \______/ \__|   \____/  \_______| \______/ \________|\______|
+         WELCOME IN SITE CLI
+         This allows to:
+         - configure registration information
+         - factory reset of the Node
+         - collect debug information for support
+         Use TAB to select various options.
+         $ configure
+         ? What is your token? bd42d5f5-a2a1-4bf3-b493-94b19de1c858
+         ? What is your site name? [optional] site-name
+         ? What is your hostname? [optional] node-name
+         ? What is your latitude? [optional] 47.605199
+         ? What is your longitude? [optional] -122.330996
+         ? What is your default fleet name? [optional]
+         ? Select certified hardware: kvm-volstack-combo
+         ? Select primary outside NIC: eth0
+         certifiedHardware: kvm-volstack-combo
+         clusterName: site-name
+         hostname: node-name
+         latitude: 47.605198
+         longitude: -122.33099
+         primaryOutsideNic: eth0
+         token: bd42d5f5-a2a1-4bf3-b493-94b19de1c858
+         ? Confirm configuration? Yes
+
+vesctl configuration get registration -n system
+
+Registrations
+-------------
+
+.. tabs::
+
+   .. group-tab:: UI
+
+      * In :menuselection:`Cloud and Edge Sites`, navigate to :menuselection:`Manage --> Site Management --> Registrations` and click :material-outlined:`check_box;2em;sd-text-primary`
+
+        .. image:: images/cloud-and-edge-sites_site-management_registration-approve.png
+            :class: no-scaled-link
             :width: 100%
 
-      #. The site token appears with the :menuselection:`UID` field, copy this value for registering the CE node.
+      * Review that all fields are populated, an click :bdg-primary:`Save and Exit`
 
-         .. image:: images/cloud-and-edge-sites-site-token-results.png
+        .. image:: images/cloud-and-edge-sites_site-management_registration-approve_save-and-exit.png
+            :class: no-scaled-link
             :width: 100%
 
-   .. group-tab:: vesctl
+      * In :menuselection:`Cloud and Edge Sites`, navigate to :menuselection:`Sites --> Site List`. The site transitions to a **Provisioning** state for ~20 minutes. Go get a :fa:`coffee` and resume when the site is online.
 
-      Replace highlighted values in :file:`token.json`
+        .. image:: images/cloud-and-edge-sites_site-list.png
+            :class: no-scaled-link
+            :width: 100%
 
-      .. literalinclude:: manifests/token.json
-         :emphasize-lines: 3
-         :language: json
+      * After ~20 minutes the The **Customer Edge Admin** console reports :bdg-success:`Provisioned`
 
-      .. code-block:: console
-
-         $ vesctl configuration apply token -i token.json
-         Created
-
-      **vesctl command output**
-
-      .. literalinclude:: outputs/token.yaml
-         :emphasize-lines: 22
-         :language: yaml
-      
-      .. code-block:: console
-
-         $ vesctl configuration list token -n system
-         +-----------+---------------------+--------+
-         | NAMESPACE |        NAME         | LABELS |
-         +-----------+---------------------+--------+
-         | system    | site-name-token     | <None> |
-         +-----------+---------------------+--------+
-
-      **The site token appears with the UID field, copy this value for registering the CE node in subsequent steps**
-
-      .. code-block:: console
-
-         $ vesctl configuration get token site-token --outfmt json -n system | jq ".system_metadata.uid"
-         "be4204f5-a2a1-4bf3-b493-86753091c858"
-
+        .. image:: images/cloud-and-edge-sites_site-management_deploy-appstack-ce_provisioned.png
+            :class: no-scaled-link
+            :width: 100%

@@ -1,0 +1,145 @@
+:sd_hide_title:
+
+F5 Distributed Cloud
+====================
+
+.. topic:: Topic Title
+
+    Subsequent indented lines comprise
+    the body of the topic, and are
+    interpreted as body elements.
+
+.. toctree::
+   :caption: Guided Labs
+   :titlesonly:
+   :maxdepth: 1
+
+   intro.rst
+   pre-requisites.rst
+   cloud-and-edge-sites.rst
+   distributed-apps.rst
+   .content-delivery-network.rst
+   .dns-management.rst
+   load-balancers.rst
+   web-app-and-api-protection.rst
+   .ddos-and-transit-services.rst
+   .bot-defense.rst
+   .application-traffic-insight.rst
+   .client-side-defense.rst
+   .account-protection.rst
+   .authentication-intelligence.rst
+   .observability.rst
+   .audit-logs-and-alerts.rst
+   .billing.rst
+   .administration.rst
+   .shared-configuration.rst  
+
+Hover Example :hoverxref:`show a tooltip <virtual-site>`
+
+:hoverxref:`Canary Testing A/B Blue-Green<canary-ab-bluegreen>`
+
+:guilabel:`Cloud`
+:menuselection:`File --> Settings`
+
+.. image:: images/xcconsoleclickdns.png
+   :class: image-boxshadow`
+
+.. collapse:: Details
+
+   .. note:: this is a note
+
+   ..  youtube:: wNxO-aXY5YwA
+
+   #. this is a point
+   #. another point
+
+   Something small enough to escape casual notice. |Add-VK8s-Workload|
+
+   ..  youtube:: wNxO-aXY5YwA
+
+
+.. sidebar:: Optional Sidebar Title
+   :subtitle: Optional Sidebar Subtitle
+
+   Subsequent indented lines comprise
+   the body of the sidebar, and are
+   interpreted as body elements.
+
+.. details:: Closed by default
+   :class: help
+
+   Without the ``:open:`` flag, the admonition is collapsed by default.
+
+**Resources**
+
+* Platform Overview: https://www.f5.com/cloud/products/platform-overview
+* Documentation: https://docs.cloud.f5.com/docs/
+* Services: https://docs.cloud.f5.com/docs/services
+* Concepts: https://docs.cloud.f5.com/docs/ves-concepts
+
+.. _cards-clickable:
+
+Cards Clickable
+...............
+
+.. card:: Clickable Card (external)
+    :link: https://example.com
+
+    The entire card can be clicked to navigate to https://example.com.
+
+.. card:: Clickable Card (internal)
+    :link: cards-clickable
+    :link-type: ref
+
+    The entire card can be clicked to navigate to the ``cards`` reference target.
+
+.. grid:: 2
+
+    .. grid-item-card::  Title 1
+
+        A
+
+    .. grid-item-card::  Title 2
+
+        B
+   
+.. |Add-VK8s-Workload| image:: apps/images/distributedappclick.png
+   :class: with-shadow
+
+:bdg-primary:`primary`
+
+:bdg-primary-line:`primary-line`
+
+:term:`workload`
+
+- An icon :fas:`spinner;sd-text-primary`
+- An icon :fab:`github`
+- An icon :fab:`gitkraken;sd-text-primary fa-xl`
+- An icon :fas:`skull;sd-text-primary`
+- An icon :far:`coffee`
+- far :far:`toggle-on;sd-text-primary`
+- far increased :far:`toggle-on;fa-xl sd-text-primary`
+
+- :octicon:`report;1em;sd-text-primary`
+- :octicon:`question;1em`
+- :octicon:`arrow-both;1em;sd-text-primary`
+- :octicon:`download;1em;sd-text-primary`
+- :octicon:`plus-circle;1em;sd-text-primary`
+
+- A coloured regular icon: :material-regular:`toggle_on;3em;sd-text-primary`, some more text.
+
+.. code-cell:: console
+
+    $ echo "hello world"
+
+.. output-cell::
+
+   hello world
+
+.. card:: Card Title
+
+    Header
+    ^^^
+    Card content
+    +++
+    Footer

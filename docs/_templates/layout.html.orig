@@ -2,13 +2,14 @@
 {% extends "basic/layout.html" %}
   {{ super() }}
 
+
+
 {% set css_files = css_files +
   [ "_static/css/bootstrap.min.css",
     "_static/css/f5.css",
     "_static/css/f5-theme.css",
     "_static/css/CoveoFullSearch.css",
     "_static/css/custom.css",
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css",
     "https://use.fontawesome.com/21fb8a09c3.css" ] %}
 
 {% set script_files = script_files + [
@@ -55,8 +56,7 @@
 -->
         <hr>
         <span class="nav-sidebartoc">
-            {{ toctree(includehidden=False, collapse=True, maxdepth=3) }}
-            {{ toc }}
+            {{ toctree(includehidden=True, collapse=True, maxdepth=3) }}
         </span>
       {%- include "extralinks.html" %}
       </nav>

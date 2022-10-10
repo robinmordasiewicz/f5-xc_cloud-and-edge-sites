@@ -11,7 +11,7 @@ Site Tokens
             :class: no-scaled-link
             :width: 100%
 
-      #. Name the token, and click :bdg-primary:`Add Site Tokenn`
+      #. Name the token, and click :bdg-primary:`Add Site Token`
 
          .. image:: images/cloud-and-edge-sites-site-token-create.png
             :class: no-scaled-link

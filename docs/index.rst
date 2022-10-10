@@ -1,12 +1,6 @@
 F5 Distributed Cloud
 ====================
 
-.. topic:: Topic Title
-
-    Subsequent indented lines comprise
-    the body of the topic, and are
-    interpreted as body elements.
-
 .. toctree::
    :caption: Guided Labs
    :titlesonly:
@@ -30,55 +24,11 @@ F5 Distributed Cloud
    .audit-logs-and-alerts.rst
    .billing.rst
    .administration.rst
-   .shared-configuration.rst  
+   .shared-configuration.rst
 
-Hover Example :hoverxref:`show a tooltip <virtual-site>`
+.. topic:: Workspace Guides
 
-:hoverxref:`Canary Testing A/B Blue-Green<canary-ab-bluegreen>`
-
-:guilabel:`Cloud`
-:menuselection:`File --> Settings`
-
-.. image:: images/xcconsoleclickdns.png
-   :class: image-boxshadow`
-
-.. collapse:: Details
-
-   .. note:: this is a note
-
-   ..  youtube:: wNxO-aXY5YwA
-
-   #. this is a point
-   #. another point
-
-   Something small enough to escape casual notice. |Add-VK8s-Workload|
-
-   ..  youtube:: wNxO-aXY5YwA
-
-
-.. sidebar:: Optional Sidebar Title
-   :subtitle: Optional Sidebar Subtitle
-
-   Subsequent indented lines comprise
-   the body of the sidebar, and are
-   interpreted as body elements.
-
-.. details:: Closed by default
-   :class: help
-
-   Without the ``:open:`` flag, the admonition is collapsed by default.
-
-**Resources**
-
-* Platform Overview: https://www.f5.com/cloud/products/platform-overview
-* Documentation: https://docs.cloud.f5.com/docs/
-* Services: https://docs.cloud.f5.com/docs/services
-* Concepts: https://docs.cloud.f5.com/docs/ves-concepts
-
-.. _cards-clickable:
-
-Cards Clickable
-...............
+    The F5 Distributed Cloud console is divided into workspace tiles.
 
 .. card:: Clickable Card (external)
     :link: https://example.com
@@ -86,7 +36,7 @@ Cards Clickable
     The entire card can be clicked to navigate to https://example.com.
 
 .. card:: Clickable Card (internal)
-    :link: cards-clickable
+    :link: cloud-and-edge-sites
     :link-type: ref
 
     The entire card can be clicked to navigate to the ``cards`` reference target.
@@ -94,50 +44,109 @@ Cards Clickable
 .. grid:: 2
 
     .. grid-item-card::  Title 1
+        :link: cloud-and-edge-sites
+        :link-type: ref
 
         A
 
     .. grid-item-card::  Title 2
+        :link: cloud-and-edge-sites
+        :link-type: ref
 
         B
    
-.. |Add-VK8s-Workload| image:: apps/images/distributedappclick.png
-   :class: with-shadow
-
-:bdg-primary:`primary`
-
-:bdg-primary-line:`primary-line`
-
-:term:`workload`
-
-- An icon :fas:`spinner;sd-text-primary`
-- An icon :fab:`github`
-- An icon :fab:`gitkraken;sd-text-primary fa-xl`
-- An icon :fas:`skull;sd-text-primary`
-- An icon :far:`coffee`
-- far :far:`toggle-on;sd-text-primary`
-- far increased :far:`toggle-on;fa-xl sd-text-primary`
-
-- :octicon:`report;1em;sd-text-primary`
-- :octicon:`question;1em`
-- :octicon:`arrow-both;1em;sd-text-primary`
-- :octicon:`download;1em;sd-text-primary`
-- :octicon:`plus-circle;1em;sd-text-primary`
-
-- A coloured regular icon: :material-regular:`toggle_on;3em;sd-text-primary`, some more text.
-
-.. code-cell:: console
-
-    $ echo "hello world"
-
-.. output-cell::
-
-   hello world
 
 .. card:: Card Title
+    :link: cloud-and-edge-sites
+    :link-type: ref
 
     Header
     ^^^
     Card content
     +++
     Footer
+
+
+
+.. grid:: 2
+    :link: cloud-and-edge-sites
+    :link-type: ref
+    :gutter: 1
+
+    .. grid-item-card::
+
+        A
+
+    .. grid-item-card::
+
+        B
+
+.. grid:: 2
+    :gutter: 3 3 4 5
+
+    .. grid-item-card::
+
+        A
+
+    .. grid-item-card::
+
+        B
+
+.. grid:: 2
+
+    .. grid-item-card::
+        :columns: auto
+
+        A
+
+    .. grid-item-card::
+        :columns: 12 6 6 6
+
+        B
+
+    .. grid-item-card::
+        :columns: 12
+
+        C
+
+
+.. grid:: 1 1 2 2
+    :gutter: 1
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. grid-item-card:: Item 1.1
+
+                Multi-line
+
+                content
+
+            .. grid-item-card:: Item 1.2
+
+                Content
+
+    .. grid-item::
+
+        .. grid:: 1 1 1 1
+            :gutter: 1
+
+            .. grid-item-card:: Item 2.1
+
+                Content
+
+            .. grid-item-card:: Item 2.2
+
+                Content
+
+            .. grid-item-card:: Item 2.3
+
+                Content
+
+
+
+.. output-cell:: console
+
+    hello world

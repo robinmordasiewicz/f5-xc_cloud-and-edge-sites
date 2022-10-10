@@ -1,8 +1,11 @@
+.. _cloud-and-edge-sites:
+
 Cloud and Edge Sites
 =====================
 
 .. toctree::
    :caption: Guided Labs
+   :titlesonly:
    :maxdepth: 1
 
    cloud-and-edge-sites_managed-k8s.rst
