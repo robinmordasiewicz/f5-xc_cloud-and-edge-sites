@@ -37,7 +37,7 @@ Datacenter Edge
       Replace highlighted values in :file:`appstack_site.json`
 
       .. literalinclude:: manifests/appstack_site.json
-         :emphasize-lines: 3,11,17,19,20,24
+         :emphasize-lines: 3,12,18,20,21,25
          :language: json
 
       .. code-block:: console
