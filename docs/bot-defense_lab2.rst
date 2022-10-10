@@ -73,28 +73,28 @@ then for the **Left String** we use **<input id="csrf_token" name="csrf_token" t
 |labend|
 
 .. |lab001| image:: images/Slide6.png
-   :width: 800px
+   :width: 100%
 .. |lab002| image:: images/Slide7.png
-   :width: 800px
+   :width: 100%
 .. |lab003| image:: images/Slide8.png
-   :width: 800px
+   :width: 100%
 .. |lab004| image:: images/Slide9.png
-   :width: 800px
+   :width: 100%
 .. |lab005| image:: images/Slide10.png
-   :width: 800px
+   :width: 100%
 .. |lab006| image:: images/Slide11.png
-   :width: 800px
+   :width: 100%
 .. |lab007| image:: images/Slide12.png
-   :width: 800px
+   :width: 100%
 .. |lab008| image:: images/Slide13.png
-   :width: 800px
+   :width: 100%
 .. |lab009| image:: images/Slide14.png
-   :width: 800px
+   :width: 100%
 .. |lab010| image:: images/Slide15.png
-   :width: 800px
+   :width: 100%
 .. |lab011| image:: images/Slide16.png
-   :width: 800px
+   :width: 100%
 .. |lab012| image:: images/Slide17.png
-   :width: 800px
+   :width: 100%
 .. |labend| image:: images/labend.png
-   :width: 800px
+   :width: 100%

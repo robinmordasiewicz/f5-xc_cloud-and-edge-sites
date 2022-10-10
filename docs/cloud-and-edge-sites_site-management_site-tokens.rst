@@ -8,17 +8,20 @@ Site Tokens
       #. Navigate to :menuselection:`Manage --> Site Management --> Site Tokens` and click :bdg-primary-line:`Add K8s Cluster`
 
          .. image:: images/cloud-and-edge-sites-site-token-add.png
-            :width: 800px
+            :class: no-scaled-link
+            :width: 100%
 
       #. Name the token, and click :bdg-primary:`Add Site Tokenn`
 
          .. image:: images/cloud-and-edge-sites-site-token-create.png
-            :width: 800px
+            :class: no-scaled-link
+            :width: 100%
 
       #. The site token appears with the :menuselection:`UID` field, copy this value for registering the CE node.
 
          .. image:: images/cloud-and-edge-sites-site-token-results.png
-            :width: 800px
+            :class: no-scaled-link
+            :width: 100%
 
    .. group-tab:: vesctl
 

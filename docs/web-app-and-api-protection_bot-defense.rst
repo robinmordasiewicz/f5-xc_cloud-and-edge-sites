@@ -126,58 +126,58 @@ AI-Driven BotDefense
    |lab027|
 
 .. |lab001| image:: images/lab2-001.png
-   :width: 800px
+   :width: 100%
 .. |lab002| image:: images/lab2-002.png
-   :width: 800px
+   :width: 100%
 .. |lab003| image:: images/lab2-003.png
-   :width: 800px
+   :width: 100%
 .. |lab004| image:: images/lab2-004.png
-   :width: 800px
+   :width: 100%
 .. |lab005| image:: images/lab2-005.png
-   :width: 800px
+   :width: 100%
 .. |lab006| image:: images/lab2-006.png
-   :width: 800px
+   :width: 100%
 .. |lab007| image:: images/lab2-007.png
-   :width: 800px
+   :width: 100%
 .. |lab008| image:: images/lab2-008.png
-   :width: 800px
+   :width: 100%
 .. |lab009| image:: images/lab2-009.png
-   :width: 800px
+   :width: 100%
 .. |lab010| image:: images/lab2-010.png
-   :width: 800px
+   :width: 100%
 .. |lab011| image:: images/lab2-011.png
-   :width: 800px
+   :width: 100%
 .. |lab012| image:: images/lab2-012.png
-   :width: 800px
+   :width: 100%
 .. |lab013| image:: images/lab2-013.png
-   :width: 800px
+   :width: 100%
 .. |lab014| image:: images/lab2-014.png
-   :width: 800px
+   :width: 100%
 .. |lab015| image:: images/lab2-015.png
-   :width: 800px
+   :width: 100%
 .. |lab016| image:: images/lab2-016.png
-   :width: 800px
+   :width: 100%
 .. |lab017| image:: images/lab2-017.png
-   :width: 800px
+   :width: 100%
 .. |lab018| image:: images/lab2-018.png
-   :width: 800px
+   :width: 100%
 .. |lab019| image:: images/lab2-019.png
-   :width: 800px
+   :width: 100%
 .. |lab020| image:: images/lab2-020.png
-   :width: 800px
+   :width: 100%
 .. |lab021| image:: images/lab2-021.png
-   :width: 800px
+   :width: 100%
 .. |lab022| image:: images/lab2-022.png
-   :width: 800px
+   :width: 100%
 .. |lab023| image:: images/lab2-023.png
-   :width: 800px
+   :width: 100%
 .. |lab024| image:: images/lab2-024.png
-   :width: 800px
+   :width: 100%
 .. |lab025| image:: images/lab2-025.png
-   :width: 800px
+   :width: 100%
 .. |lab026| image:: images/lab2-026.png
-   :width: 800px
+   :width: 100%
 .. |lab027| image:: images/lab2-027.png
-   :width: 800px
+   :width: 100%
 .. |labend| image:: images/labend.png
-   :width: 800px
+   :width: 100%

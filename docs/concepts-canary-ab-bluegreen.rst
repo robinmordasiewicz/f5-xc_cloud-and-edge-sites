@@ -28,5 +28,5 @@ Blue/Green Deployment
 * Blue-green deployment can be used for canary testing by simply having the router direct a percentage of your traffic to new version of the code to see how it performs with live traffic, before rolling out the change to 100% of your users.
 
 .. image:: images/ab-canary-bluegreen.png
-   :width: 800px
+   :width: 100%
 

@@ -29,12 +29,12 @@ A Virtual site has been pre-configured for the lab and shared to all students. T
       #. Select the :guilabel:`Distributed Apps` tile on the F5 Distributed Cloud Services home page.
 
          .. image:: images/distributedappclick.png
-            :width: 800px
+            :width: 100%
 
       #. Click :menuselection:`Manage --> Virtual Sites`
 
          .. image:: images/manage-virtualsites.png
-            :width: 800px
+            :width: 100%
 
    .. tab:: vesctl
 
@@ -70,17 +70,17 @@ Create Virtual k8s
       #. Click :menuselection:`Applications --> Virtual K8s`, and then click :bdg-primary:`Add Virtual K8s` 
 
          .. image:: images/distributedappclickaddvirtualk8s.png
-            :width: 800px
+            :width: 100%
 
       #. **Name** the Virtual K8s object, then under :guilabel:`Virtual Sites` click |add-item|, select **shared/agility-k8s-vsite**, and click :bdg-primary:`Save and Exit`
 
          .. image:: images/distributedappclickvirtualk8ssettings2.png
-            :width: 800px
+            :width: 100%
 
          .. warning:: Virtual K8s "|create-in-progress|" may take five or more minutes to complete. :fa:`coffee`
 
          .. image:: images/distributedappclickvirtualk8screate-in-progress.png
-            :width: 800px
+            :width: 100%
 
    .. tab:: vesctl
 
@@ -99,12 +99,12 @@ Deploy Workload
 #. When Virtual K8s shows as "|ready|", click the virtual site to display details.
 
    .. image:: images/distributedappclickvirtualk8sready.png
-      :width: 800px
+      :width: 100%
 
 #. Click :guilabel:`Workloads` in the properties tab, and then click :bdg-primary:`Add VK8s Workload`
 
    .. image:: images/apps-vk8s-add-vk8s-workload.png
-      :width: 800px
+      :width: 100%
 
 Container Service
 ^^^^^^^^^^^^^^^^^
@@ -112,12 +112,12 @@ Container Service
 #. Provide a :guilabel:`Name`, then under :guilabel:`Select Type of Workload` select **Service**, and click :guilabel:`Configure`.
 
    .. image:: images/vk8s-workload-create-workload-configure.png
-      :width: 800px
+      :width: 100%
 
 #. In :guilabel:`Containers` section click |add-item|
 
    .. image:: images/6add_container.png
-      :width: 800px
+      :width: 100%
 
 #. Complete the :guilabel:`Container Configuration` section by providing a **Name** and details for which image to use, then :bdg-primary:`Add Item`
 
@@ -127,7 +127,7 @@ Container Service
    * **Private Registry**: shared/azure-registry
 
    .. image:: images/7container_config.png
-      :width: 800px
+      :width: 100%
 
 Associate to Virtual Site
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -135,12 +135,12 @@ Associate to Virtual Site
 #. Within the :guilabel:`Deploy Options` section, set :guilabel:`Where to Deploy the workload` to **Customer Virtual Sites**, then click **Configure**.
 
    .. image:: images/8deploy_options.png
-      :width: 800px
+      :width: 100%
 
 #. Select **shared/agility-k8s-vsite** under :guilabel:`List of Virtual Sites to Deploy`, then :bdg-primary:`Apply`
 
    .. image:: images/9select_customer_site.png
-      :width: 800px
+      :width: 100%
 
 Service Advertisement
 ^^^^^^^^^^^^^^^^^^^^^
@@ -148,27 +148,27 @@ Service Advertisement
 #. Within the :guilabel:`Advertise Options` section, set :guilabel:`Options to Advertise the Workload` to **Advertise in Cluster**, then select **Configure**.
 
    .. image:: images/10select_advertise_options.png
-      :width: 800px
+      :width: 100%
 
 #. Set :guilabel:`Select Port to Advertise` to **3000**, select :guilabel:`Application Protocol` to **HTTP**, and click :bdg-primary:`Apply`
 
    .. image:: images/11set_advertise_port.png
-      :width: 800px
+      :width: 100%
 
 #. The :guilabel:`Deploy Options` dialogue is dismissed, and click :bdg-primary:`Apply` to complete the :guilabel:`Containers` dialogue.
 
    .. image:: images/apply-vk8s-workload.png
-      :width: 800px
+      :width: 100%
 
 #. The :guilabel:`Containers` dialogue is now dismissed, to finalize the :guilabel:`Workload`, Click :bdg-primary:`Save and Exit`
 
    .. image:: images/create-workload-save-and-exit.png
-      :width: 800px
+      :width: 100%
 
 #. The workload has been added. The vsite that vk8s is deployed on consists of 3 sites, so there are 3 pods in total.
 
    .. image:: images/12verify_3_workload_sites_pods.png
-      :width: 800px
+      :width: 100%
 
 Advertise on the Internet
 -------------------------
@@ -181,12 +181,12 @@ Create Origin Pool
 #. Navigate the left-side menu to :menuselection:`Manage --> Load Balancers --> Origin Pools`, then click :bdg-primary:`Add Origin Pool`.
 
    .. image:: images/m-origin-pool.png
-      :width: 800px
+      :width: 100%
 
 #. Enter a **Name**, set the :guilabel:`Port` value to *3000*, and under :guilabel:`Origin Servers` click |add-item|
 
    .. image:: images/m-origin-pool-name.png
-      :width: 800px
+      :width: 100%
 
 #. Complete the :guilabel:`Origin Server` section with the values below, click :bdg-primary:`Apply`, and :bdg-primary:`Save and Exit` on subsequent screen to complete the origin pool creation.
 
@@ -200,7 +200,7 @@ Create Origin Pool
    * :guilabel:`Select Network on the site`: **vK8s Networks on Site**
 
    .. image:: images/m3-add-origin-server.png
-      :width: 800px
+      :width: 100%
 
 Create HTTP Load-Balancer
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -208,7 +208,7 @@ Create HTTP Load-Balancer
 #. Navigate the left-side menu to :menuselection:`Manage --> Load Balancers --> HTTP Load Balancers`, then click :bdg-primary:`Add HTTP Load Balancer`.
 
    .. image:: images/m-add-http.png
-      :width: 800px
+      :width: 100%
 
 #. Add the following values, and click :bdg-primary:`Save and Exit`
 
@@ -219,17 +219,17 @@ Create HTTP Load-Balancer
    * :guilabel:`Origins`: Click |add-item|, and select **app-origin-pool**
 
    .. image:: images/m-http-name.png
-      :width: 800px
+      :width: 100%
 
 #. It may take a minute :fa:`coffee` for the :guilabel:`DNS Info` to display **VIRTUAL_HOST_READY**
 
    .. image:: images/m-http-status.png
-      :width: 800px
+      :width: 100%
 
 #. Open a browser tab and navigate to the configured DNS name `http://busy-parrot.lab-app.f5demos.com/`. Refresh your browser a few times and notice what happens to the country name.
 
    .. image:: images/m-http-page.png
-      :width: 800px
+      :width: 100%
 
 Scale Deployment
 ----------------
@@ -242,22 +242,22 @@ Edit JSON
 #. Navigate the left-side menu to :menuselection:`Applications --> Virtual K8s --> virtual-k8s`, click :guilabel:`Deployments`, :guilabel:`Actions`, |three-dots| then click :guilabel:`Edit`.
 
    .. image:: images/14edit_deployment.png
-      :width: 800px
+      :width: 100%
 
 #. Enable |edit-mode|, and expand the ``spec`` section by clicking |out-arrows|
 
    .. image:: images/15modify_deployment_spec.png
-      :width: 800px
+      :width: 100%
 
 #. Change **replicas: 1** to **replicas: 3** and click :bdg-primary:`Save`
 
    .. image:: images/set-three-replicas-save.png
-      :width: 800px
+      :width: 100%
 
 #. After a few moments, the number of **Running Pods** will increase to 9.
 
    .. image:: images/16review_scaled_deployment.png
-      :width: 800px
+      :width: 100%
 
 View Results with kubectl
 -------------------------
@@ -273,7 +273,7 @@ Download kubeconfig
 #. Navigate to :menuselection:`Applications --> Virtual K8s`, click |three-dots|, and then click |download-kubeconfig-button|
 
    .. image:: images/distributedappclickvirtualk8kubeconfig.png
-      :width: 800px
+      :width: 100%
 
 #. `Follow the kubernetes.io guide to install the kubeconfig <https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/>`_
 
@@ -346,27 +346,3 @@ Run the following commands and view the vk8s configuration.
 
    $ kubectl get deployment -o yaml
 
-
-.. |valid| image:: images/valid.png
-   :height: 16px
-
-.. |add-item| image:: images/add-item.png
-   :height: 24px
-
-.. |ready| image:: images/ready.png
-   :height: 16px
-
-.. |create-in-progress| image:: images/create-in-progress.png
-   :height: 16px
-
-.. |three-dots| image:: images/three-dots.png
-   :height: 28px
-
-.. |out-arrows| image:: images/out-arrows.png
-   :height: 26px
-
-.. |edit-mode| image:: images/edit-mode.png
-   :height: 24px
-
-.. |download-kubeconfig-button| image:: images/download-kubeconfig-buton.png
-   :height: 20px

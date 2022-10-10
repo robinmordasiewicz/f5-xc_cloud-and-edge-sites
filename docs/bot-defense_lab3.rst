@@ -72,31 +72,31 @@ In this test we will replicate a more "human like" automation that fully renders
 |labend|
 
 .. |lab001| image:: images/Slide6.png
-   :width: 800px
+   :width: 100%
 .. |lab002| image:: images/Slide19.png
-   :width: 800px
+   :width: 100%
 .. |lab003| image:: images/Slide20.png
-   :width: 800px
+   :width: 100%
 .. |lab004| image:: images/Slide21.png
-   :width: 800px
+   :width: 100%
 .. |lab005| image:: images/Slide22.png
-   :width: 800px
+   :width: 100%
 .. |lab006| image:: images/Slide23.png
-   :width: 800px
+   :width: 100%
 .. |lab007| image:: images/Slide24.png
-   :width: 800px
+   :width: 100%
 .. |lab008| image:: images/Slide25.png
-   :width: 800px
+   :width: 100%
 .. |lab009| image:: images/Slide26.png
-   :width: 800px
+   :width: 100%
 .. |lab010| image:: images/Slide27.png
-   :width: 800px
+   :width: 100%
 .. |lab011| image:: images/Slide28.png
-   :width: 800px
+   :width: 100%
 .. |lab012| image:: images/Slide29.png
-   :width: 800px
+   :width: 100%
 .. |lab013| image:: images/Slide30.png
-   :width: 800px
+   :width: 100%
 .. |labend| image:: images/labend.png
-   :width: 800px
+   :width: 100%
 

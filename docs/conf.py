@@ -14,10 +14,10 @@ CURDIR = os.path.abspath(os.path.dirname(__file__))
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "F5 Distributed Cloud"
+classname = "Home"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/f5devcentral/f5-agility-labs-xc"
+github_repo = "https://github.com/robinmordasiewicz/r-mordasiewicz"
 
 show_source = False
 html_show_sourcelink = False

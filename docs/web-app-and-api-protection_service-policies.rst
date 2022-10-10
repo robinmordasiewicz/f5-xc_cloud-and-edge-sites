@@ -192,86 +192,86 @@ Attach Service Policies to the configured Load Balancer.
 
 
 .. |lab001| image:: images/lab3-001.png
-   :width: 800px
+   :width: 100%
 .. |lab002| image:: images/lab3-002.png
-   :width: 800px
+   :width: 100%
 .. |lab003| image:: images/lab3-003.png
-   :width: 800px
+   :width: 100%
 .. |lab004| image:: images/lab3-004.png
-   :width: 800px
+   :width: 100%
 .. |lab005| image:: images/lab3-005.png
-   :width: 800px
+   :width: 100%
 .. |lab006| image:: images/lab3-006.png
-   :width: 800px
+   :width: 100%
 .. |lab007| image:: images/lab3-007.png
-   :width: 800px
+   :width: 100%
 .. |lab008| image:: images/lab3-008.png
-   :width: 800px
+   :width: 100%
 .. |lab009| image:: images/lab3-009.png
-   :width: 800px
+   :width: 100%
 .. |lab010| image:: images/lab3-010.png
-   :width: 800px
+   :width: 100%
 .. |lab011| image:: images/lab3-011.png
-   :width: 800px
+   :width: 100%
 .. |lab012| image:: images/lab3-012.png
-   :width: 800px
+   :width: 100%
 .. |lab013| image:: images/lab3-013.png
-   :width: 800px
+   :width: 100%
 .. |lab014| image:: images/lab3-014.png
-   :width: 800px
+   :width: 100%
 .. |lab015| image:: images/lab3-015.png
-   :width: 800px
+   :width: 100%
 .. |lab016| image:: images/lab3-016.png
-   :width: 800px
+   :width: 100%
 .. |lab017| image:: images/lab3-017.png
-   :width: 800px
+   :width: 100%
 .. |lab018| image:: images/lab3-018.png
-   :width: 800px
+   :width: 100%
 .. |lab019| image:: images/lab3-019.png
-   :width: 800px
+   :width: 100%
 .. |lab020| image:: images/lab3-020.png
-   :width: 800px
+   :width: 100%
 .. |lab021| image:: images/lab3-021.png
-   :width: 800px
+   :width: 100%
 .. |lab022| image:: images/lab3-022.png
-   :width: 800px
+   :width: 100%
 .. |lab023| image:: images/lab3-023.png
-   :width: 800px
+   :width: 100%
 .. |lab024| image:: images/lab3-024.png
-   :width: 800px
+   :width: 100%
 .. |lab025| image:: images/lab3-025.png
-   :width: 800px
+   :width: 100%
 .. |lab026| image:: images/lab3-026.png
-   :width: 800px
+   :width: 100%
 .. |lab027| image:: images/lab3-027.png
-   :width: 800px
+   :width: 100%
 .. |lab028| image:: images/lab3-028.png
-   :width: 800px
+   :width: 100%
 .. |lab029| image:: images/lab3-029.png
-   :width: 800px
+   :width: 100%
 .. |lab030| image:: images/lab3-030.png
-   :width: 800px
+   :width: 100%
 .. |lab031| image:: images/lab3-031.png
-   :width: 800px
+   :width: 100%
 .. |lab032| image:: images/lab3-032.png
-   :width: 800px
+   :width: 100%
 .. |lab033| image:: images/lab3-033.png
-   :width: 800px
+   :width: 100%
 .. |lab034| image:: images/lab3-034.png
-   :width: 800px
+   :width: 100%
 .. |lab035| image:: images/lab3-035.png
-   :width: 800px
+   :width: 100%
 .. |lab036| image:: images/lab3-036.png
-   :width: 800px
+   :width: 100%
 .. |lab037| image:: images/lab3-037.png
-   :width: 800px
+   :width: 100%
 .. |lab038| image:: images/lab3-038.png
-   :width: 800px
+   :width: 100%
 .. |lab039| image:: images/lab3-039.png
-   :width: 800px
+   :width: 100%
 .. |lab040| image:: images/lab3-040.png
-   :width: 800px
+   :width: 100%
 .. |lab041| image:: images/lab3-041.png
-   :width: 800px
+   :width: 100%
 .. |labend| image:: images/labend.png
-   :width: 800px
+   :width: 100%
