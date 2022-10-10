@@ -13,23 +13,24 @@ F5 Distributed Cloud
    :maxdepth: 1
 
    intro.rst
+   pre-requisites.rst
    cloud-and-edge-sites.rst
    distributed-apps.rst
-   content-delivery-network.rst
-   dns-management.rst
+   .content-delivery-network.rst
+   .dns-management.rst
    load-balancers.rst
    web-app-and-api-protection.rst
-   ddos-and-transit-services.rst
-   bot-defense.rst
-   application-traffic-insight.rst
-   client-side-defense.rst
-   account-protection.rst
-   authentication-intelligence.rst
-   observability.rst
-   audit-logs-and-alerts.rst
-   billing.rst
-   administration.rst
-   shared-configuration.rst  
+   .ddos-and-transit-services.rst
+   .bot-defense.rst
+   .application-traffic-insight.rst
+   .client-side-defense.rst
+   .account-protection.rst
+   .authentication-intelligence.rst
+   .observability.rst
+   .audit-logs-and-alerts.rst
+   .billing.rst
+   .administration.rst
+   .shared-configuration.rst  
 
 Hover Example :hoverxref:`show a tooltip <virtual-site>`
 
@@ -133,4 +134,10 @@ Cards Clickable
 
    hello world
 
+.. card:: Card Title
 
+    Header
+    ^^^
+    Card content
+    +++
+    Footer

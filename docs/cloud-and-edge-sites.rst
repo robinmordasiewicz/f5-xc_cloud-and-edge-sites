@@ -5,7 +5,6 @@ Cloud and Edge Sites
    :caption: Guided Labs
    :maxdepth: 1
 
-   cloud-and-edge-sites_pre-requisites.rst
    cloud-and-edge-sites_managed-k8s.rst
    cloud-and-edge-sites_site-management.rst
    cloud-and-edge-sites_managed-k8s-kubeconfig.rst
