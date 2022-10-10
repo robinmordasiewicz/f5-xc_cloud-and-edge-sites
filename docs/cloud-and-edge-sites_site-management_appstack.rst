@@ -42,7 +42,7 @@ Datacenter Edge
 
       .. code-block:: console
 
-         $ vesctl configuration create voltstack_site -i appstack_site.json
+         $ vesctl configuration apply voltstack_site -i appstack_site.json
          Created
 
       **vesctl command output**

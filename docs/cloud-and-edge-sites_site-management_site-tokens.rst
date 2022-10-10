@@ -30,7 +30,7 @@ Site Tokens
 
       .. code-block:: console
 
-         $ vesctl configuration create token -i token.json
+         $ vesctl configuration apply token -i token.json
          Created
 
       **vesctl command output**
@@ -39,5 +39,19 @@ Site Tokens
          :emphasize-lines: 22
          :language: yaml
       
+      .. code-block:: console
+
+         $ vesctl configuration list token -n system
+         +-----------+---------------------+--------+
+         | NAMESPACE |        NAME         | LABELS |
+         +-----------+---------------------+--------+
+         | system    | site-name-token     | <None> |
+         +-----------+---------------------+--------+
+
       **The site token appears with the UID field, copy this value for registering the CE node in subsequent steps**
+
+      .. code-block:: console
+
+         $ vesctl configuration get token site-token --outfmt json -n system | jq ".system_metadata.uid"
+         "be4204f5-a2a1-4bf3-b493-86753091c858"
 

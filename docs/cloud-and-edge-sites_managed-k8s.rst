@@ -93,7 +93,7 @@ Managed K8s
 
         .. code-block:: console
  
-           $ vesctl configuration create k8s_cluster -i k8s_cluster.json
+           $ vesctl configuration apply k8s_cluster -i k8s_cluster.json
            Created
 
       * View the vesctl output
