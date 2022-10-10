@@ -47,7 +47,7 @@ Datacenter Edge
 
       **vesctl command output**
 
-      .. literalinclude:: manifests/appstack_site-created.yaml
+      .. literalinclude:: outputs/appstack_site.yaml
          :language: yaml
 
       * Execute the following command to see the appstack object
@@ -69,7 +69,7 @@ Datacenter Edge
 
         Notice the site is **Waiting for Registration**
 
-        .. literalinclude:: manifests/appstack_site-get.json
+        .. literalinclude:: outputs/appstack_site.json
            :emphasize-lines: 67
            :language: json
 
