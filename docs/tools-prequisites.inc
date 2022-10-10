@@ -114,6 +114,13 @@ Install Tools
          $ echo 'python3 del powerline_setup' >> $HOME/.vimrc
          $ echo 'set laststatus=2' >> $HOME/.vimrc
 
+   .. tab:: moreutils
+
+      .. code-block:: console
+         :caption: Install to use sponge
+
+         $ sudo apt get install --yes moreutils
+
 
 Authentication
 --------------
