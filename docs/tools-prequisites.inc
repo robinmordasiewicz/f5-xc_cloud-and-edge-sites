@@ -103,7 +103,7 @@ Install Tools
          $ echo 'powerline-daemon -q' >> $HOME/.bashrc
          $ echo 'POWERLINE_BASH_CONTINUATION=1' >> $HOME/.bashrc
          $ echo 'POWERLINE_BASH_SELECT=1' >> $HOME/.bashrc
-         $ source /usr/share/powerline/bindings/bash/powerline.sh
+         $ echo 'source /usr/share/powerline/bindings/bash/powerline.sh' >> $HOME/.bashrc
          $
 
       .. code-block:: console
