@@ -45,14 +45,15 @@ Install Tools
          $ sudo apt -y install terraform
          $
 
-   .. tab:: jq
+   .. tab:: utilities
 
       .. code-block:: console
-         :caption: Install jq
+         :caption: Install jq yamllint
  
          $ sudo apt update
          $ sudo apt -y install jq
-         $ 
+         $ sudo snap install yq
+         $ sudo apt-get install -y yamllint
 
    .. tab:: gh
 

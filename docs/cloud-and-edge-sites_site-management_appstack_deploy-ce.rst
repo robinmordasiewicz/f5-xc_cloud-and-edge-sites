@@ -1,9 +1,6 @@
 Deploy CE
 =========
 
-Configure CE
-------------
-
 .. tabs::
 
    .. group-tab:: UI
@@ -67,7 +64,7 @@ Configure CE
          * Leave **fleet name** ``empty``
          * Select certified hardware: **kvm-volstack-combo**
 
-      .. code-block:: sh
+      .. code-block:: console
 
          $ configure
          ? What is your token? bd42d5f5-a2a1-4bf3-b493-94b19de1c858
@@ -87,56 +84,24 @@ Configure CE
          token: bd42d5f5-a2a1-4bf3-b493-94b19de1c858
          ? Confirm configuration? Yes
 
-   .. group-tab:: vesctl
+   .. group-tab:: curl
 
-      .. code-block:: console
-     
-         $ vesctl configuration get registration -n system
-         +-----------+----------------------------------------+------------------------------------+
-         | NAMESPACE |                  NAME                  |               LABELS               |
-         +-----------+----------------------------------------+------------------------------------+
-         | system    | r-616f9b3b-6fdc-4bc4-b979-ccecee7a61ec | map[domain:                        |
-         |           |                                        | host-os-version:centos-7-2009-30   |
-         |           |                                        | hw-model:standard-pc-q35-ich9-2009 |
-         |           |                                        | hw-serial-number: hw-vendor:qemu   |
-         |           |                                        | hw-version:pc-q35-3-1              |
-         |           |                                        | ves.io/provider:ves-io-UNKNOWN]    |
-         +-----------+----------------------------------------+------------------------------------+
+      * Edit the :file:`ce-register.json` and change values in <brackets>  
 
-      .. code-block:: console
+        .. literalinclude:: manifests/ce-register.json
+           :language: json
 
-         $ vesctl configuration list registration -n system --outfmt json | jq '.items' | jq -r '.[0].name'
-         r-616f9b3b-6fdc-4bc4-b979-ccecee7a61ec
+      * Run the following curl command to remotely configure the CE node.
 
+        .. code-block:: console
+
+           $ vesctl configuration get token site-token --outfmt json -n system | jq -r ".system_metadata.uid"
+           <token-value>
+           $ curl -k \
+             -u "admin:Volterra123" \
+             -H 'Content-Type: application/json' \
+             -H 'Accept: application/json, text/plain, */*' \
+             -d @ce-register.json \
+             https://10.1.1.5:65500/api/ves.io.vpm/introspect/write/ves.io.vpm.config/update
 
 
-Registrations
--------------
-
-.. tabs::
-
-   .. group-tab:: UI
-
-      * In :menuselection:`Cloud and Edge Sites`, navigate to :menuselection:`Manage --> Site Management --> Registrations` and click :material-outlined:`check_box;2em;sd-text-primary`
-
-        .. image:: images/cloud-and-edge-sites_site-management_registration-approve.png
-            :class: no-scaled-link
-            :width: 100%
-
-      * Review that all fields are populated, an click :bdg-primary:`Save and Exit`
-
-        .. image:: images/cloud-and-edge-sites_site-management_registration-approve_save-and-exit.png
-            :class: no-scaled-link
-            :width: 100%
-
-      * In :menuselection:`Cloud and Edge Sites`, navigate to :menuselection:`Sites --> Site List`. The site transitions to a **Provisioning** state for ~20 minutes. Go get a :fa:`coffee` and resume when the site is online.
-
-        .. image:: images/cloud-and-edge-sites_site-list.png
-            :class: no-scaled-link
-            :width: 100%
-
-      * After ~20 minutes the The **Customer Edge Admin** console reports :bdg-success:`Provisioned`
-
-        .. image:: images/cloud-and-edge-sites_site-management_deploy-appstack-ce_provisioned.png
-            :class: no-scaled-link
-            :width: 100%
