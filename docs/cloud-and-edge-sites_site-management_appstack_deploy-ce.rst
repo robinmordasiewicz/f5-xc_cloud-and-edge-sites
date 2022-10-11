@@ -35,13 +35,6 @@ Configure CE
    .. group-tab:: console
 
       * SSH or access the console with default username: **admin** and default password **Volterra123**
-      * Enter command: **configure**
-         * Enter token from `token link`
-         * Enter the <site-name>
-         * Enter the <host-name>
-         * Enter latitude and longitude
-         * Leave **fleet name** ``empty``
-         * Select certified hardware: **kvm-volstack-combo**
    
       .. code-block:: console
 
@@ -65,6 +58,17 @@ Configure CE
          - factory reset of the Node
          - collect debug information for support
          Use TAB to select various options.
+
+      * Enter command: **configure**
+         * Enter token from `token link`
+         * Enter the <site-name>
+         * Enter the <host-name>
+         * Enter latitude and longitude
+         * Leave **fleet name** ``empty``
+         * Select certified hardware: **kvm-volstack-combo**
+
+      .. code-block:: sh
+
          $ configure
          ? What is your token? bd42d5f5-a2a1-4bf3-b493-94b19de1c858
          ? What is your site name? [optional] site-name
@@ -83,7 +87,27 @@ Configure CE
          token: bd42d5f5-a2a1-4bf3-b493-94b19de1c858
          ? Confirm configuration? Yes
 
-vesctl configuration get registration -n system
+   .. group-tab:: vesctl
+
+      .. code-block:: console
+     
+         $ vesctl configuration get registration -n system
+         +-----------+----------------------------------------+------------------------------------+
+         | NAMESPACE |                  NAME                  |               LABELS               |
+         +-----------+----------------------------------------+------------------------------------+
+         | system    | r-9e950bbe-9751-44df-bb96-0def6e4b42fa | map[domain:                        |
+         |           |                                        | host-os-version:centos-7-2009-30   |
+         |           |                                        | hw-model:standard-pc-q35-ich9-2009 |
+         |           |                                        | hw-serial-number: hw-vendor:qemu   |
+         |           |                                        | hw-version:pc-q35-3-1              |
+         |           |                                        | ves.io/provider:ves-io-UNKNOWN]    |
+         +-----------+----------------------------------------+------------------------------------+
+
+      .. code-block:: console
+
+         $ vesctl configuration list registration -n system --outfmt json | jq '.items' | jq -r '.[0].name'
+
+
 
 Registrations
 -------------
