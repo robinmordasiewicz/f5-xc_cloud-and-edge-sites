@@ -55,6 +55,6 @@ Site Tokens
 
       .. code-block:: console
 
-         $ vesctl configuration get token site-token --outfmt json -n system | jq ".system_metadata.uid"
-         "be4204f5-a2a1-4bf3-b493-86753091c858"
+         $ vesctl configuration get token site-token --outfmt json -n system | jq -r ".system_metadata.uid"
+         be4204f5-a2a1-4bf3-b493-86753091c858
 

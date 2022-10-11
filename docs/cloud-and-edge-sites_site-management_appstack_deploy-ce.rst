@@ -95,7 +95,7 @@ Configure CE
          +-----------+----------------------------------------+------------------------------------+
          | NAMESPACE |                  NAME                  |               LABELS               |
          +-----------+----------------------------------------+------------------------------------+
-         | system    | r-9e950bbe-9751-44df-bb96-0def6e4b42fa | map[domain:                        |
+         | system    | r-616f9b3b-6fdc-4bc4-b979-ccecee7a61ec | map[domain:                        |
          |           |                                        | host-os-version:centos-7-2009-30   |
          |           |                                        | hw-model:standard-pc-q35-ich9-2009 |
          |           |                                        | hw-serial-number: hw-vendor:qemu   |
@@ -106,6 +106,7 @@ Configure CE
       .. code-block:: console
 
          $ vesctl configuration list registration -n system --outfmt json | jq '.items' | jq -r '.[0].name'
+         r-616f9b3b-6fdc-4bc4-b979-ccecee7a61ec
 
 
 
