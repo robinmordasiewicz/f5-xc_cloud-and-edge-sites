@@ -85,7 +85,7 @@ Managed K8s
 
       * Replace highlighted values in file: :file:`k8s_cluster.json`
 
-        .. literalinclude:: manifests/k8s_cluster.json
+        .. literalinclude:: ../manifests/k8s_cluster.json
            :emphasize-lines: 3
            :language: json
 
