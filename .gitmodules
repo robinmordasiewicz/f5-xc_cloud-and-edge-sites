@@ -1,3 +1,0 @@
-[submodule "docs/manifests"]
-	path = docs/manifests
-	url = https://github.com/robinmordasiewicz/manifests.git

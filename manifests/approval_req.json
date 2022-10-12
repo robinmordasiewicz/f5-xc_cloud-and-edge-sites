@@ -1,0 +1,12 @@
+{
+  "name": "<reg-name>",
+  "namespace": "system",
+  "passport": {
+    "cluster_name": "<site-name>",
+    "cluster_size": 1,
+    "cluster_type": "ce",
+    "latitude": "<latitude>",
+    "longitude": "<longitude>"
+  },
+  "state": "APPROVED"
+}

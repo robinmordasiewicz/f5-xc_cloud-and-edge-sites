@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "name": "virtual-k8s",
+    "namespace": "<namespace>",
+    "labels": {},
+    "annotations": {},
+    "disable": false
+  },
+  "spec": {
+    "vsite_refs": [
+      {
+        "kind": "virtual_site",
+        "tenant": "ves-io",
+        "namespace": "shared",
+        "name": "ves-io-all-res"
+      }
+    ],
+    "disabled": {}
+  }
+}

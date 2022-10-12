@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "name": "<site-name>",
+    "labels": {},
+    "annotations": {},
+    "namespace": "system",
+    "disable": false
+  },
+  "spec": {
+    "no_local_access": {},
+    "global_access_enable": {},
+    "use_default_psp": {},
+    "use_default_cluster_roles": {},
+    "use_default_cluster_role_bindings": {},
+    "cluster_wide_app_list": {
+      "cluster_wide_apps": [
+        {
+          "argo_cd": {
+            "local_domain": {
+              "local_domain": "localdomain.local",
+              "default_port": {},
+              "password": {
+                "blindfold_secret_info": {
+                  "location": "string:///AAAAFmY1LXhjLWxhYi1hcHAtanFndWlzZ2kAAAABAAAAAAAAAGUCAAAABQMIQu6zAAABALA3EV+wz43qsex7kSlAz2FSdn8FM1inXCHrRgIbPflBH5xSyEhop2w9eRbXW84MFRblsuR4dpM1YtmmIvEQIuNjaCPIbz3z4GQvvZrcyYarH3x6Ha2OgcmU8FzvHVEoHzqmxqCkqvFcrkfQfdz3wArGUWEmZLjKilBa1TR7ydiZQjkXSGGT4PvTyqjMyHEqdZyDgS51k7nucEWBlHCCRoIoQn/PXmWgDOgQtDFfNYvMr4sfIN9U9gGWbAGNsnKk4XTQAiSdCb0uDEtA20G5oHufvF6zTKdm4S3cUS4+5TbapP52Wzw6DtVbqQ6DYeGzGlakGohFRAtWb8qZCisSfEUAAAEAXvwAtOU3BT5By4tU1+nx6BNNoSmvo7s2WmauVTSmG9mf5l4OKkY5PtwN3ZYtnwdQnHvAGdyedMIBGM+leFZefTHfWZ4VtnFsIZDe6Qe7HyNOmf0ydIcsvMqmQbK/x0Ri801pmAx/rVQMPU3fvJIfttM4pJLszwHYriCreQVdX+31xMqbhqEdGMOZi0LKJMzmWzBwkaLBkZNPJR6sN5YDjCoiw74MgRoMwkScGEdhVCjy7GBUplf8vpbYQSQ1DTmvzD1YirkmAmQ3/PIzz4lvmcZkTqCdCkNrKhrOIvVduPMs2HRpqoTpdSWY62aHOI/V8AiwBZGGwK0SirYFwyzAIQ4Y0sZZEveX123Ay3rxJ80hsE9MTBQCjcT50Q=="
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "no_insecure_registries": {},
+    "cluster_scoped_access_deny": {}
+  }
+}

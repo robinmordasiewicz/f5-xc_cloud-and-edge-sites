@@ -1,0 +1,9 @@
+{
+  "token": "12ee8341-5373-472f-a191-6accd4b4bd42",
+  "cluster_name": "site-name",
+  "hostname": "node-name",
+  "latitude": "54",
+  "longitude": "40",
+  "certified_hardware": "kvm-volstack-combo",
+  "primary_outside_nic": "eth0"
+}

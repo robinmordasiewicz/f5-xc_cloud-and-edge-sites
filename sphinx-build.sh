@@ -2,7 +2,7 @@
 
 set -x
 
-COMMAND=(/bin/bash -c "pip install --upgrade pip setuptools wheel ; pip install -r requirements.txt -U ; make -C docs clean html")
+COMMAND=(/bin/bash -c "pip install --upgrade pip setuptools wheel ; pip install -r docs/requirements.txt -U ; make -C docs clean html")
 
 
 exec docker run --rm -t \

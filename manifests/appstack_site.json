@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "name": "<site-name>",
+    "namespace": "system",
+    "labels": {},
+    "annotations": {},
+    "disable": false
+  },
+  "spec": {
+    "volterra_certified_hw": "kvm-voltstack-combo",
+    "master_nodes": [
+      "<node-name>"
+    ],
+    "no_bond_devices": {},
+    "default_network_config": {},
+    "default_storage_config": {},
+    "disable_gpu": {},
+    "address": "801 5th Ave Seattle, WA 98104 United States",
+    "coordinates": {
+      "latitude": 47.605199,
+      "longitude": -122.330996
+    },
+    "k8s_cluster": {
+      "namespace": "system",
+      "name": "<site-name>",
+      "kind": "k8s_cluster"
+    },
+    "logs_streaming_disabled": {},
+    "deny_all_usb": {},
+    "disable_vm": {},
+    "default_blocked_services": {},
+    "sw": {
+      "default_sw_version": {}
+    },
+    "os": {
+      "default_os_version": {}
+    }
+  }
+}
