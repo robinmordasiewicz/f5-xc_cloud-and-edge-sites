@@ -27,7 +27,7 @@ Site Tokens
 
       Replace highlighted values in :file:`token.json`
 
-      .. literalinclude:: manifests/token.json
+      .. literalinclude:: ../manifests/token.json
          :emphasize-lines: 3
          :language: json
 

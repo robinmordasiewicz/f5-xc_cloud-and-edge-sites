@@ -45,7 +45,7 @@ Create Virtual k8s
 
           :file:`virtual_k8s.json`
   
-          .. literalinclude:: manifests/virtual_k8s.json
+          .. literalinclude:: ../manifests/virtual_k8s.json
              :language: json
 
           .. code-block:: console
@@ -77,7 +77,7 @@ Deploy Workload
 
           :file:`virtual_k8s.json`
 
-          .. literalinclude:: manifests/virtual_k8s.json
+          .. literalinclude:: ../manifests/virtual_k8s.json
              :language: json
 
           .. code-block:: console

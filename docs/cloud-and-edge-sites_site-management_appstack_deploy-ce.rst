@@ -89,7 +89,7 @@ Deploy CE
 
       * Edit the :file:`ce-register.json` and change values
 
-        .. literalinclude:: manifests/ce-register.json
+        .. literalinclude:: ../manifests/ce-register.json
            :language: json
 
       * Run the following curl command to remotely configure the CE node.
