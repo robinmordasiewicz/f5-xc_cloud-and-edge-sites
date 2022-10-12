@@ -1,1 +1,0 @@
-: ${DOC_IMG:=sphinxdoc/sphinx:latest}
