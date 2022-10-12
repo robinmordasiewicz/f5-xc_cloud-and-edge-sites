@@ -38,7 +38,6 @@ Datacenter Edge
 
       .. literalinclude:: ../manifests/appstack_site.json
          :emphasize-lines: 3,12,18,20,21,25
-         :language: json
 
       .. code-block:: console
 

@@ -15,10 +15,10 @@
     "default_network_config": {},
     "default_storage_config": {},
     "disable_gpu": {},
-    "address": "801 5th Ave Seattle, WA 98104 United States",
+    "address": "<address>",
     "coordinates": {
-      "latitude": 47.605199,
-      "longitude": -122.330996
+      "latitude": <latitude>,
+      "longitude": <longitude>
     },
     "k8s_cluster": {
       "namespace": "system",

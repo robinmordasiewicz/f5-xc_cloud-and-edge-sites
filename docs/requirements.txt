@@ -1,3 +1,5 @@
+Sphinx-Substitution-Extensions
+sphinx-prompt
 f5_sphinx_theme
 sphinx-rtd-theme
 pre-commit

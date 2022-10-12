@@ -6,7 +6,7 @@ F5 Distributed Cloud
 
 .. topic:: Workspace Guides
 
-    The F5 Distributed Cloud console is divided into workspace tiles.
+    The F5 Distributed Cloud console is divided into workspace tiles. https://|tenantname|/api
 
 .. toctree::
    :titlesonly:
@@ -14,24 +14,12 @@ F5 Distributed Cloud
    :hidden:
 
    intro.rst
-   pre-requisites.rst
+   install-tools.rst
+   administration_personal-management_credentials.rst
    cloud-and-edge-sites.rst
    distributed-apps.rst
-   .content-delivery-network.rst
-   .dns-management.rst
    load-balancers.rst
    web-app-and-api-protection.rst
-   .ddos-and-transit-services.rst
-   .bot-defense.rst
-   .application-traffic-insight.rst
-   .client-side-defense.rst
-   .account-protection.rst
-   .authentication-intelligence.rst
-   .observability.rst
-   .audit-logs-and-alerts.rst
-   .billing.rst
-   .administration.rst
-   .shared-configuration.rst
 
 
 .. card:: Clickable Card (external)
@@ -70,11 +58,7 @@ F5 Distributed Cloud
     +++
     Footer
 
-
-
 .. grid:: 2
-    :link: cloud-and-edge-sites
-    :link-type: ref
     :gutter: 1
 
     .. grid-item-card::
@@ -154,3 +138,23 @@ F5 Distributed Cloud
 .. output-cell:: console
 
     hello world
+
+.. prompt:: bash
+   :prompts: (cool_project) $
+
+   python3 -m pip install --upgrade sphinx-prompt
+
+.. prompt:: bash
+   :prompts: $
+
+   python3 -m pip install --upgrade sphinx-prompt
+
+.. prompt:: bash
+   :prompts: (cool_project) $
+
+   python3 -m pip install --upgrade sphinx-prompt
+
+.. prompt:: text
+   :prompts: $
+
+   python3 -m pip install --upgrade sphinx-prompt

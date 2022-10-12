@@ -1,12 +1,13 @@
-.. _prerequisites:
+.. _install-tools:
+
 :sd_hide_title:
 
-Pre-Requisites
+Install Tools
 ==============
 
-.. topic:: Pre-Requisites
+.. topic:: Install software tools
 
-    Install command line tools, certificates, and token
+    Install software tools.
 
 Tools
 -----
@@ -49,6 +50,7 @@ Tools
       * https://github.com/f5devcentral/terraform-volterra
       * https://registry.terraform.io/providers/volterraedge/volterra/latest/docs/resources/volterra_voltstack_site
       * https://registry.terraform.io/providers/volterraedge/volterra/latest/docs/resources/volterra_k8s_cluster
+      * https://github.com/f5devcentral/f5-professional-services/blob/main/examples/f5-distributed-cloud/terraform/single-protected-app/main.tf
 
       .. code-block:: console
          :caption: Install terraform
@@ -84,7 +86,7 @@ Tools
          $
 
       .. code-block:: console
-         :caption: Initialize github authentication - get a personal access token from your github account
+         :caption: Initialize github authentication - get a personal access token from a github account
 
          $ gh auth login
          ? What account do you want to log into? GitHub.com
@@ -101,8 +103,8 @@ Tools
       .. code-block:: console
          :caption: Configure github settings
 
-         $ git config --global user.email "you@example.com"
-         $ git config --global user.name "Your Name"
+         $ git config --global user.email "email@example.com"
+         $ git config --global user.name "FirstName LastName"
 
    .. tab:: powerline
 
@@ -137,112 +139,5 @@ Tools
 
          $ sudo apt get install --yes moreutils
 
-
-Authentication
---------------
-
-The API requests support two types of authentication: API Token and API Certificate. It is recommended to use API certificates as they offer more robust security via Mutual TLS (mTLS) authentication. The API tokens are used with one-way TLS authentication.
-
-Certificate
-^^^^^^^^^^^
-
-#. Select the :guilabel:`Administration` tile on the F5 Distributed Cloud Services home page.
-
-   .. image:: images/home-administration.png
-      :class: no-scaled-link
-      :width: 100%
-
-#. Click :menuselection:`Personal Management --> Credentials` and click :bdg-primary-line:`Add Credentials`
-
-   .. image:: images/administration-personal-management-credentials-add.png
-      :class: no-scaled-link
-      :width: 100%
-
-#. Name your credentials
-
-   .. image:: images/add-credentials.png
-      :class: no-scaled-link
-      :width: 100%
-
-#. Install cert
-
-   .. code-block:: console
-      :caption: Upload cert to jumpbox
-
-      $ scp -P 47000 ~/Downloads/f5-xc-lab-app.console.ves.volterra.io.api-creds-2.p12 ubuntu@<your-jumpbox-hostname>.access.udf.f5.com:~/
-
-
-   .. tabs::
-
-      .. tab:: export passphrase
-
-         .. code-block:: console
-            :caption: Enter your password and press <enter-key>
-
-            $ read -s VES_P12_PASSWORD
-
-         .. code-block:: console
-
-            $ export VES_P12_PASSWORD
-
-         .. code-block:: console
-            :caption: ~/.vesconfig
-
-            $ cat <<EOF >> ~/.vesconfig
-            $ server-urls: https://f5-xc-lab-app.console.ves.volterra.io/api
-            $ key: /home/ubuntu/vesprivate.key
-            $ cert: /home/ubuntu/vescred.cert
-            $ EOF
-
-         .. code-block:: console
-            :caption: vesctl commmand
-
-            $ vesctl cfg list namespace -n system
-
-      .. tab:: strip passphrase
-
-         .. code-block:: console
-            :caption: Create cert
-
-            $ openssl pkcs12 -in ~/f5-xc-lab-app.console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out ~/vescred.cert
-            Enter Import Password:
-
-         .. code-block:: console
-            :caption: Create key
-
-            $ openssl pkcs12 -in ~/f5-xc-lab-app.console.ves.volterra.io.api-creds.p12 -nodes -nocerts -out ~/vesprivate.key
-            Enter Import Password:
-
-         .. code-block:: console
-            :caption: ~/.vesconfig
-
-            $ cat <<EOF >> ~/.vesconfig
-            $ server-urls: https://acmecorp.console.ves.volterra.io/api
-            $ p12-bundle: /home/ubuntu/acmecorp.console.ves.volterra.io.volterra.us/api
-            $ EOF
-
-         .. code-block:: console
-            :caption: vesctl commmand
-
-            $ vesctl cfg list namespace -n system
-
-API Token
-^^^^^^^^^
-
-API requests using the API Token authentication method must provide the token in the Authorization request header. Requests using API Token authentication will have the same RBAC assigned as the user who created the API Token.
-
-.. image:: images/create-api-token.png
-   :class: no-scaled-link
-   :width: 100%
-
-.. image:: images/api-token-copy.png
-   :class: no-scaled-link
-   :width: 100%
-
-.. code-block:: console
-   :caption: curl to api endpoint
-
-   $ curl https://f5-xc-lab-app.console.ves.volterra.io/api/web/namespaces -H "Authorization: APIToken H7RD1JKWZtM7BUd677s0fzGVxbY="
-   $ curl https://f5-xc-lab-app.console.ves.volterra.io/api/config/namespaces/system/sites -H "Authorization: APIToken H7RD1JKWZtM7BUd677s0fzGVxbY="
 
 

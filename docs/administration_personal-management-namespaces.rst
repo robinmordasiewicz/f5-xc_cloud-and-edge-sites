@@ -1,4 +1,5 @@
 .. _administration_personal-management_namespaces:
+
 :sd_hide_title:
 
 Namespaces
