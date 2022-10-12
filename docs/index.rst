@@ -1,10 +1,17 @@
+
+:sd_hide_title:
+
 F5 Distributed Cloud
 ====================
 
+.. topic:: Workspace Guides
+
+    The F5 Distributed Cloud console is divided into workspace tiles.
+
 .. toctree::
-   :caption: Guided Labs
    :titlesonly:
    :maxdepth: 1
+   :hidden:
 
    intro.rst
    pre-requisites.rst
@@ -26,9 +33,6 @@ F5 Distributed Cloud
    .administration.rst
    .shared-configuration.rst
 
-.. topic:: Workspace Guides
-
-    The F5 Distributed Cloud console is divided into workspace tiles.
 
 .. card:: Clickable Card (external)
     :link: https://example.com

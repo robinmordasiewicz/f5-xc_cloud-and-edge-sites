@@ -33,60 +33,61 @@ Deploy CE
 
       * SSH or access the console with default username: **admin** and default password **Volterra123**
    
-      .. code-block:: console
+        .. code-block:: console
 
-         $ ssh admin@10.1.1.5
+           $ ssh admin@10.1.1.5
 
-         UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED
-         All actions performed on this device are audited
-         admin@10.1.1.5's password:
+           UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED
+           All actions performed on this device are audited
+           admin@10.1.1.5's password:
 
-         |     $$$$$$\  $$\   $$\                $$$$$$\  $$\       $$$$$$\
-         |     $$  __$$\ \__|  $$ |              $$  __$$\ $$ |      \_$$  _|
-         |     $$ /  \__|$$\ $$$$$$\    $$$$$$\  $$ /  \__|$$ |        $$ |
-         |     \$$$$$$\  $$ |\_$$  _|  $$  __$$\ $$ |      $$ |        $$ |
-         |      \____$$\ $$ |  $$ |    $$$$$$$$ |$$ |      $$ |        $$ |
-         |     $$\   $$ |$$ |  $$ |$$\ $$   ____|$$ |  $$\ $$ |        $$ |
-         |     \$$$$$$  |$$ |  \$$$$  |\$$$$$$$\ \$$$$$$  |$$$$$$$$\ $$$$$$\
-         |      \______/ \__|   \____/  \_______| \______/ \________|\______|
-         WELCOME IN SITE CLI
-         This allows to:
-         - configure registration information
-         - factory reset of the Node
-         - collect debug information for support
-         Use TAB to select various options.
+           |     $$$$$$\  $$\   $$\                $$$$$$\  $$\       $$$$$$\
+           |     $$  __$$\ \__|  $$ |              $$  __$$\ $$ |      \_$$  _|
+           |     $$ /  \__|$$\ $$$$$$\    $$$$$$\  $$ /  \__|$$ |        $$ |
+           |     \$$$$$$\  $$ |\_$$  _|  $$  __$$\ $$ |      $$ |        $$ |
+           |      \____$$\ $$ |  $$ |    $$$$$$$$ |$$ |      $$ |        $$ |
+           |     $$\   $$ |$$ |  $$ |$$\ $$   ____|$$ |  $$\ $$ |        $$ |
+           |     \$$$$$$  |$$ |  \$$$$  |\$$$$$$$\ \$$$$$$  |$$$$$$$$\ $$$$$$\
+           |      \______/ \__|   \____/  \_______| \______/ \________|\______|
+           WELCOME IN SITE CLI
+           This allows to:
+           - configure registration information
+           - factory reset of the Node
+           - collect debug information for support
+           Use TAB to select various options.
 
       * Enter command: **configure**
-         * Enter token from `token link`
-         * Enter the <site-name>
-         * Enter the <host-name>
-         * Enter latitude and longitude
-         * Leave **fleet name** ``empty``
-         * Select certified hardware: **kvm-volstack-combo**
 
-      .. code-block:: console
+        #. Enter token from `token link`
+        #. Enter the <site-name>
+        #. Enter the <host-name>
+        #. Enter latitude and longitude
+        #. Leave **fleet name** ``empty``
+        #. Select certified hardware: **kvm-volstack-combo**
 
-         $ configure
-         ? What is your token? bd42d5f5-a2a1-4bf3-b493-94b19de1c858
-         ? What is your site name? [optional] site-name
-         ? What is your hostname? [optional] node-name
-         ? What is your latitude? [optional] 47.605199
-         ? What is your longitude? [optional] -122.330996
-         ? What is your default fleet name? [optional]
-         ? Select certified hardware: kvm-volstack-combo
-         ? Select primary outside NIC: eth0
-         certifiedHardware: kvm-volstack-combo
-         clusterName: site-name
-         hostname: node-name
-         latitude: 47.605198
-         longitude: -122.33099
-         primaryOutsideNic: eth0
-         token: bd42d5f5-a2a1-4bf3-b493-94b19de1c858
-         ? Confirm configuration? Yes
+        .. code-block:: console
+
+           $ configure
+           ? What is your token? bd42d5f5-a2a1-4bf3-b493-94b19de1c858
+           ? What is your site name? [optional] site-name
+           ? What is your hostname? [optional] node-name
+           ? What is your latitude? [optional] 47.605199
+           ? What is your longitude? [optional] -122.330996
+           ? What is your default fleet name? [optional]
+           ? Select certified hardware: kvm-volstack-combo
+           ? Select primary outside NIC: eth0
+           certifiedHardware: kvm-volstack-combo
+           clusterName: site-name
+           hostname: node-name
+           latitude: 47.605198
+           longitude: -122.33099
+           primaryOutsideNic: eth0
+           token: bd42d5f5-a2a1-4bf3-b493-94b19de1c858
+           ? Confirm configuration? Yes
 
    .. group-tab:: curl
 
-      * Edit the :file:`ce-register.json` and change values in <brackets>  
+      * Edit the :file:`ce-register.json` and change values
 
         .. literalinclude:: manifests/ce-register.json
            :language: json
@@ -95,12 +96,9 @@ Deploy CE
 
         .. code-block:: console
 
-           $ vesctl configuration get token site-token --outfmt json -n system | jq -r ".system_metadata.uid"
-           <token-value>
            $ curl -k \
              -u "admin:Volterra123" \
              -H 'Content-Type: application/json' \
-             -H 'Accept: application/json, text/plain, */*' \
              -d @ce-register.json \
              https://10.1.1.5:65500/api/ves.io.vpm/introspect/write/ves.io.vpm.config/update
 

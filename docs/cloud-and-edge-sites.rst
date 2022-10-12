@@ -1,9 +1,15 @@
 .. _cloud-and-edge-sites:
+:sd_hide_title:
 
 Cloud and Edge Sites
 =====================
 
+.. topic:: Cloud and Edge Sites
+
+    Workspace guide for deploying managed kubernetes in a datacenter using Appstack
+
 .. toctree::
+   :hidden:
    :caption: Guided Labs
    :titlesonly:
    :maxdepth: 1
@@ -12,7 +18,6 @@ Cloud and Edge Sites
    cloud-and-edge-sites_site-management.rst
    cloud-and-edge-sites_managed-k8s-kubeconfig.rst
    cloud-and-edge-sites_cicd.rst
-
 
 #. Select ``Cloud and Edge Sites`` section from the Home screen.
 
