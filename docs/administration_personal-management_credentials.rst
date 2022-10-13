@@ -1,9 +1,7 @@
 .. _credentials:
 
-:sd_hide_title:
-
-Credentials
-==============
+Tenant Credentials
+==================
 
 .. topic:: Authentication
 

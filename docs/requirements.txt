@@ -4,7 +4,6 @@ f5_sphinx_theme
 sphinx-rtd-theme
 pre-commit
 recommonmark
-sphinx
 sphinx-copybutton
 sphinxcontrib-blockdiag
 sphinxcontrib-nwdiag

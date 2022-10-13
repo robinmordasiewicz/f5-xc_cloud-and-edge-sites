@@ -1,22 +1,7 @@
 #!/bin/bash
 #
 
-git checkout -b deployment
-
-echo "# running in manifest folder"
-cd manifests/
-
-timeout () {
-    tput sc
-    time=$1; while [ $time -ge 0 ]; do
-        tput rc; tput el
-        printf "$2" $time
-        ((time--))
-        sleep 1
-    done
-    tput rc; tput ed;
-}
-
+echo "# Set up tenant name and check for credentials"
 read -p "Tenant Name: [f5-amer-ent] " tenantname
 tenantname="${tenantname:=f5-amer-ent}"
 
@@ -30,6 +15,24 @@ key: $HOME/vesprivate.key
 cert: $HOME/vescred.cert
 EOF
 
+read -p "Site Name: " sitename
+if [ ! "${sitename}" ]; then exit; fi
+
+git checkout -b ${sitename}
+
+
+timeout () {
+    tput sc
+    time=$1; while [ $time -ge 0 ]; do
+        tput rc; tput el
+        printf "$2" $time
+        ((time--))
+        sleep 1
+    done
+    tput rc; tput ed;
+}
+
+
 read -p "Site Address: [801 5th Ave Seattle, WA 98104 United States] " address
 address="${address:=801 5th Ave Seattle, WA 98104 United States}"
 
@@ -38,9 +41,6 @@ latitude="${latitude:=47.605199}"
 
 read -p "Site Longitude: [-122.330996] " longitude
 longitude="${longitude:=-122.330996}"
-
-read -p "Site Name: " sitename
-if [ ! "${sitename}" ]; then exit; fi
 
 read -p "CE Node IP Addr or DNS name: [10.1.1.5] " cenodeaddress
 cenodeaddress="${cenodeaddress:=10.1.1.5}"
@@ -75,6 +75,9 @@ unset argocdpassword
 encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.crt --public-key f5-amer-ent-public-key.key password.key | grep "=$"`
 
 rm password.key f5-amer-ent-public-key.key secret-policy-ves-io-allow-volterra.crt
+
+echo "# Create manifests"
+cd manifests/
 
 echo "# Create a k8s cluster object"
 jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"string:///${encryptedpassword}\" " k8s_cluster.json | sponge k8s_cluster.json

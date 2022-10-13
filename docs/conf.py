@@ -14,10 +14,10 @@ CURDIR = os.path.abspath(os.path.dirname(__file__))
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "Home"
+classname = "Infrastructure"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/robinmordasiewicz/r-mordasiewicz"
+github_repo = "https://github.com/robinmordasiewicz/infrastructure"
 
 show_source = False
 html_show_sourcelink = False
@@ -46,9 +46,6 @@ hoverxref_roles = [
 # ----------
 
 sys.path.insert(0, os.path.abspath("."))
-
-year = time.strftime("%Y")
-eventname = "Agility %s Hands-on Lab Guide" % (year)
 
 rst_prolog = open(os.path.join(CURDIR, 'rst_prolog.inc'),'r').read()
 
@@ -125,8 +122,7 @@ master_doc = "index"
 
 # General information about the project.
 project = classname
-copyright = "2022, F5 Networks, Inc."
-author = "F5 Networks, Inc."
+author = "Robin Mordasiewicz"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

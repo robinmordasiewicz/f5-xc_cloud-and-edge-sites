@@ -1,4 +1,0 @@
-:orphan:
-
-Account Protection
-==================
