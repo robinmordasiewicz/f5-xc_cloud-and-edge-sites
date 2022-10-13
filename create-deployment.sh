@@ -1,6 +1,11 @@
 #!/bin/bash
 #
 
+git checkout -b deployment
+
+echo "# running in manifest folder"
+cd manifests/
+
 timeout () {
     tput sc
     time=$1; while [ $time -ge 0 ]; do
@@ -11,8 +16,6 @@ timeout () {
     done
     tput rc; tput ed;
 }
-
-git checkout -b deployment
 
 read -p "Tenant Name: [f5-xc-lab-app] " tenantname
 tenantname="${tenantname:=f5-xc-lab-app}"
