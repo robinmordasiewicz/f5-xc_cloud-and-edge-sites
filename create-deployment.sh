@@ -110,8 +110,6 @@ unset basicauth
 
 timeout 20 "Wait for the registration to activate %s"
 
-exit
-
 echo "# Approve the registration"
 #registration=`vesctl configuration list registration -n system --outfmt json | jq '.items' | jq -r '.[0].name'`
 registration=`vesctl request rpc registration.CustomAPI.ListRegistrationsByState -i request.yaml --uri /public/namespaces/system/listregistrationsbystate --http-method POST | yq -o=json | jq '.items' | jq -r '.[0].name'`
