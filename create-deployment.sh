@@ -110,6 +110,8 @@ unset basicauth
 
 timeout 20 "Wait for the registration to activate %s"
 
+exit
+
 echo "# Approve the registration"
 registration=`vesctl configuration list registration -n system --outfmt json | jq '.items' | jq -r '.[0].name'`
 jq -r ".name = \"${registration}\" | .passport.cluster_name = \"${sitename}\" | .passport.latitude = \"${latitude}\" | .passport.longitude = \"${longitude}\" " approval_req.json | sponge approval_req.json
