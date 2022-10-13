@@ -1,8 +1,8 @@
 .. |tenantname| replace:: <tenant-name>
-.. |site-name| replace:: foo
+.. |site-name| replace:: <foo>
 .. |latitude| replace:: <latitude>
 .. |longitude| replace:: <longitude>
 .. |address| replace:: <address>
-.. |jumpbox-hostname|:: <jumpbox-hostname>
-.. |jumpbox-username|:: <username>
+.. |jumpbox-hostname| replace:: <jumpbox-hostname>
+.. |jumpbox-username| replace:: <username>
 

@@ -53,17 +53,17 @@ To access the BIG-IP, on the Class UDF screen, click the link for TMUI under the
 
 In your BIG-IP TMUI, go to **Local Traffic->iRules->Data Group Lists** and select the Data Group client_side_defense_js
 
-.. image:: images/datagrouplist.png
+image images/datagrouplist.png
 
 In the edit screen, first select the row for "access.udf.f5.com" and then click "Edit"
 
-.. image:: images/select_dg_item.png
+image images/select_dg_item.png
 
 Replace the Value "<REPLACEME>" with the JS you copied from the XC CSD configuration in step 3.  It should be one long line of JS, exactly as copied.
 
 Click the "Add" button and then click "Update" at the bottom of the form to save the changes to the Data Group.
 
-.. image:: images/update_dg_item.png
+image images/update_dg_item.png
 
 After you have added the JavaScript tag to your web page, continue with step 4 from the screenshot above by adding the domain to protect. For this lab use **f5.com**.
 

@@ -1,3 +1,5 @@
+:orphan:
+
 .. _bot-defense:
 
 BoT Defense

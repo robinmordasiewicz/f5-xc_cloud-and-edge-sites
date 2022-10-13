@@ -115,7 +115,7 @@ You can configure other alert systems as well
 
 Example for an alert email "Verify Email" 
 
-.. image:: images/alert-email.png
+image images/alert-email.png
 
 You can also see alerts interactively:
 

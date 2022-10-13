@@ -1,3 +1,5 @@
+:orphan:
+
 .. _application-traffic-insight:
 
 Application Traffic Insight

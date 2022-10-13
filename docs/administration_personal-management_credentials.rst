@@ -40,54 +40,54 @@ Certificate
 
 * Choose to either remove the cert/key passphrase, or set a passworde nvironment variable for the cert file
 
-   .. tabs::
+  .. tabs::
 
-      .. tab:: Remove passphrase
+     .. tab:: Remove passphrase
 
-         .. code-block:: console
-            :substitutions:
-            :caption: Create cert
+        .. code-block:: console
+           :substitutions:
+           :caption: Create cert
 
-            $ openssl pkcs12 -in ~/|tenantname|.console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out ~/vescred.cert
-            Enter Import Password:
+           $ openssl pkcs12 -in ~/|tenantname|.console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out ~/vescred.cert
+           Enter Import Password:
 
-         .. code-block:: console
-            :substitutions:
-            :caption: Create key
+        .. code-block:: console
+           :substitutions:
+           :caption: Create key
 
-            $ openssl pkcs12 -in ~/|tenantname|.console.ves.volterra.io.api-creds.p12 -nodes -nocerts -out ~/vesprivate.key
-            Enter Import Password:
+           $ openssl pkcs12 -in ~/|tenantname|.console.ves.volterra.io.api-creds.p12 -nodes -nocerts -out ~/vesprivate.key
+           Enter Import Password:
 
-         .. code-block:: console
-            :substitutions:
-            :caption: Create ~/.vesconfig
+        .. code-block:: console
+           :substitutions:
+           :caption: Create ~/.vesconfig
 
-            $ cat <<EOF > ~/.vesconfig
-            $ server-urls: https://|tenantname|.console.ves.volterra.io/api
-            $ key: /home/ubuntu/vesprivate.key
-            $ cert: /home/ubuntu/vescred.cert
-            $ EOF
+           $ cat <<EOF > ~/.vesconfig
+           $ server-urls: https://|tenantname|.console.ves.volterra.io/api
+           $ key: /home/ubuntu/vesprivate.key
+           $ cert: /home/ubuntu/vescred.cert
+           $ EOF
 
-      .. tab:: Export passphrase
+     .. tab:: Export passphrase
 
-         .. code-block:: console
-            :caption: Enter the cert password and press <enter-key>
+        .. code-block:: console
+           :caption: Enter the cert password and press <enter-key>
 
-            $ read -s VES_P12_PASSWORD
+           $ read -s VES_P12_PASSWORD
 
-         .. code-block:: console
-            :caption: export the password environment variable
+        .. code-block:: console
+           :caption: export the password environment variable
 
-            $ export VES_P12_PASSWORD
+           $ export VES_P12_PASSWORD
 
-         .. code-block:: console
-            :substitutions:
-            :caption: Create ~/.vesconfig
+        .. code-block:: console
+           :substitutions:
+           :caption: Create ~/.vesconfig
 
-            $ cat <<EOF > ~/.vesconfig
-            $ server-urls: https://|tenantname|.console.ves.volterra.io/api
-            $ p12-bundle: /home/ubuntu/|tenantname|.console.ves.volterra.io.volterra.us/api
-            $ EOF
+           $ cat <<EOF > ~/.vesconfig
+           $ server-urls: https://|tenantname|.console.ves.volterra.io/api
+           $ p12-bundle: /home/ubuntu/|tenantname|.console.ves.volterra.io.volterra.us/api
+           $ EOF
 
 API Token
 ^^^^^^^^^

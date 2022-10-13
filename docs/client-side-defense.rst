@@ -1,3 +1,5 @@
+:orphan:
+
 .. _client-side-defense:
 
 Client Side Defense
