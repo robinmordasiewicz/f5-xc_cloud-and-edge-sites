@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 
-
 git checkout -b deployment
 
 echo "# running in manifest folder"
@@ -18,8 +17,8 @@ timeout () {
     tput rc; tput ed;
 }
 
-read -p "Tenant Name: [f5-xc-lab-app] " tenantname
-tenantname="${tenantname:=f5-xc-lab-app}"
+read -p "Tenant Name: [f5-amer-ent] " tenantname
+tenantname="${tenantname:=f5-amer-ent}"
 
 echo "checking for p12 cert"
 openssl pkcs12 -in ~/${tenantname}.console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out ~/vescred.cert
@@ -49,16 +48,43 @@ ipaddr="${ipaddr:=10.1.1.5}"
 read -p "Nodename: " nodename
 if [ ! "${nodename}" ]; then exit; fi
 
-read -p "New node password: " newpassword
-if [ ! "${newpassword}" ]; then exit; fi
-
 read -p "Namespace: " namespace
 if [ ! "${namespace}" ]; then exit; fi
 
+read -s -p "CE node new password: " newpassword
+if [ ! "${newpassword}" ]; then exit; fi
+echo "*********************"
+
+echo "# Change the CE password"
+curl -sS -k "https://${ipaddr}:65500/api/ves.io.vpm/introspect/write/ves.io.vpm.node/change-password" \
+  -H 'Authorization: Basic YWRtaW46Vm9sdGVycmExMjM=' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json' \
+  --data-raw "{\"current_password\":\"Volterra123\",\"new_password\":\"${newpassword}\",\"username\":\"admin\"}"
+basicauth=`echo -n user:${newpassword} | base64`
+unset newpassword
+
+read -s -p "ArgoCD password: " argocdpassword
+if [ ! "${argocdpassword}" ]; then exit; fi
+
+vesctl request secrets get-public-key > f5-amer-ent-public-key.key
+vesctl request secrets get-policy-document --namespace shared --name ves-io-allow-volterra > secret-policy-ves-io-allow-volterra.crt
+echo -n ${argocdpassword} > password.key
+unset argocdpassword
+encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.pol --public-key f5-amer-ent-public-key.key password.key | grep "=$"`
+
+rm password.key f5-amer-ent-public-key.key secret-policy-ves-io-allow-volterra.crt
+
 echo "# Create a k8s cluster object"
+jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"string:///${encryptedpassword}\" " k8s_cluster.json | sponge k8s_cluster.json
+unset encryptedpassword
+
 jq -r ".metadata.name = \"${sitename}\" " k8s_cluster.json | sponge k8s_cluster.json
 git add k8s_cluster.json && git commit --quiet -m "creating deployment manifests"
 vesctl configuration apply k8s_cluster -i k8s_cluster.json
+
+jq -r ".spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
+git add k8s_cluster.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create an appstack site"
 jq -r ".metadata.name = \"${sitename}\" | .spec.k8s_cluster.name = \"${sitename}\" | .spec.master_nodes[] = \"${nodename}\" | .spec.address = \"${address}\" | .spec.coordinates.latitude = \"${latitude}\" | .spec.coordinates.longitude = \"${longitude}\" " appstack_site.json | sponge appstack_site.json
@@ -72,22 +98,14 @@ vesctl configuration apply token -i token.json
 timeout 15 "# Wait for token creation %s"
 token=`vesctl configuration get token ${sitename}-token --outfmt json -n system | jq -r ".system_metadata.uid"`
 
-echo "# Change the CE password"
-curl -sS -k "https://${ipaddr}:65500/api/ves.io.vpm/introspect/write/ves.io.vpm.node/change-password" \
-  -H 'Accept: application/json, text/plain, */*' \
-  -u "admin:Volterra123" \
-  -H 'Content-Type: application/json' \
-  --data-raw "{\"current_password\":\"Volterra123\",\"new_password\":\"${newpassword}\",\"username\":\"admin\"}"
-
-timeout 30 "# Wait for the CE to reconfigure %s"
-
 echo "# Register the CE"
 jq -r ".token = \"${token}\" | .cluster_name = \"${sitename}\" | .hostname = \"${nodename}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" " ce-register.json | sponge ce-register.json
 git add ce-register.json && git commit --quiet -m "creating deployment manifests"
 curl -sS -k "https://${ipaddr}:65500/api/ves.io.vpm/introspect/write/ves.io.vpm.config/update" \
-  -u "admin:${newpassword}" \
+  -H "Authorization: Basic ${basicauth}" \
   -H 'Content-Type: application/json' \
   -d @ce-register.json
+unset basicauth
 
 timeout 20 "Wait for the registration to activate %s"
 

@@ -8,5 +8,8 @@ pdf/*
 terraform.tfstate*
 *.rpm
 *.swp
+*.crt
+*.p12
+*.key
 .virtualenv
 docs/class6/temp
