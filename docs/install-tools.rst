@@ -2,15 +2,12 @@
 
 :sd_hide_title:
 
-Install Tools
+Tools
 ==============
 
-.. topic:: Install software tools
+.. topic:: Software Utilities
 
-    Install software tools.
-
-Tools
------
+    If you are using the assigned jumpbox, the following tools are installed and are used through the excercises.
 
 .. tabs::
 
