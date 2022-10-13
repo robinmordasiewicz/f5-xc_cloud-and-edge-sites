@@ -71,7 +71,7 @@ vesctl request secrets get-public-key > f5-amer-ent-public-key.key
 vesctl request secrets get-policy-document --namespace shared --name ves-io-allow-volterra > secret-policy-ves-io-allow-volterra.crt
 echo -n ${argocdpassword} > password.key
 unset argocdpassword
-encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.pol --public-key f5-amer-ent-public-key.key password.key | grep "=$"`
+encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.crt --public-key f5-amer-ent-public-key.key password.key | grep "=$"`
 
 rm password.key f5-amer-ent-public-key.key secret-policy-ves-io-allow-volterra.crt
 
