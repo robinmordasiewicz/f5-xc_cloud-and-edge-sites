@@ -1,0 +1,407 @@
+{
+  "Response": null,
+  "errors": [],
+  "items": [
+    {
+      "annotations": {},
+      "getSpec": {
+        "infra": {
+          "certifiedHw": "kvm-volstack-combo",
+          "hostname": "node-name",
+          "hwInfo": {
+            "bios": {
+              "date": "04/01/2014",
+              "vendor": "SeaBIOS",
+              "version": "1.12.0-1"
+            },
+            "board": {},
+            "chassis": {
+              "type": 1,
+              "vendor": "QEMU",
+              "version": "pc-q35-3.1"
+            },
+            "cpu": {
+              "cache": 16384,
+              "cores": 4,
+              "cpus": 4,
+              "flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx rdtscp lm constant_tsc rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat umip md_clear",
+              "model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+              "speed": 2000,
+              "threads": 4,
+              "vendor": "GenuineIntel"
+            },
+            "kernel": {
+              "architecture": "x86_64",
+              "release": "4.18.0-240.10.1.ves1.el7.x86_64",
+              "version": "#1 SMP Tue Mar 30 15:02:49 UTC 2021"
+            },
+            "memory": {
+              "sizeMb": 16384,
+              "type": "RAM"
+            },
+            "network": [
+              {
+                "ipAddress": [
+                  "100.64.255.1/29"
+                ],
+                "macAddress": "02:42:74:89:ea:2e",
+                "name": "docker0"
+              },
+              {
+                "driver": "virtio_net",
+                "ipAddress": [
+                  "10.1.1.5/24"
+                ],
+                "macAddress": "52:54:00:6c:9c:14",
+                "name": "eth0"
+              },
+              {
+                "ipAddress": [
+                  "127.0.0.1/8"
+                ],
+                "macAddress": "00:00:00:00:00:00",
+                "name": "lo"
+              }
+            ],
+            "os": {
+              "architecture": "amd64",
+              "name": "CentOS Linux 7.2009.30 (Core)",
+              "release": "7.2009.30",
+              "vendor": "centos",
+              "version": "7.2009.30"
+            },
+            "product": {
+              "name": "Standard PC (Q35 + ICH9, 2009)",
+              "vendor": "QEMU",
+              "version": "pc-q35-3.1"
+            },
+            "storage": [
+              {
+                "driver": "sd",
+                "model": "QEMU HARDDISK",
+                "name": "sda",
+                "serial": "QM00013",
+                "sizeGb": 128,
+                "vendor": "ATA"
+              },
+              {
+                "driver": "virtio_blk",
+                "name": "vda"
+              }
+            ],
+            "usb": [
+              {
+                "address": 1,
+                "bDeviceClass": "09",
+                "bDeviceProtocol": "03",
+                "bDeviceSubClass": "00",
+                "bMaxPacketSize": 9,
+                "bcdDevice": "4.18",
+                "bcdUsb": "3.00",
+                "bus": 2,
+                "iManufacturer": "Linux 4.18.0-240.10.1.ves1.el7.x86_64 xhci-hcd",
+                "iProduct": "xHCI Host Controller",
+                "iSerial": "0000:00:03.0",
+                "idProduct": "0x0003",
+                "idVendor": "0x1d6b",
+                "productName": "3.0 root hub",
+                "speed": "2.1: 1d6b:0003 (available configs: [1])",
+                "vendorName": "Linux Foundation"
+              },
+              {
+                "address": 2,
+                "bDeviceClass": "00",
+                "bDeviceProtocol": "00",
+                "bDeviceSubClass": "00",
+                "bMaxPacketSize": 64,
+                "bcdDevice": "0.00",
+                "bcdUsb": "2.00",
+                "bus": 1,
+                "iManufacturer": "QEMU",
+                "iProduct": "QEMU USB Tablet",
+                "iSerial": "42",
+                "idProduct": "0x0001",
+                "idVendor": "0x0627",
+                "port": 1,
+                "speed": "1.2: 0627:0001 (available configs: [1])",
+                "vendorName": "Adomax Technology Co., Ltd"
+              },
+              {
+                "address": 1,
+                "bDeviceClass": "09",
+                "bDeviceProtocol": "01",
+                "bDeviceSubClass": "00",
+                "bMaxPacketSize": 64,
+                "bcdDevice": "4.18",
+                "bcdUsb": "2.00",
+                "bus": 1,
+                "iManufacturer": "Linux 4.18.0-240.10.1.ves1.el7.x86_64 xhci-hcd",
+                "iProduct": "xHCI Host Controller",
+                "iSerial": "0000:00:03.0",
+                "idProduct": "0x0002",
+                "idVendor": "0x1d6b",
+                "productName": "2.0 root hub",
+                "speed": "1.1: 1d6b:0002 (available configs: [1])",
+                "vendorName": "Linux Foundation"
+              }
+            ]
+          },
+          "interfaces": {
+            "fabric": {
+              "addr": "10.1.1.5",
+              "name": "eth0",
+              "plen": 24
+            }
+          },
+          "machineId": "ab380eb1da8c4828b7b0250d51465f61\n"
+        },
+        "passport": {
+          "clusterName": "r-mordasiewicz-site",
+          "clusterSize": 1,
+          "clusterType": "ce",
+          "latitude": 47.605198,
+          "longitude": -122.33099,
+          "vpmVersion": "gcr.io/volterraio/vpm@sha256:ef9288fca3e542fadae1ba8a07ee110472613cda7903cfa9bb93ebd0cfaea872"
+        },
+        "token": "b5ea6640-e4bd-47ff-b30f-a1319a021f2b"
+      },
+      "labels": {
+        "host-os-version": "centos-7-2009-30",
+        "hw-model": "standard-pc-q35-ich9-2009",
+        "hw-serial-number": "",
+        "hw-vendor": "qemu",
+        "hw-version": "pc-q35-3-1",
+        "ves.io/provider": "ves-io-UNKNOWN"
+      },
+      "metadata": {
+        "annotations": {},
+        "labels": {
+          "host-os-version": "centos-7-2009-30",
+          "hw-model": "standard-pc-q35-ich9-2009",
+          "hw-serial-number": "",
+          "hw-vendor": "qemu",
+          "hw-version": "pc-q35-3-1",
+          "ves.io/provider": "ves-io-UNKNOWN"
+        },
+        "name": "r-2fcdcb64-50e7-4059-8622-2ca80da7f575",
+        "namespace": "system"
+      },
+      "name": "r-2fcdcb64-50e7-4059-8622-2ca80da7f575",
+      "namespace": "system",
+      "object": {
+        "metadata": {
+          "annotations": {},
+          "labels": {
+            "host-os-version": "centos-7-2009-30",
+            "hw-model": "standard-pc-q35-ich9-2009",
+            "hw-serial-number": "",
+            "hw-vendor": "qemu",
+            "hw-version": "pc-q35-3-1",
+            "ves.io/provider": "ves-io-UNKNOWN"
+          },
+          "name": "r-2fcdcb64-50e7-4059-8622-2ca80da7f575",
+          "namespace": "system",
+          "uid": "2fcdcb64-50e7-4059-8622-2ca80da7f575"
+        },
+        "spec": {
+          "gcSpec": {
+            "infra": {
+              "certifiedHw": "kvm-volstack-combo",
+              "hostname": "node-name",
+              "hwInfo": {
+                "bios": {
+                  "date": "04/01/2014",
+                  "vendor": "SeaBIOS",
+                  "version": "1.12.0-1"
+                },
+                "board": {},
+                "chassis": {
+                  "type": 1,
+                  "vendor": "QEMU",
+                  "version": "pc-q35-3.1"
+                },
+                "cpu": {
+                  "cache": 16384,
+                  "cores": 4,
+                  "cpus": 4,
+                  "flags": "fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx rdtscp lm constant_tsc rep_good nopl xtopology cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat umip md_clear",
+                  "model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+                  "speed": 2000,
+                  "threads": 4,
+                  "vendor": "GenuineIntel"
+                },
+                "kernel": {
+                  "architecture": "x86_64",
+                  "release": "4.18.0-240.10.1.ves1.el7.x86_64",
+                  "version": "#1 SMP Tue Mar 30 15:02:49 UTC 2021"
+                },
+                "memory": {
+                  "sizeMb": 16384,
+                  "type": "RAM"
+                },
+                "network": [
+                  {
+                    "ipAddress": [
+                      "100.64.255.1/29"
+                    ],
+                    "macAddress": "02:42:74:89:ea:2e",
+                    "name": "docker0"
+                  },
+                  {
+                    "driver": "virtio_net",
+                    "ipAddress": [
+                      "10.1.1.5/24"
+                    ],
+                    "macAddress": "52:54:00:6c:9c:14",
+                    "name": "eth0"
+                  },
+                  {
+                    "ipAddress": [
+                      "127.0.0.1/8"
+                    ],
+                    "macAddress": "00:00:00:00:00:00",
+                    "name": "lo"
+                  }
+                ],
+                "os": {
+                  "architecture": "amd64",
+                  "name": "CentOS Linux 7.2009.30 (Core)",
+                  "release": "7.2009.30",
+                  "vendor": "centos",
+                  "version": "7.2009.30"
+                },
+                "product": {
+                  "name": "Standard PC (Q35 + ICH9, 2009)",
+                  "vendor": "QEMU",
+                  "version": "pc-q35-3.1"
+                },
+                "storage": [
+                  {
+                    "driver": "sd",
+                    "model": "QEMU HARDDISK",
+                    "name": "sda",
+                    "serial": "QM00013",
+                    "sizeGb": 128,
+                    "vendor": "ATA"
+                  },
+                  {
+                    "driver": "virtio_blk",
+                    "name": "vda"
+                  }
+                ],
+                "usb": [
+                  {
+                    "address": 1,
+                    "bDeviceClass": "09",
+                    "bDeviceProtocol": "03",
+                    "bDeviceSubClass": "00",
+                    "bMaxPacketSize": 9,
+                    "bcdDevice": "4.18",
+                    "bcdUsb": "3.00",
+                    "bus": 2,
+                    "iManufacturer": "Linux 4.18.0-240.10.1.ves1.el7.x86_64 xhci-hcd",
+                    "iProduct": "xHCI Host Controller",
+                    "iSerial": "0000:00:03.0",
+                    "idProduct": "0x0003",
+                    "idVendor": "0x1d6b",
+                    "productName": "3.0 root hub",
+                    "speed": "2.1: 1d6b:0003 (available configs: [1])",
+                    "vendorName": "Linux Foundation"
+                  },
+                  {
+                    "address": 2,
+                    "bDeviceClass": "00",
+                    "bDeviceProtocol": "00",
+                    "bDeviceSubClass": "00",
+                    "bMaxPacketSize": 64,
+                    "bcdDevice": "0.00",
+                    "bcdUsb": "2.00",
+                    "bus": 1,
+                    "iManufacturer": "QEMU",
+                    "iProduct": "QEMU USB Tablet",
+                    "iSerial": "42",
+                    "idProduct": "0x0001",
+                    "idVendor": "0x0627",
+                    "port": 1,
+                    "speed": "1.2: 0627:0001 (available configs: [1])",
+                    "vendorName": "Adomax Technology Co., Ltd"
+                  },
+                  {
+                    "address": 1,
+                    "bDeviceClass": "09",
+                    "bDeviceProtocol": "01",
+                    "bDeviceSubClass": "00",
+                    "bMaxPacketSize": 64,
+                    "bcdDevice": "4.18",
+                    "bcdUsb": "2.00",
+                    "bus": 1,
+                    "iManufacturer": "Linux 4.18.0-240.10.1.ves1.el7.x86_64 xhci-hcd",
+                    "iProduct": "xHCI Host Controller",
+                    "iSerial": "0000:00:03.0",
+                    "idProduct": "0x0002",
+                    "idVendor": "0x1d6b",
+                    "productName": "2.0 root hub",
+                    "speed": "1.1: 1d6b:0002 (available configs: [1])",
+                    "vendorName": "Linux Foundation"
+                  }
+                ]
+              },
+              "interfaces": {
+                "fabric": {
+                  "addr": "10.1.1.5",
+                  "name": "eth0",
+                  "plen": 24
+                }
+              },
+              "machineId": "ab380eb1da8c4828b7b0250d51465f61\n"
+            },
+            "passport": {
+              "clusterName": "r-mordasiewicz-site",
+              "clusterSize": 1,
+              "clusterType": "ce",
+              "latitude": 47.605198,
+              "longitude": -122.33099,
+              "vpmVersion": "gcr.io/volterraio/vpm@sha256:ef9288fca3e542fadae1ba8a07ee110472613cda7903cfa9bb93ebd0cfaea872"
+            },
+            "role": [],
+            "site": [],
+            "token": "b5ea6640-e4bd-47ff-b30f-a1319a021f2b"
+          }
+        },
+        "status": {
+          "currentState": "PENDING",
+          "objectStatus": {}
+        },
+        "systemMetadata": {
+          "creationTimestamp": "2022-10-13T03:38:13.739691444Z",
+          "creatorClass": "prism",
+          "finalizers": [],
+          "labels": {},
+          "modificationTimestamp": "2022-10-13T03:38:14.215640959Z",
+          "namespace": [
+            {
+              "kind": "namespace",
+              "name": "system",
+              "tenant": "f5-amer-ent-qyyfhhfj",
+              "uid": "ffffffff-ffff-ffff-ffff-ffffffffffff"
+            }
+          ],
+          "tenant": "f5-amer-ent-qyyfhhfj",
+          "traceInfo": "74345044ec536c8d:74345044ec536c8d:0000000000000000:1",
+          "uid": "2fcdcb64-50e7-4059-8622-2ca80da7f575"
+        }
+      },
+      "systemMetadata": {
+        "creationTimestamp": "2022-10-13T03:38:13.739691444Z",
+        "creatorClass": "prism",
+        "finalizers": [],
+        "labels": {},
+        "modificationTimestamp": "2022-10-13T03:38:14.215640959Z",
+        "tenant": "f5-amer-ent-qyyfhhfj",
+        "uid": "2fcdcb64-50e7-4059-8622-2ca80da7f575"
+      },
+      "tenant": "f5-amer-ent-qyyfhhfj",
+      "uid": "2fcdcb64-50e7-4059-8622-2ca80da7f575"
+    }
+  ]
+}
