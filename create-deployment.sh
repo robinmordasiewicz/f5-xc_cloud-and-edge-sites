@@ -113,7 +113,8 @@ timeout 20 "Wait for the registration to activate %s"
 exit
 
 echo "# Approve the registration"
-registration=`vesctl configuration list registration -n system --outfmt json | jq '.items' | jq -r '.[0].name'`
+#registration=`vesctl configuration list registration -n system --outfmt json | jq '.items' | jq -r '.[0].name'`
+registration=`vesctl request rpc registration.CustomAPI.ListRegistrationsByState -i request.yaml --uri /public/namespaces/system/listregistrationsbystate --http-method POST | yq -o=json | jq '.items' | jq -r '.[0].name'`
 jq -r ".name = \"${registration}\" | .passport.cluster_name = \"${sitename}\" | .passport.latitude = \"${latitude}\" | .passport.longitude = \"${longitude}\" " approval_req.json | sponge approval_req.json
 git add approval_req.json && git commit --quiet -m "creating deployment manifests"
 vesctl request rpc registration.CustomAPI.RegistrationApprove -i approval_req.json --uri /public/namespaces/system/registration/${registration}/approve --http-method POST
