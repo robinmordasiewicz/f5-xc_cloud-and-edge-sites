@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 
+
 git checkout -b deployment
 
 echo "# running in manifest folder"
@@ -19,6 +20,16 @@ timeout () {
 
 read -p "Tenant Name: [f5-xc-lab-app] " tenantname
 tenantname="${tenantname:=f5-xc-lab-app}"
+
+echo "checking for p12 cert"
+openssl pkcs12 -in ~/${tenantname}.console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out ~/vescred.cert
+openssl pkcs12 -in ~/${tenantname}.console.ves.volterra.io.api-creds.p12 -nodes -nocerts -out ~/vesprivate.key
+
+cat <<EOF > ~/.vesconfig
+server-urls: https://${tenantname}.console.ves.volterra.io/api
+key: $HOME/vesprivate.key
+cert: $HOME/vescred.cert
+EOF
 
 read -p "Site Address: [801 5th Ave Seattle, WA 98104 United States] " address
 address="${address:=801 5th Ave Seattle, WA 98104 United States}"
