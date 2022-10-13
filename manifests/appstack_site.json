@@ -17,8 +17,8 @@
     "disable_gpu": {},
     "address": "<address>",
     "coordinates": {
-      "latitude": <latitude>,
-      "longitude": <longitude>
+      "latitude": "<latitude>",
+      "longitude": "<longitude>"
     },
     "k8s_cluster": {
       "namespace": "system",
