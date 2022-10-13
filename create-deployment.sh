@@ -65,6 +65,7 @@ basicauth=`echo -n user:${newpassword} | base64`
 unset newpassword
 
 read -s -p "ArgoCD password: " argocdpassword
+echo "*********************"
 if [ ! "${argocdpassword}" ]; then exit; fi
 
 vesctl request secrets get-public-key > f5-amer-ent-public-key.key
