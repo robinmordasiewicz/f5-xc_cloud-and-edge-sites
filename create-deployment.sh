@@ -56,12 +56,12 @@ if [ ! "${newpassword}" ]; then exit; fi
 echo "*********************"
 
 echo "# Change the CE password"
-curl -sS -k "https://${cenodeaddress}:${cenodeport}/api/ves.io.vpm/introspect/write/ves.io.vpm.node/change-password" \
+curl -sS -k -v "https://${cenodeaddress}:${cenodeport}/api/ves.io.vpm/introspect/write/ves.io.vpm.node/change-password" \
   -H 'Authorization: Basic YWRtaW46Vm9sdGVycmExMjM=' \
   -H 'Accept: application/json, text/plain, */*' \
   -H 'Content-Type: application/json' \
   --data-raw "{\"current_password\":\"Volterra123\",\"new_password\":\"${newpassword}\",\"username\":\"admin\"}"
-basicauth=`echo -n user:${newpassword} | base64`
+basicauth=`echo -n admin:${newpassword} | base64`
 unset newpassword
 
 read -s -p "ArgoCD password: " argocdpassword
@@ -102,7 +102,7 @@ token=`vesctl configuration get token ${sitename}-token --outfmt json -n system 
 echo "# Register the CE"
 jq -r ".token = \"${token}\" | .cluster_name = \"${sitename}\" | .hostname = \"${nodename}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" " ce-register.json | sponge ce-register.json
 git add ce-register.json && git commit --quiet -m "creating deployment manifests"
-curl -sS -k "https://${cenodeaddress}:${cenodeport}/api/ves.io.vpm/introspect/write/ves.io.vpm.config/update" \
+curl -sS -k -v "https://${cenodeaddress}:${cenodeport}/api/ves.io.vpm/introspect/write/ves.io.vpm.config/update" \
   -H "Authorization: Basic ${basicauth}" \
   -H 'Content-Type: application/json' \
   -d @ce-register.json
@@ -144,7 +144,7 @@ if [[ "${STATE}" == "ONLINE" ]]; then
   jq -r ".site = \"${sitename}\" | .expiration_timestamp = \"${expiration_timestamp}\" " download_kubeconfig.json | sponge download_kubeconfig.json
   git add download_kubeconfig.json && git commit --quiet -m "creating deployment manifests"
   [ -d $HOME/.kube ] || mkdir $HOME/.kube
-  curl -sS "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
+  curl -sS -v "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
     --key $HOME/vesprivate.key \
     --cert $HOME/vescred.cert \
     -H 'Content-Type: application/json' \
