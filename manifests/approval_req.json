@@ -1,12 +1,12 @@
 {
-  "name": "<reg-name>",
+  "name": "r-2fcdcb64-50e7-4059-8622-2ca80da7f575",
   "namespace": "system",
   "passport": {
-    "cluster_name": "<site-name>",
+    "cluster_name": "r-mordasiewicz-site",
     "cluster_size": 1,
     "cluster_type": "ce",
-    "latitude": "<latitude>",
-    "longitude": "<longitude>"
+    "latitude": "47.605199",
+    "longitude": "-122.330996"
   },
   "state": "APPROVED"
 }
