@@ -42,21 +42,21 @@ longitude="${longitude:=-122.330996}"
 read -p "Site Name: " sitename
 if [ ! "${sitename}" ]; then exit; fi
 
-read -p "Node IP Addr: [10.1.1.5] " ipaddr
-ipaddr="${ipaddr:=10.1.1.5}"
+read -p "CE Node IP Addr or DNS name: [10.1.1.5] " cenodeaddress
+cenodeaddress="${cenodeaddress:=10.1.1.5}"
 
-read -p "Nodename: " nodename
+read -p "CE Node Port: [65500] " cenodeport
+cenodeport="${cenodeport:=65500}"
+
+read -p "CE Node hostname: " nodename
 if [ ! "${nodename}" ]; then exit; fi
-
-read -p "Namespace: " namespace
-if [ ! "${namespace}" ]; then exit; fi
 
 read -s -p "CE node new password: " newpassword
 if [ ! "${newpassword}" ]; then exit; fi
 echo "*********************"
 
 echo "# Change the CE password"
-curl -sS -k "https://${ipaddr}:65500/api/ves.io.vpm/introspect/write/ves.io.vpm.node/change-password" \
+curl -sS -k "https://${cenodeaddress}:${cenodeport}/api/ves.io.vpm/introspect/write/ves.io.vpm.node/change-password" \
   -H 'Authorization: Basic YWRtaW46Vm9sdGVycmExMjM=' \
   -H 'Accept: application/json, text/plain, */*' \
   -H 'Content-Type: application/json' \
@@ -101,7 +101,7 @@ token=`vesctl configuration get token ${sitename}-token --outfmt json -n system 
 echo "# Register the CE"
 jq -r ".token = \"${token}\" | .cluster_name = \"${sitename}\" | .hostname = \"${nodename}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" " ce-register.json | sponge ce-register.json
 git add ce-register.json && git commit --quiet -m "creating deployment manifests"
-curl -sS -k "https://${ipaddr}:65500/api/ves.io.vpm/introspect/write/ves.io.vpm.config/update" \
+curl -sS -k "https://${cenodeaddress}:${cenodeport}/api/ves.io.vpm/introspect/write/ves.io.vpm.config/update" \
   -H "Authorization: Basic ${basicauth}" \
   -H 'Content-Type: application/json' \
   -d @ce-register.json
