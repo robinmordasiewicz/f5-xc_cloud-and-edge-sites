@@ -1,6 +1,7 @@
 {
   "metadata": {
     "name": "<site-name>",
+    "namespace": "system",
     "labels": {},
     "annotations": {},
     "disable": false
