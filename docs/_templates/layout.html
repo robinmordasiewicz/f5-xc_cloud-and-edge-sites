@@ -15,11 +15,10 @@
   "https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"
   ]%}
 
+<!--
 {% include "head.html" %}
+-->
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPZPQ6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 {# Do not create the standard relbars and sidebars #}
 {%- block relbar1 %}{% endblock %}
@@ -27,15 +26,23 @@
 {%- block sidebar1 %}{% endblock %}
 {%- block sidebar2 %}{% endblock %}
 
+<!--
 {%- block header %}
   <div id="clouddocs-header"></div>
 {% endblock %}
+-->
 
 <div class="wrapper">
 
 <div id="docs-wrapper" itemscope itemtype="http://schema.org/Article">
 
 {% block content %}
+
+  <div class="titlebar">
+      {%- block breadcrumb %}
+      {% include "breadcrumb.html" %}
+      {% endblock %}
+  </div>
 
   {%- if sidebars != None %}
     {%- block f5sidebar %}
@@ -45,6 +52,11 @@
       <div id="version_selector_wrapper">
       </div>
       {%- endif %}
+<!--
+      {%- block searchbox %}
+      {% include "searchbox.html" %}
+      {% endblock %}
+-->
       <nav class="nav-sidebartoc">
 <!--
         {% if release %}
@@ -62,26 +74,6 @@
     </div>
 
 
-    <div id="right-sidebar">
-      {%- if github_url is defined %}
-         <nav class="github-link"><a href="{{ github_url }}" class="btn btn-primary left" >Edit on <i class="fa fa-github" aria-hidden="true"></i></a></nav>
-      {%- endif %}
-      {%- if display_toc %}
-      <!-- <nav class="nav-sidebartoc"> -->
-      <!--  <span class="nav-sidebartoc">
-          {{ toc }}
-        </span>
-      </nav>
-      -->
-  <div class="localtoc">
-    <p class="has-text-weight-bold">{{ _('On this page') }}</p>
-    {{ toc }}
-  </div>
-      {%- endif %}
-    </div>
-
-
-
     {%- endblock %}
   {%- endif %}
 
@@ -92,11 +84,6 @@
   {% block main %}
   <div class="main active" id="content" >
     <article class="docs-container site-article-inner">
-
-      {%- block breadcrumb %}
-      {% include "breadcrumb.html" %}
-      {% endblock %}
-
 
     <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
     <!--<button type="button" id="export-pdf" class="btn btn-link right">PDF</button>-->
@@ -116,6 +103,8 @@
      <div role="main">
         {% block body %}{% endblock %}
      </div>
+
+<!--
     {% if (next or prev) and (theme_next_prev_link) %}
      <div class="row next-prev-btn-row">
        <div class="col-lg-12">
@@ -128,6 +117,7 @@
      </div>
      </div>
     {% endif %}
+-->
 
     </article>
   </div>

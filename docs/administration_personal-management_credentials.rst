@@ -1,14 +1,14 @@
 .. _credentials:
 
-Tenant Credentials
-==================
+Credentials
+===========
 
 .. topic:: Authentication
 
     The API requests support two types of authentication: API Token and API Certificate. It is recommended to use API certificates as they offer more robust security via Mutual TLS (mTLS) authentication. The API tokens are used with one-way TLS authentication.
 
-Certificate
-^^^^^^^^^^^
+Tenant Certificate
+------------------
 
 * Select the :guilabel:`Administration` tile on the F5 Distributed Cloud Services home page.
 
@@ -62,8 +62,8 @@ Certificate
 
            $ cat <<EOF > ~/.vesconfig
            $ server-urls: https://|tenantname|.console.ves.volterra.io/api
-           $ key: /home/ubuntu/vesprivate.key
-           $ cert: /home/ubuntu/vescred.cert
+           $ key: $HOME/vesprivate.key
+           $ cert: $HOME/vescred.cert
            $ EOF
 
      .. tab:: Export passphrase
@@ -87,8 +87,8 @@ Certificate
            $ p12-bundle: /home/ubuntu/|tenantname|.console.ves.volterra.io.volterra.us/api
            $ EOF
 
-API Token
-^^^^^^^^^
+Tenant API Token
+----------------
 
 API requests using the API Token authentication method must provide the token in the Authorization request header. Requests using API Token authentication will have the same RBAC assigned as the user who created the API Token.
 
@@ -100,4 +100,29 @@ API requests using the API Token authentication method must provide the token in
    :class: no-scaled-link
    :width: 100%
 
+Github Account
+--------------
+
+.. code-block:: console
+   :substitutions:
+   :caption: Initialize github authentication - get a personal access token from a github account
+
+   $ gh auth login
+   ? What account do you want to log into? GitHub.com
+   ? What is your preferred protocol for Git operations? HTTPS
+   ? Authenticate Git with your GitHub credentials? Yes
+   ? How would you like to authenticate GitHub CLI? Paste an authentication token
+   Tip: you can generate a Personal Access Token here https://github.com/settings/tokens
+   The minimum required scopes are 'repo', 'read:org', 'workflow'.
+   ? Paste your authentication token: ****************************************
+   - gh config set -h github.com git_protocol https
+   ✓ Configured git protocol
+   ✓ Logged in as |github-username|
+
+.. code-block:: console
+   :substitutions:
+   :caption: Configure github settings
+
+   $ git config --global user.email "|github-user-email|"
+   $ git config --global user.name "|github-user-name|"
 

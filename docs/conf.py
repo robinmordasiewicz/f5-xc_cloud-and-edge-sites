@@ -69,6 +69,7 @@ extensions = [
     "sphinx_tabs.tabs",
     "sphinx-prompt",
     "sphinx_substitution_extensions",
+    "sphinxcontrib.mermaid",
     "sphinx_design"
 ]
 

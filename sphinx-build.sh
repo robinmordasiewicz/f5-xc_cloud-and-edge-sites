@@ -2,8 +2,11 @@
 
 set -x
 
-COMMAND=(/bin/bash -c "pip install --upgrade pip setuptools wheel ; pip install -r docs/requirements.txt -U ; make -C docs clean html")
+if [[ -f "docs/requirements.txt" ]]; then
+    REQUIREMENTS='pip install -r docs/requirements.txt -U ;'
+fi
 
+COMMAND=(/bin/bash -c "pip install --upgrade pip setuptools wheel ; ${REQUIREMENTS}  make -C docs clean html")
 
 exec docker run --rm -t \
   -v "$PWD":"$PWD" --workdir "$PWD" \

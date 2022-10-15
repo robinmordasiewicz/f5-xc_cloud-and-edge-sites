@@ -17,3 +17,4 @@ sphinx-js
 sphinx-design
 sphinx_design
 sphinx-tabs
+sphinxcontrib.mermaid
