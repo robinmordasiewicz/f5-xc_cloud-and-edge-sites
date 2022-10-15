@@ -1,4 +1,5 @@
 Sphinx-Substitution-Extensions
+furo
 sphinx-prompt
 sphinx-subprojecttoctree
 f5_sphinx_theme

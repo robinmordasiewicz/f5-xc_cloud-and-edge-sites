@@ -176,7 +176,8 @@ todo_include_todos = True
 
 # html4_writer = True
 #html_theme = "f5_sphinx_theme"
-html_theme = "sphinx_book_theme"
+#html_theme = "sphinx_book_theme"
+html_theme = "furo"
 #html_theme_path = f5_sphinx_theme.get_html_theme_path()
 #html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
 #html_sidebars = {"**": ["custom-toc.html"]}
