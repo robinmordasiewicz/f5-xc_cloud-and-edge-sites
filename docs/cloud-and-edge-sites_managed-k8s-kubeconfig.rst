@@ -11,7 +11,7 @@ Kubeconfig
 
    .. group-tab:: UI
 
-      * Navigate to :menuselection:`Cloud and Edge Sites --> Managed K8s --> Overview`, click the |three-dots|  and click :bdg-primary-line:`Download Global Kubeconfig`
+      * Navigate to :menuselection:`Cloud and Edge Sites --> Managed K8s --> Overview`, click the |three-dots| and click :bdg-primary-line:`Download Global Kubeconfig`
 
         .. image:: images/cloud-and-edge-sites-k8s-cluster-download-kubeconfig.png
            :class: no-scaled-link
