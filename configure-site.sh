@@ -63,7 +63,7 @@ timeout () {
     tput rc; tput ed;
 }
 
-$address=`jq -r ".address"`
+$address=`jq -r ".address" site.json`
 
 read -p "Site Address: [${address}] " address
 address="${address:=${address}}"
