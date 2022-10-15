@@ -63,28 +63,33 @@ timeout () {
     tput rc; tput ed;
 }
 
+cd manifests/
 $address=`jq -r ".address" site.json`
 
 read -p "Site Address: [${address}] " address
 address="${address:=${address}}"
 
-read -p "Site Latitude: [47.605199] " latitude
-latitude="${latitude:=47.605199}"
+$latitude=`jq -r ".latitude" site.json`
+read -p "Site Latitude: [${latitude}] " latitude
+latitude="${latitude:=${latitude}}"
 
-read -p "Site Longitude: [-122.330996] " longitude
-longitude="${longitude:=-122.330996}"
+$longitude=`jq -r ".longitude" site.json`
+read -p "Site Longitude: [${longitude}] " longitude
+longitude="${longitude:=${longitude}}"
 
-read -p "CE Node IP Addr or DNS name: [10.1.1.5] " cenodeaddress
-cenodeaddress="${cenodeaddress:=10.1.1.5}"
+$cenodeaddress=`jq -r ".cenodeaddress" site.json`
+read -p "CE Node IP Addr or DNS name: [${cenodeaddress}] " cenodeaddress
+cenodeaddress="${cenodeaddress:=${cenodeaddress}}"
 
-read -p "CE Node Port: [65500] " cenodeport
-cenodeport="${cenodeport:=65500}"
+$cenodeport=`jq -r ".cenodeport" site.json`
+read -p "CE Node Port: [${cenodeport}] " cenodeport
+cenodeport="${cenodeport:=${cenodeport}}"
 
-read -p "CE Node hostname: " nodename
-if [ ! "${nodename}" ]; then exit; fi
+$cenodename=`jq -r ".cenodename" site.json`
+read -p "CE Node hostname: " cenodename
+cenodename="${cenodename:=${cenodename}}"
 
 echo "# Create manifests"
-cd manifests/
 
 echo "# Create K8s clsuter"
 jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
