@@ -4,7 +4,8 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = F5AgilityLabs
+SPHINXPROJ    = f5-xc-iac
+READTHEDOCS_PROJECT = f5-xc-iac
 SOURCEDIR     = .
 BUILDDIR      = _build
 
