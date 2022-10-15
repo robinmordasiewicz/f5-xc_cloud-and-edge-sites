@@ -78,6 +78,7 @@ extensions = [
 
 
 html_theme_options = {
+    "show_prev_next": False,
     "footer_items": ["last-updated"],
     "site_name": "Infrastructure As Code",
     "next_prev_link": True,
@@ -88,6 +89,10 @@ html_theme_options = {
     "use_edit_page_button": True,
     "use_issues_button": True,
     "path_to_docs": "docs",
+    "external_links": [
+      {"name": "API Developer Portal", "url": "https://console.ves.volterra.io/web/devportal/domain"},
+      {"name": "API Docs", "url": "https://docs.cloud.f5.com/docs/api"}
+    ]
     "navbar_center": ["breadcrumbs"]
 }
 
