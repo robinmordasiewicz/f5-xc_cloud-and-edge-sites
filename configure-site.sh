@@ -24,6 +24,7 @@ function is_in_remote() {
 }
 
 currentbranch=`git branch --show-current`
+echo "current branch = $currentbranch"
 
 if [[ ${currentbranch} == "main" ]]; then
   # in main configure site
@@ -34,6 +35,7 @@ if [[ ${currentbranch} == "main" ]]; then
   else
     git checkout -b ${sitename}
   fi
+  currentbranch=`git branch --show-current`
 fi
 
 currentsitename=`jq -r ".sitename" manifests/site.json`
