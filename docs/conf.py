@@ -18,9 +18,9 @@ CURDIR = os.path.abspath(os.path.dirname(__file__))
 # OPTIONAL: The URL to the GitHub Repository for this class
 github_repo = "https://github.com/robinmordasiewicz/f5-xc-iac"
 
-show_source = False
-html_show_sourcelink = False
-html_copy_source = False
+show_source = True
+html_show_sourcelink = True
+html_copy_source = True
 html_permalinks = False
 html_show_sphinx = False
 hoverxref_auto_ref = True
