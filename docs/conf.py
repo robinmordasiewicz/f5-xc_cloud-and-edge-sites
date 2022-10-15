@@ -78,6 +78,7 @@ extensions = [
 
 
 html_theme_options = {
+    "navbar_align": "left",
     "show_toc_level": 4,
     "show_prev_next": False,
     "footer_items": ["last-updated"],
