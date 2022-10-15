@@ -78,6 +78,7 @@ extensions = [
 
 
 html_theme_options = {
+    "footer_items": ["last-updated"],
     "site_name": "Infrastructure As Code",
     "next_prev_link": True,
     "repository_url": "https://github.com/robinmordasiewicz/f5-xc-iac",
