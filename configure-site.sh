@@ -22,7 +22,7 @@ function is_in_remote() {
         echo 1
     fi
 }
-is_in_local foo
+
 currentbranch=`git branch --show-current`
 
 if [[ ${currentbranch} == "main" ]]; then
@@ -37,17 +37,21 @@ if [[ ${currentbranch} == "main" ]]; then
 fi
 
 currentsitename=`jq -r ".sitename" manifests/site.json`
-echo "current $currentsitename"
+echo "current sitename = $currentsitename"
+echo "current branch = $currentbranch"
 
 if [[ ${currentsitename} == "main" ]]; then
   # creating a new site
   read -p "Site Name: " sitename
   if [ ! "${sitename}" ]; then echo "Error: no sitename provided" ;exit; fi
+  jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json
+  git add manifests/site.json && git commit -m "configuring site manifest"
 else
   # configuring existing site
   read -p "Site Name: [${currentsitename}] " sitename
   sitename="${sitename:=${currentsitename}}"
 fi
+
 
 exit
 
