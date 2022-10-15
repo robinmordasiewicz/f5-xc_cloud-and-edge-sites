@@ -19,7 +19,6 @@
 {% include "head.html" %}
 -->
 
-
 {# Do not create the standard relbars and sidebars #}
 {%- block relbar1 %}{% endblock %}
 {%- block relbar2 %}{% endblock %}
@@ -42,6 +41,9 @@
       {%- block breadcrumb %}
       {% include "breadcrumb.html" %}
       {% endblock %}
+      {%- block navigation-buttons %}
+      {% include "navigation-buttons.html" %}
+      {% endblock %}
   </div>
 
   {%- if sidebars != None %}
@@ -58,13 +60,6 @@
       {% endblock %}
 -->
       <nav class="nav-sidebartoc">
-<!--
-        {% if release %}
-        <h5>{{ project }} {{ release }} </h5>
-        {% else %}
-         <h5>{{ project }} {{ version }} </h5>
-        {% endif %}
--->
         <hr>
         <span class="nav-sidebartoc">
             {{ toctree(includehidden=True, collapse=True, maxdepth=3) }}
