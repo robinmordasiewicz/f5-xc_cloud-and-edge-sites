@@ -92,7 +92,7 @@ html_theme_options = {
     "external_links": [
       {"name": "API Developer Portal", "url": "https://console.ves.volterra.io/web/devportal/domain"},
       {"name": "API Docs", "url": "https://docs.cloud.f5.com/docs/api"}
-    ]
+    ],
     "navbar_center": ["breadcrumbs"]
 }
 
