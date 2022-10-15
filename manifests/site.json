@@ -1,10 +1,10 @@
 {
-  "tenantname": "<tenant-name>",
-  "sitename": "<site-name",
-  "latitude": "<site-latitude>",
-  "longitude": "<site-longitude>",
-  "address": "<site-address>",
-  "nodename": "<node-name>",
+  "tenantname": "f5-amer-ent",
+  "sitename": "main",
+  "latitude": "47.605199",
+  "longitude": "-122.330996",
+  "address": "801 5th Ave Seattle, WA 98104 United States",
+  "nodename": "master-0",
   "cenodeaddress": "10.1.1.5",
   "cenodeport": "65500"
 }

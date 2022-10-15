@@ -1,10 +1,61 @@
 #!/bin/bash
 #
 
-read -p "Site Name: " sitename
+currentbranch=`git branch --show-current`
+
+if [[ ${currentbranch} == "main" ]]; then
+  # in main configure site
+  read -p "Site Name: " sitename
+  if [ ! "${sitename}" ]; then exit; fi
+  git checkout -b ${sitename}
+fi
+
+sitename=`jq -r ".sitename" manifests/site.json`
+
+if [[ ${sitename} == "main" ]]; then
+  # creating a new site
+  read -p "Site Name: " sitename
+  if [ ! "${sitename}" ]; then exit; fi
+else
+  # configuring existing site
+  read -p "Site Name: [${sitename}] " sitename
+  sitename="${sitename:=${sitename}}"
+fi
+  
+exit
+
+else
+  sitename=`jq -r ".sitename" manifests/site.json`
+  if [[ $sitename == "main" ]]; then
+    # 
+    read -p "Site Name: " sitename
+  else
+    read -p "Site Name: [${sitename}] " sitename
+    sitename="${sitename:=${sitename}}"
+  fi
+fi
+
 if [ ! "${sitename}" ]; then exit; fi
 
-git checkout -b ${sitename}
+
+exit
+
+sitename=`jq -r ".sitename" manifests/site.json`
+
+if [[ $sitename == "main" ]]; then
+  read -p "Site Name: " sitename
+else
+  read -p "Site Name: [${sitename}]" sitename
+fi
+
+if [ ! "${sitename}" ]; then exit; fi
+
+if [[ ${currentbranch} != $sitename ]]; then
+  git switch main
+  git checkout -b ${sitename}
+fi
+
+exit
 
 timeout () {
     tput sc
