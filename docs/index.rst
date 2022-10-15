@@ -1,21 +1,26 @@
-.. subproject-f5 documentation master file, created by
-   sphinx-quickstart on Fri Oct 14 15:11:57 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+:sd_hide_title:
 
-Welcome to subproject-f5's documentation!
-=========================================
+Infrastructure
+==============
+
+.. topic:: Infrastructure as Built
+
+    This documents the deployment of infrastructure, otherwise known as a site. A Site is a physical or virtual location with compute resources.
+
+.. mermaid:: diagrams/mermaid.mmd
+
+.. mermaid:: diagrams/gitgraph.mmd
+
+.. mermaid:: diagrams/gitgraph-2.mmd
+
+.. mermaid:: diagrams/journey.mmd
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :titlesonly:
+   :hidden:
 
-   cake
-   eatit
+   intro.rst
+   workstation.rst
+   administration_personal-management_credentials.rst
+   cloud-and-edge-sites.rst
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
