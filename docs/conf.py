@@ -4,7 +4,7 @@ import time
 import re
 import pkgutil
 import string
-# import f5_sphinx_theme
+import f5_sphinx_theme
 
 CURDIR = os.path.abspath(os.path.dirname(__file__))
 # -*- coding: utf-8 -*-
@@ -47,9 +47,6 @@ hoverxref_roles = [
 sys.path.insert(0, os.path.abspath("."))
 
 rst_prolog = open(os.path.join(CURDIR, 'rst_prolog.inc'),'r').read()
-
-# rst_epilog = open(os.path.join(CURDIR, 'epilog.inc'),'r').read().decode('utf8')
-#rst_epilog = open('epilog.inc', 'r').read()
 rst_epilog = open(os.path.join(CURDIR, 'rst_epilog.inc'),'r').read()
 is_subproject=True
 readthedocs_url="https://workspacedocs.readthedocs.io"
@@ -196,9 +193,9 @@ todo_include_todos = True
 # a list of builtin themes.
 
 # html4_writer = True
-#html_theme = "f5_sphinx_theme"
+html_theme = "f5_sphinx_theme"
 #html_theme = "sphinx_book_theme"
-html_theme = "pydata_sphinx_theme"
+#html_theme = "pydata_sphinx_theme"
 #html_theme_path = f5_sphinx_theme.get_html_theme_path()
 #html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
 html_sidebars = {
