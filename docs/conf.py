@@ -87,7 +87,8 @@ html_theme_options = {
     "use_repository_button": True,
     "use_edit_page_button": True,
     "use_issues_button": True,
-    "path_to_docs": "docs"
+    "path_to_docs": "docs",
+    "navbar_center": ["breadcrumbs"]
 }
 
 html_context = {
@@ -199,7 +200,6 @@ html_sidebars = {
 }
 #html_sidebars = {"**": ["custom-toc.html"]}
 html_codeblock_linenos_style = 'table'
-html_context = {"github_url": github_repo}
 
 html_last_updated_fmt = "%Y-%m-%d %H:%M:%S"
 
