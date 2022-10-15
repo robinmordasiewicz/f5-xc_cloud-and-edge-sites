@@ -70,25 +70,25 @@ address=`jq -r ".address" site.json`
 read -p "Site Address: [${address}] " address
 address="${address:=${address}}"
 
-latitude=`jq -r ".latitude" site.json`
-read -p "Site Latitude: [${latitude}] " latitude
-latitude="${latitude:=${latitude}}"
+currentlatitude=`jq -r ".latitude" site.json`
+read -p "Site Latitude: [${currentlatitude}] " latitude
+latitude="${latitude:=${currentlatitude}}"
 
-longitude=`jq -r ".longitude" site.json`
-read -p "Site Longitude: [${longitude}] " longitude
-longitude="${longitude:=${longitude}}"
+currentlongitude=`jq -r ".longitude" site.json`
+read -p "Site Longitude: [${currentlongitude}] " longitude
+longitude="${longitude:=${currentlongitude}}"
 
-cenodename=`jq -r ".cenodename" site.json`
-read -p "CE Node hostname: [${cenodename}] " cenodename
-cenodename="${cenodename:=${cenodename}}"
+currentcenodename=`jq -r ".cenodename" site.json`
+read -p "CE Node hostname: [${currentcenodename}] " cenodename
+cenodename="${cenodename:=${currentcenodename}}"
 
-cenodeaddress=`jq -r ".cenodeaddress" site.json`
-read -p "CE Node IP Addr or DNS name: [${cenodeaddress}] " cenodeaddress
-cenodeaddress="${cenodeaddress:=${cenodeaddress}}"
+currentcenodeaddress=`jq -r ".cenodeaddress" site.json`
+read -p "CE Node IP Addr or DNS name: [${currentcenodeaddress}] " cenodeaddress
+cenodeaddress="${cenodeaddress:=${currentcenodeaddress}}"
 
-cenodeport=`jq -r ".cenodeport" site.json`
-read -p "CE Node Port: [${cenodeport}] " cenodeport
-cenodeport="${cenodeport:=${cenodeport}}"
+currentcenodeport=`jq -r ".cenodeport" site.json`
+read -p "CE Node Port: [${currentcenodeport}] " cenodeport
+cenodeport="${cenodeport:=${currentcenodeport}}"
 
 echo "# Create manifests"
 
