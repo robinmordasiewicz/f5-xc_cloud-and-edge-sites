@@ -49,46 +49,8 @@ else
     currentbranch=`git branch --show-current`
   fi
 fi
-exit
 
-currentsitename=`jq -r ".sitename" manifests/site.json`
-echo "current sitename = $currentsitename"
-echo "current branch = $currentbranch"
-
-if [[ ${currentsitename} == "main" ]]; then
-  # creating a new site
-  read -p "Site Name: " sitename
-  if [ ! "${sitename}" ]; then echo "Error: no sitename provided" ;exit; fi
-  jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json
-  git add manifests/site.json && git commit -m "configuring site manifest"
-else
-  # configuring existing site
-  read -p "Site Name: [${currentsitename}] " sitename
-  sitename="${sitename:=${currentsitename}}"
-fi
-
-echo "sitename = $sitename"
-echo "branch = $currentbranch"
-echo "currentsitename = $currentsitename"
-
-exit
-
-sitename=`jq -r ".sitename" manifests/site.json`
-
-if [[ $sitename == "main" ]]; then
-  read -p "Site Name: " sitename
-else
-  read -p "Site Name: [${sitename}]" sitename
-fi
-
-if [ ! "${sitename}" ]; then exit; fi
-
-if [[ ${currentbranch} != $sitename ]]; then
-  git switch main
-  git checkout -b ${sitename}
-fi
-
-exit
+sitename=$currentbranch
 
 timeout () {
     tput sc
