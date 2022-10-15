@@ -54,6 +54,9 @@ else
   sitename="${sitename:=${currentsitename}}"
 fi
 
+echo "sitename = $sitename"
+echo "branch = $currentbranch"
+echo "currentsitename = $currentsitename"
 
 exit
 
