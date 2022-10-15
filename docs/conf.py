@@ -48,8 +48,10 @@ sys.path.insert(0, os.path.abspath("."))
 
 rst_prolog = open(os.path.join(CURDIR, 'rst_prolog.inc'),'r').read()
 rst_epilog = open(os.path.join(CURDIR, 'rst_epilog.inc'),'r').read()
-is_subproject=True
-readthedocs_url="https://workspacedocs.readthedocs.io"
+
+#is_subproject=True
+#readthedocs_url="https://workspacedocs.readthedocs.io"
+#"subprojecttoctree",
 
 extensions = [
     "sphinx.ext.todo",
@@ -68,7 +70,6 @@ extensions = [
     "sphinx-prompt",
     "sphinx_substitution_extensions",
     "sphinxcontrib.mermaid",
-    "subprojecttoctree",
     "sphinx.ext.viewcode",
     "sphinx_design"
 ]

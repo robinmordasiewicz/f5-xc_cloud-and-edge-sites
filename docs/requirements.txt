@@ -2,7 +2,6 @@ Sphinx-Substitution-Extensions
 pydata-sphinx-theme
 furo
 sphinx-prompt
-sphinx-subprojecttoctree
 f5_sphinx_theme
 sphinx-rtd-theme
 pre-commit
