@@ -1,13 +1,41 @@
 #!/bin/bash
 #
 
+function is_in_local() {
+    local branch=${1}
+    local existed_in_local=$(git branch --list ${branch})
+
+    if [[ -z ${existed_in_local} ]]; then
+        echo 0
+    else
+        echo 1
+    fi
+}
+
+function is_in_remote() {
+    local branch=${1}
+    local existed_in_remote=$(git ls-remote --heads origin ${branch})
+
+    if [[ -z ${existed_in_remote} ]]; then
+        echo 0
+    else
+        echo 1
+    fi
+}
+
+is_in_local foo
+
 currentbranch=`git branch --show-current`
 
 if [[ ${currentbranch} == "main" ]]; then
   # in main configure site
   read -p "Site Name: " sitename
   if [ ! "${sitename}" ]; then exit; fi
-  git checkout -b ${sitename}
+  if [[ `is_in_local ${sitename}` ]]; then
+    git switch ${sitename}
+  else
+    git checkout -b ${sitename}
+  fi
 fi
 
 sitename=`jq -r ".sitename" manifests/site.json`
