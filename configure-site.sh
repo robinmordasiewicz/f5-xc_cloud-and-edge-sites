@@ -63,8 +63,10 @@ timeout () {
     tput rc; tput ed;
 }
 
-read -p "Site Address: [801 5th Ave Seattle, WA 98104 United States] " address
-address="${address:=801 5th Ave Seattle, WA 98104 United States}"
+$address=`jq -r ".address"`
+
+read -p "Site Address: [${address}] " address
+address="${address:=${address}}"
 
 read -p "Site Latitude: [47.605199] " latitude
 latitude="${latitude:=47.605199}"
