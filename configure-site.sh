@@ -64,30 +64,30 @@ timeout () {
 }
 
 cd manifests/
-$address=`jq -r ".address" site.json`
+address=`jq -r ".address" site.json`
 echo $address
 exit
 
 read -p "Site Address: [${address}] " address
 address="${address:=${address}}"
 
-$latitude=`jq -r ".latitude" site.json`
+latitude=`jq -r ".latitude" site.json`
 read -p "Site Latitude: [${latitude}] " latitude
 latitude="${latitude:=${latitude}}"
 
-$longitude=`jq -r ".longitude" site.json`
+longitude=`jq -r ".longitude" site.json`
 read -p "Site Longitude: [${longitude}] " longitude
 longitude="${longitude:=${longitude}}"
 
-$cenodeaddress=`jq -r ".cenodeaddress" site.json`
+cenodeaddress=`jq -r ".cenodeaddress" site.json`
 read -p "CE Node IP Addr or DNS name: [${cenodeaddress}] " cenodeaddress
 cenodeaddress="${cenodeaddress:=${cenodeaddress}}"
 
-$cenodeport=`jq -r ".cenodeport" site.json`
+cenodeport=`jq -r ".cenodeport" site.json`
 read -p "CE Node Port: [${cenodeport}] " cenodeport
 cenodeport="${cenodeport:=${cenodeport}}"
 
-$cenodename=`jq -r ".cenodename" site.json`
+cenodename=`jq -r ".cenodename" site.json`
 read -p "CE Node hostname: " cenodename
 cenodename="${cenodename:=${cenodename}}"
 
