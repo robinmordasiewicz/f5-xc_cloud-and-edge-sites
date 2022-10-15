@@ -93,7 +93,7 @@ cenodeport="${cenodeport:=${cenodeport}}"
 echo "# Create manifests"
 
 echo "# Create K8s clsuter"
-jq -r ".address = \"${address}\" | ".latitude = \"${latitude}\" | ".longitude = \"${longitude}\" | ".cenodeaddress = \"${cenodeaddress}\" | ".cenodeport = \"${cenodeport}\" | ".cenodename = \"${cenodename}\" " site.json | sponge site.json
+jq -r ".address = \"${address}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" | .cenodeaddress = \"${cenodeaddress}\" | .cenodeport = \"${cenodeport}\" | .cenodename = \"${cenodename}\" " site.json | sponge site.json
 git add site.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create K8s clsuter"
