@@ -78,6 +78,10 @@ longitude=`jq -r ".longitude" site.json`
 read -p "Site Longitude: [${longitude}] " longitude
 longitude="${longitude:=${longitude}}"
 
+cenodename=`jq -r ".cenodename" site.json`
+read -p "CE Node hostname: [${cenodename}] " cenodename
+cenodename="${cenodename:=${cenodename}}"
+
 cenodeaddress=`jq -r ".cenodeaddress" site.json`
 read -p "CE Node IP Addr or DNS name: [${cenodeaddress}] " cenodeaddress
 cenodeaddress="${cenodeaddress:=${cenodeaddress}}"
@@ -86,11 +90,11 @@ cenodeport=`jq -r ".cenodeport" site.json`
 read -p "CE Node Port: [${cenodeport}] " cenodeport
 cenodeport="${cenodeport:=${cenodeport}}"
 
-cenodename=`jq -r ".cenodename" site.json`
-read -p "CE Node hostname: " cenodename
-cenodename="${cenodename:=${cenodename}}"
-
 echo "# Create manifests"
+
+echo "# Create K8s clsuter"
+jq -r ".address = \"${address}\" | ".latitude = \"${latitude}\" | ".longitude = \"${longitude}\" | ".cenodeaddress = \"${cenodeaddress}\" | ".cenodeport = \"${cenodeport}\" | ".cenodename = \"${cenodename}\" " site.json | sponge site.json
+git add site.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create K8s clsuter"
 jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
