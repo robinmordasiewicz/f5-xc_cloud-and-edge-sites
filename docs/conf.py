@@ -82,7 +82,7 @@ html_theme_options = {
     "site_name": "Infrastructure As Code",
     "next_prev_link": True,
     "repository_url": "https://github.com/robinmordasiewicz/f5-xc-iac",
-    "github_url": "https://github.com/robinmordasiewicz/f5-xc-iac",
+    "github_url": "https://github.com",
     "use_edit_page_button": True,
     "use_repository_button": True,
     "use_edit_page_button": True,
