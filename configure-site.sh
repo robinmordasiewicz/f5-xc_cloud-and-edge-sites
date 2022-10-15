@@ -35,8 +35,9 @@ if [[ ${currentbranch} == "main" ]]; then
     git checkout -b ${sitename}
   fi
 fi
-exit
+
 currentsitename=`jq -r ".sitename" manifests/site.json`
+echo "current $currentsitename"
 
 if [[ ${currentsitename} == "main" ]]; then
   # creating a new site
@@ -47,22 +48,6 @@ else
   read -p "Site Name: [${currentsitename}] " sitename
   sitename="${sitename:=${currentsitename}}"
 fi
-  
-exit
-
-else
-  sitename=`jq -r ".sitename" manifests/site.json`
-  if [[ $sitename == "main" ]]; then
-    # 
-    read -p "Site Name: " sitename
-  else
-    read -p "Site Name: [${sitename}] " sitename
-    sitename="${sitename:=${sitename}}"
-  fi
-fi
-
-if [ ! "${sitename}" ]; then exit; fi
-
 
 exit
 
