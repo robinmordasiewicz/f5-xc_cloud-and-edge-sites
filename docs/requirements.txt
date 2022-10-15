@@ -19,3 +19,4 @@ sphinx-design
 sphinx_design
 sphinx-tabs
 sphinxcontrib.mermaid
+sphinx-book-theme

@@ -53,7 +53,7 @@ rst_prolog = open(os.path.join(CURDIR, 'rst_prolog.inc'),'r').read()
 #rst_epilog = open('epilog.inc', 'r').read()
 rst_epilog = open(os.path.join(CURDIR, 'rst_epilog.inc'),'r').read()
 is_subproject=True
-readthedocs_url="https://workspacedocs.readthedocs.io/en/latest/"
+readthedocs_url="https://workspacedocs.readthedocs.io"
 
 extensions = [
     "sphinx.ext.todo",
@@ -75,6 +75,15 @@ extensions = [
     "subprojecttoctree",
     "sphinx_design"
 ]
+
+
+html_theme_options = {
+    "repository_url": "https://github.com/robinmordasiewicz/f5-xc-iac",
+    "use_repository_button": True,
+}
+
+html_title = "Infrastructure As Code"
+html_logo = "logo_f5.svg"
 
 graphviz_output_format = "svg"
 graphviz_font = "DejaVu Sans:style=Book"
@@ -165,7 +174,8 @@ todo_include_todos = True
 
 # html4_writer = True
 html_title = project
-html_theme = "f5_sphinx_theme"
+#html_theme = "f5_sphinx_theme"
+html_theme = "sphinx_book_theme"
 html_theme_path = f5_sphinx_theme.get_html_theme_path()
 html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
 #html_sidebars = {"**": ["custom-toc.html"]}
