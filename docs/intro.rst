@@ -44,6 +44,3 @@ User Interface
 | |logged-in| |
 +-------------+
 
-.. toctree::
-   :hidden:
-
