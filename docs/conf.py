@@ -14,7 +14,6 @@ CURDIR = os.path.abspath(os.path.dirname(__file__))
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "Infrastructure"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
 github_repo = "https://github.com/robinmordasiewicz/f5-xc-iac"
@@ -134,7 +133,7 @@ source_suffix = [".rst"]
 master_doc = "index"
 
 # General information about the project.
-project = classname
+project = "Infrastructure"
 author = "Robin Mordasiewicz"
 
 # The version info for the project you're documenting, acts as replacement for
