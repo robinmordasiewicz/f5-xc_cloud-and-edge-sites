@@ -36,7 +36,7 @@ Tenant Certificate
 
      $ scp |tenantname|.console.ves.volterra.io.api-creds.p12 ubuntu@<your-jumpbox-hostname>:~/
 
-* Choose to either remove the cert/key passphrase, or set a passworde nvironment variable for the cert file
+* Choose to either remove the cert/key passphrase, or set a password environment variable for the cert file
 
   .. tabs::
 
