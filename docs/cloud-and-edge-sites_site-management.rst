@@ -2,8 +2,6 @@ Site Management
 =====================
 
 .. toctree::
-   :caption: Guided Labs
-   :maxdepth: 1
 
    cloud-and-edge-sites_site-management_appstack.rst
    cloud-and-edge-sites_site-management_site-tokens.rst
