@@ -7,27 +7,4 @@
   "nodename": "<node-name>",
   "cenodeaddress": "10.1.1.5",
   "cenodeport": "65500"
-
-read -p "CE Node IP Addr or DNS name: [10.1.1.5] " cenodeaddress
-cenodeaddress="${cenodeaddress:=10.1.1.5}"
-
-read -p "CE Node Port: [65500] " cenodeport
-cenodeport="${cenodeport:=65500}"
-
-read -p "CE Node hostname: " nodename
-if [ ! "${nodename}" ]; then exit; fi
-
-
-.. |tenantname| replace:: <tenant-name>
-.. |site-name| replace:: <foo>
-.. |latitude| replace:: <latitude>
-.. |longitude| replace:: <longitude>
-.. |address| replace:: <address>
-.. |jumpbox-hostname| replace:: <jumpbox-hostname>
-.. |jumpbox-username| replace:: <username>
-.. |github-username| replace:: <github-username>
-.. |github-user-email| replace:: <email@example.com>
-.. |github-user-name| replace:: <FirstName LastName>
-
-
 }
