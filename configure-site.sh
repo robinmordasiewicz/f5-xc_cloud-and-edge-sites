@@ -36,16 +36,16 @@ if [[ ${currentbranch} == "main" ]]; then
   fi
 fi
 exit
-sitename=`jq -r ".sitename" manifests/site.json`
+currentsitename=`jq -r ".sitename" manifests/site.json`
 
-if [[ ${sitename} == "main" ]]; then
+if [[ ${currentsitename} == "main" ]]; then
   # creating a new site
   read -p "Site Name: " sitename
-  if [ ! "${sitename}" ]; then exit; fi
+  if [ ! "${sitename}" ]; then echo "Error: no sitename provided" ;exit; fi
 else
   # configuring existing site
-  read -p "Site Name: [${sitename}] " sitename
-  sitename="${sitename:=${sitename}}"
+  read -p "Site Name: [${currentsitename}] " sitename
+  sitename="${sitename:=${currentsitename}}"
 fi
   
 exit
