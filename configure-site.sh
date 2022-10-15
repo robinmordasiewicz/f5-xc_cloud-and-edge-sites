@@ -65,6 +65,8 @@ timeout () {
 
 cd manifests/
 $address=`jq -r ".address" site.json`
+echo $address
+exit
 
 read -p "Site Address: [${address}] " address
 address="${address:=${address}}"
