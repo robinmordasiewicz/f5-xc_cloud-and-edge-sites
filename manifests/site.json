@@ -6,5 +6,18 @@
   "address": "801 5th Ave Seattle, WA 98104 United States",
   "cenodename": "master-0",
   "cenodeaddress": "10.1.1.5",
-  "cenodeport": "65500"
+  "cenodeport": "65500",
+  "rst_prolog": {
+    "workstationhostname": "<workstation-hostname>",
+    "workstationusername": "ubuntu",
+    "workstationsshport": "<22>",
+    "githuborgname": "<github-org-name>",
+    "githubrepo": "f5-xc-iac",
+    "githubrepobranch": "main",
+    "github_version": "main",
+    "githubusername": "<github-username>",
+    "githubuseremail": "<email@example.com>",
+    "githubuserfullname": "<FirstName LastName>",
+    "github_user": "robinmordasiewicz"
+  }
 }
