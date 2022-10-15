@@ -31,12 +31,18 @@ if [[ ${currentbranch} == "main" ]]; then
   read -p "Site Name: " sitename
   if [ ! "${sitename}" ]; then echo "Error: no sitename provided" ;exit; fi
   if [[ `is_in_local ${sitename}` == 1 ]]; then
-    git switch ${sitename}
+    git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit -m "configuring site manifest"
   else
-    git checkout -b ${sitename}
+    git checkout -b ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit -m "configuring site manifest"
   fi
   currentbranch=`git branch --show-current`
+else
+  # reconfiguring a site
+  currentbranch=`git branch --show-current`
+  read -p "Site Name: [${currentbranch}] " sitename
+  if [[ ${currentbranch} != ${sitename} ]]; then "Error: Already in site branch $currentbranch" ;exit; fi
 fi
+exit
 
 currentsitename=`jq -r ".sitename" manifests/site.json`
 echo "current sitename = $currentsitename"
