@@ -4,7 +4,7 @@ import time
 import re
 import pkgutil
 import string
-import f5_sphinx_theme
+# import f5_sphinx_theme
 
 CURDIR = os.path.abspath(os.path.dirname(__file__))
 # -*- coding: utf-8 -*-
@@ -173,11 +173,10 @@ todo_include_todos = True
 # a list of builtin themes.
 
 # html4_writer = True
-html_title = project
 #html_theme = "f5_sphinx_theme"
 html_theme = "sphinx_book_theme"
-html_theme_path = f5_sphinx_theme.get_html_theme_path()
-html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
+#html_theme_path = f5_sphinx_theme.get_html_theme_path()
+#html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
 #html_sidebars = {"**": ["custom-toc.html"]}
 html_theme_options = {
     "site_name": "Community Training Classes & Labs",
