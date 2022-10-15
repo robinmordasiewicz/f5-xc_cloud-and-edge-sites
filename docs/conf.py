@@ -17,7 +17,7 @@ CURDIR = os.path.abspath(os.path.dirname(__file__))
 classname = "Infrastructure"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/robinmordasiewicz/infrastructure"
+github_repo = "https://github.com/robinmordasiewicz/f5-xc-iac"
 
 show_source = False
 html_show_sourcelink = False
@@ -52,6 +52,8 @@ rst_prolog = open(os.path.join(CURDIR, 'rst_prolog.inc'),'r').read()
 # rst_epilog = open(os.path.join(CURDIR, 'epilog.inc'),'r').read().decode('utf8')
 #rst_epilog = open('epilog.inc', 'r').read()
 rst_epilog = open(os.path.join(CURDIR, 'rst_epilog.inc'),'r').read()
+is_subproject=True
+readthedocs_url="https://workspacedocs.readthedocs.io/en/latest/"
 
 extensions = [
     "sphinx.ext.todo",
@@ -70,6 +72,7 @@ extensions = [
     "sphinx-prompt",
     "sphinx_substitution_extensions",
     "sphinxcontrib.mermaid",
+    "subprojecttoctree",
     "sphinx_design"
 ]
 
