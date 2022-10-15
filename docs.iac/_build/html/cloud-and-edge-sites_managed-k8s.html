@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Managed K8s &#8212; Infrastructure</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster.custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-shadow.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-punk.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-noir.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-light.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/tooltipster-sideTip-borderless.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/micromodal.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-toolbox-code.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/js/hoverxref.js"></script>
+    <script src="_static/js/tooltipster.bundle.min.js"></script>
+    <script src="_static/js/micromodal.min.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Site Management" href="cloud-and-edge-sites_site-management.html" />
+    <link rel="prev" title="Cloud and Edge Sites" href="cloud-and-edge-sites.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+
+  <div class="titlebar">
+              <!-- custom breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html" class=breadcrumbanchor>Infrastructure</a>
+              &gt; <a href="cloud-and-edge-sites.html" class=breadcrumbanchor>Cloud and Edge Sites</a>
+
+        </div>
+
+
+        <div class="navigation-container">
+
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="cloud-and-edge-sites.html" title="Cloud and Edge Sites" accesskey="p" class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external navigation-button"><i class="fa-regular fa-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="cloud-and-edge-sites_site-management.html" title="Site Management" accesskey="n" class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-outline-primary reference external navigation-button">Next <i class="fa-regular fa-circle-right" aria-hidden="true"></i></a>
+       
+       </div>
+     </div>
+    
+
+        </div>
+        <!-- end custom breadcrumb -->
+      
+  </div>
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+<!--
+      
+<div id="searchbox" role="search">
+  <form class="search" action="search.html" method="get">
+    <input type="text" class="search" name="q" placeholder=" Search..." />
+    <button type="submit" class="btn btn-info navbar-btn"><i class="fa fa-search"></i></button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+      
+-->
+      <nav class="nav-sidebartoc">
+<!--
+        
+         <h5>Infrastructure  </h5>
+        
+-->
+        <hr>
+        <span class="nav-sidebartoc">
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Course and Lab Access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workstation.html">Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administration_personal-management_credentials.html">Credentials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cloud-and-edge-sites.html">Cloud and Edge Sites</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Managed K8s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloud-and-edge-sites_site-management.html">Site Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloud-and-edge-sites_managed-k8s-kubeconfig.html">Kubeconfig</a></li>
+</ul>
+</li>
+</ul>
+
+        </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <!--<button type="button" id="export-pdf" class="btn btn-link right">PDF</button>-->
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <section id="managed-k8s">
+<h1>Managed K8s</h1>
+<div class="topic">
+<p class="topic-title">Create K8s Cluster</p>
+<p>Enabling a managed K8s cluster on a Customer Edge instance requires to first create the K8s Cluster object and then apply it during a site creation. It is possible to create a newly managed K8s cluster as part of a site creation process. This lab demonstates creating a K8s cluster before site creation.</p>
+</div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-VUk=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-VUk=" name="VUk=" role="tab" tabindex="0">UI</button><button aria-controls="panel-0-dmVzY3Rs" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-dmVzY3Rs" name="dmVzY3Rs" role="tab" tabindex="-1">vesctl</button></div><div aria-labelledby="tab-0-VUk=" class="sphinx-tabs-panel group-tab" id="panel-0-VUk=" name="VUk=" role="tabpanel" tabindex="0"><ul>
+<li><p>Navigate to <span class="menuselection">Cloud and Edge Sites ‣ Manage ‣ Manage K8s ‣ K8s Clusters</span> and click <span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Add K8s Cluster</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-clusters-add.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-clusters-add.png" style="width: 100%;" />
+</li>
+<li><p>Fill in the form using the following values.</p>
+<ol class="arabic simple">
+<li><p><span class="menuselection">Name</span>: Provide a unique name.</p></li>
+<li><p><span class="menuselection">Access ‣ VoltConsoleAccess</span>: select <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">Enable VoltConsole API Access</span>.</p></li>
+<li><p><span class="menuselection">Cluster Wide Applications</span>: enable Show Advanced Fields <svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-toggle_on sd-text-primary" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z" fill="none"></path><path d="M17 7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h10c2.76 0 5-2.24 5-5s-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg></p></li>
+<li><p><span class="menuselection">Cluster Wide Applications ‣ K8s Cluster Wide Applications</span>: select <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">Add Cluster Wide Applications</span></p></li>
+<li><p><span class="menuselection">Cluster Wide Applications ‣ Add Cluster Wide Applications</span> click <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">Configure &gt;</span></p></li>
+</ol>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-configure1.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-configure1.png" style="width: 100%;" />
+</li>
+<li><p>Click <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">Add Item</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-add-argo1.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-add-argo1.png" style="width: 100%;" />
+</li>
+<li><p>Select <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">Argo CD</span> and click <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">Configure &gt;</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-add-argo2.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-add-argo2.png" style="width: 100%;" />
+</li>
+<li><p>Set <span class="menuselection">Local Domain</span> to <strong>localdomain.local</strong>  and click <span class="sd-sphinx-override sd-badge sd-outline-primary sd-text-primary">Configure &gt;</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-add-argo3.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-add-argo3.png" style="width: 100%;" />
+</li>
+<li><p>Type a unique password and click <span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Blindfold</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-add-argo4.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-add-argo4.png" style="width: 100%;" />
+</li>
+<li><p>Click <span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Apply</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-add-argo5.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-add-argo5.png" style="width: 100%;" />
+</li>
+<li><p>Click <span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Apply</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-add-argo6.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-add-argo6.png" style="width: 100%;" />
+</li>
+<li><p>Click <span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Apply</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-add-argo7.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-add-argo7.png" style="width: 100%;" />
+</li>
+<li><p>Click <span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Save and Exit</span></p>
+<img alt="_images/cloud-and-edge-sites-k8s-cluster-save-and-exit.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-cluster-save-and-exit.png" style="width: 100%;" />
+</li>
+<li><p>The created K8s cluster appears in the list.</p>
+<img alt="_images/cloud-and-edge-sites-k8s-clusters-list.png" class="no-scaled-link" src="_images/cloud-and-edge-sites-k8s-clusters-list.png" style="width: 100%;" />
+</li>
+</ul>
+</div><div aria-labelledby="tab-0-dmVzY3Rs" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-dmVzY3Rs" name="dmVzY3Rs" role="tabpanel" tabindex="0"><ul>
+<li><p>Replace highlighted values in file: <code class="file docutils literal notranslate"><span class="pre">k8s_cluster.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;site-name&gt;&quot;</span><span class="p">,</span><span class="w"></span>
+</span><span class="w">    </span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;disable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;spec&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;no_local_access&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;global_access_enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;use_default_psp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;use_default_cluster_roles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;use_default_cluster_role_bindings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;cluster_wide_app_list&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;cluster_wide_apps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;argo_cd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;local_domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">              </span><span class="nt">&quot;local_domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localdomain.local&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">              </span><span class="nt">&quot;default_port&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">              </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;blindfold_secret_info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;removed&gt;&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">              </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;no_insecure_registries&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;cluster_scoped_access_deny&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Execute the following command to create the k8s cluster object</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>vesctl configuration apply k8s_cluster -i manifests/k8s_cluster.json
+<span class="go">Created</span>
+</pre></div>
+</div>
+</li>
+<li><p>View the vesctl output</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">disable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;site-name&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">cluster_scoped_access_deny</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">cluster_wide_app_list</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">cluster_wide_apps</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">argo_cd</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">generated_yaml</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">local_domain</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">default_port</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">          </span><span class="nt">local_domain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localdomain.local</span><span class="w"></span>
+<span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">blindfold_secret_info</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">decryption_provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">              </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string:///AAAAFmY1LXhjLWxhYi1hcHAtanFndWlzZ2kAAAABAAAAAAAAAGUCAAAABQMIQu6zAAABALA3EV+wz43qsex7kSlAz2FSdn8FM1inXCHrRgIbPflBH5xSyEhop2w9eRbXW84MFRblsuR4dpM1YtmmIvEQIuNjaCPIbz3z4GQvvZrcyYarH3x6Ha2OgcmU8FzvHVEoHzqmxqCkqvFcrkfQfdz3wArGUWEmZLjKilBa1TR7ydiZQjkXSGGT4PvTyqjMyHEqdZyDgS51k7nucEWBlHCCRoIoQn/PXmWgDOgQtDFfNYvMr4sfIN9U9gGWbAGNsnKk4XTQAiSdCb0uDEtA20G5oHufvF6zTKdm4S3cUS4+5TbapP52Wzw6DtVbqQ6DYeGzGlakGohFRAtWb8qZCisSfEUAAAEAXvwAtOU3BT5By4tU1+nx6BNNoSmvo7s2WmauVTSmG9mf5l4OKkY5PtwN3ZYtnwdQnHvAGdyedMIBGM+leFZefTHfWZ4VtnFsIZDe6Qe7HyNOmf0ydIcsvMqmQbK/x0Ri801pmAx/rVQMPU3fvJIfttM4pJLszwHYriCreQVdX+31xMqbhqEdGMOZi0LKJMzmWzBwkaLBkZNPJR6sN5YDjCoiw74MgRoMwkScGEdhVCjy7GBUplf8vpbYQSQ1DjcT50Q==</span><span class="w"></span>
+<span class="w">              </span><span class="nt">store_provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="nt">blindfold_secret_info_internal</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">decryption_provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">              </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string:///AAAABnZlcy1pbwAAAAEAAAAAAA9CRgIAAAAFAxeny5cAAAEA4ZeMZ8dKObTSU4+JQAh2ZMkNJgocAkkMeG2nr/HcyDdWVtH0Z6jspl0o19gWIzI4spO1foFlPKcnQtL2duJ86sSi/OBoL8ydw6WCw7MmRg99ppcSBYWsP5He/kH8dC+l4hTBmtFoJErSDRktd4WiiL39QPIZWjaD3sDdefwQ/iFftFPlUIZBn60bwa6y3sh6TYF+1kpNzxA5d3V0xtZU7E7kpIkWmb+sSiFKZl+h8xmsA9dQoS6QX3/kLFVmAGCmdMKOFnVg0VLetHuRuiBR5ouwvyttIKpGt6gMGyUI+qwNit1lD6UNk2MlJ7oRXkfdNXnxOH7pxLXDxlHwxpHIAwAAAQBqmFX+khHvk+/7TvEE43tyrU8Rb0HkuxLonsLc8nCG0B+zfHip6FxEU4/uDIh7jJG+Gbs/EFi/cjCTGOdFw40OUFLMs3YkCdl+CxLHQWU30Wuq5ILUZ0w4GCvvT5Au6RKRlRXp3Q865harTlc/Fi76w9227inLa8lEYOCY4oNGPrIg9wTNHLBLy0ZyVmbyTgZiTvWZLZLDRE6WhIjbCPxOlC4kJZ/Ni2cUnV+RRwgCr8tugdctSwCJaMmkVEuSvcpUTEvVJB1EgNGdBeCZNXTWb1dcU</span><span class="w"></span>
+<span class="w">              </span><span class="nt">store_provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="nt">secret_encoding_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EncodingNone</span><span class="w"></span>
+<span class="w">  </span><span class="nt">global_access_enable</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">no_insecure_registries</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">no_local_access</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">use_default_cluster_role_bindings</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">use_default_cluster_roles</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">use_default_psp</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="nt">system_metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">creation_timestamp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2022-10-08T02:31:41.703393327Z&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">creator_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prism</span><span class="w"></span>
+<span class="w">  </span><span class="nt">creator_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">email@example.com</span><span class="w"></span>
+<span class="w">  </span><span class="nt">deletion_timestamp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w"></span>
+<span class="w">  </span><span class="nt">finalizers</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
+<span class="w">  </span><span class="nt">initializers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w"></span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">  </span><span class="nt">modification_timestamp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w"></span>
+<span class="w">  </span><span class="nt">object_index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="w">  </span><span class="nt">owner_view</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w"></span>
+<span class="w">  </span><span class="nt">tenant</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;tenant&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">326990d0-d2e9-436f-8677-8a66f869d1e5</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Execute the following command to see the k8s cluster object</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>vesctl configuration list k8s_cluster site-name -n system
+<span class="go">+-----------+-----------+--------+</span>
+<span class="go">| NAMESPACE |   NAME    | LABELS |</span>
+<span class="go">+-----------+-----------+--------+</span>
+<span class="go">| system    | site-name | &lt;None&gt; |</span>
+<span class="go">+-----------+-----------+--------+</span>
+</pre></div>
+</div>
+</li>
+<li><p>Execute the following command to see the k8s cluster object config in json format</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>vesctl configuration get k8s_cluster site-name -n system --outfmt json
+</pre></div>
+</div>
+</li>
+</ul>
+</div></div>
+</section>
+
+
+     </div>
+
+<!--
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="cloud-and-edge-sites.html" title="Cloud and Edge Sites" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="cloud-and-edge-sites_site-management.html" title="Site Management" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+-->
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="_static/js/index.js"></script>
+  <script src="_static/js/jquery.appear.js"></script>
+  <script src="_static/js/printThis.js"></script>
+  <script src="_static/js/bootstrap.min.js"></script>
+  <script src="_static/js/clouddocs.js"></script>
+  <script src="_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
