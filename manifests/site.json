@@ -5,6 +5,17 @@
   "longitude": "<site-longitude>",
   "address": "<site-address>",
   "nodename": "<node-name>",
+  "cenodeaddress": "10.1.1.5",
+  "cenodeport": "65500"
+
+read -p "CE Node IP Addr or DNS name: [10.1.1.5] " cenodeaddress
+cenodeaddress="${cenodeaddress:=10.1.1.5}"
+
+read -p "CE Node Port: [65500] " cenodeport
+cenodeport="${cenodeport:=65500}"
+
+read -p "CE Node hostname: " nodename
+if [ ! "${nodename}" ]; then exit; fi
 
 
 .. |tenantname| replace:: <tenant-name>

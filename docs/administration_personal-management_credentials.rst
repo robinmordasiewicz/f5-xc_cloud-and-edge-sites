@@ -28,13 +28,13 @@ Tenant Certificate
      :class: no-scaled-link
      :width: 100%
 
-* Move the cert to a jumpbox
+* Move the cert to workstation
 
   .. code-block:: console
      :substitutions:
-     :caption: Upload cert to jumpbox
+     :caption: Upload cert to workstation
 
-     $ scp |tenantname|.console.ves.volterra.io.api-creds.p12 ubuntu@<your-jumpbox-hostname>:~/
+     $ scp -P |workstationsshport| |tenantname|.console.ves.volterra.io.api-creds.p12 |workstationusername|@|workstationhostname|:~/
 
 * Choose to either remove the cert/key passphrase, or set a password environment variable for the cert file
 

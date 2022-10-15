@@ -1,6 +1,20 @@
 #!/bin/bash
 #
 
+echo "# Set up tenant name and check for credentials"
+read -p "Tenant Name: [f5-amer-ent] " tenantname
+tenantname="${tenantname:=f5-amer-ent}"
+
+echo "checking for p12 cert"
+openssl pkcs12 -in ~/${tenantname}.console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out ~/vescred.cert
+openssl pkcs12 -in ~/${tenantname}.console.ves.volterra.io.api-creds.p12 -nodes -nocerts -out ~/vesprivate.key
+
+cat <<EOF > ~/.vesconfig
+server-urls: https://${tenantname}.console.ves.volterra.io/api
+key: $HOME/vesprivate.key
+cert: $HOME/vescred.cert
+EOF
+
 read -p "Site Name: " sitename
 if [ ! "${sitename}" ]; then exit; fi
 
@@ -37,10 +51,43 @@ cenodeport="${cenodeport:=65500}"
 read -p "CE Node hostname: " nodename
 if [ ! "${nodename}" ]; then exit; fi
 
+read -s -p "CE node new password: " newpassword
+if [ ! "${newpassword}" ]; then exit; fi
+echo "*********************"
+
+echo "# Change the CE password"
+curl -sS -k -v "https://${cenodeaddress}:${cenodeport}/api/ves.io.vpm/introspect/write/ves.io.vpm.node/change-password" \
+  -H 'Authorization: Basic YWRtaW46Vm9sdGVycmExMjM=' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json' \
+  --data-raw "{\"current_password\":\"Volterra123\",\"new_password\":\"${newpassword}\",\"username\":\"admin\"}"
+basicauth=`echo -n admin:${newpassword} | base64`
+unset newpassword
+
+read -s -p "ArgoCD password: " argocdpassword
+echo "*********************"
+if [ ! "${argocdpassword}" ]; then exit; fi
+
+vesctl request secrets get-public-key > f5-amer-ent-public-key.key
+vesctl request secrets get-policy-document --namespace shared --name ves-io-allow-volterra > secret-policy-ves-io-allow-volterra.crt
+echo -n ${argocdpassword} > password.key
+unset argocdpassword
+encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.crt --public-key f5-amer-ent-public-key.key password.key | grep "=$"`
+
+rm password.key f5-amer-ent-public-key.key secret-policy-ves-io-allow-volterra.crt
+
 echo "# Create manifests"
 cd manifests/
 
-jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
+echo "# Create a k8s cluster object"
+jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"string:///${encryptedpassword}\" " k8s_cluster.json | sponge k8s_cluster.json
+unset encryptedpassword
+
+jq -r ".metadata.name = \"${sitename}\" " k8s_cluster.json | sponge k8s_cluster.json
+git add k8s_cluster.json && git commit --quiet -m "creating deployment manifests"
+vesctl configuration apply k8s_cluster -i k8s_cluster.json
+
+jq -r ".spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
 git add k8s_cluster.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create an appstack site"

@@ -1,10 +1,11 @@
 .. |tenantname| replace:: <tenant-name>
-.. |site-name| replace:: <foo>
+.. |sitename| replace:: <foo>
 .. |latitude| replace:: <latitude>
 .. |longitude| replace:: <longitude>
 .. |address| replace:: <address>
-.. |jumpbox-hostname| replace:: <jumpbox-hostname>
-.. |jumpbox-username| replace:: <username>
-.. |github-username| replace:: <github-username>
-.. |github-user-email| replace:: <email@example.com>
-.. |github-user-name| replace:: <FirstName LastName>
+.. |workstationhostname| replace:: <workstation-hostname>
+.. |workstationusername| replace:: <username>
+.. |workstationsshport| replace:: <22>
+.. |githubusername| replace:: <github-username>
+.. |githubuseremail| replace:: <email@example.com>
+.. |githubusername| replace:: <FirstName LastName>
