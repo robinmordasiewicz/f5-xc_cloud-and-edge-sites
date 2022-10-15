@@ -40,6 +40,7 @@ else
   # reconfiguring a site
   currentbranch=`git branch --show-current`
   read -p "Site Name: [${currentbranch}] " sitename
+  sitename="${sitename:=${currentbranch}}"
   if [[ ${currentbranch} != ${sitename} ]]; then
     if [[ `is_in_local ${sitename}` == 1 ]]; then
       git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit -m "configuring site manifest"
@@ -65,8 +66,6 @@ timeout () {
 
 cd manifests/
 address=`jq -r ".address" site.json`
-echo $address
-exit
 
 read -p "Site Address: [${address}] " address
 address="${address:=${address}}"
