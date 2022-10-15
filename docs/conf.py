@@ -72,16 +72,27 @@ extensions = [
     "sphinx_substitution_extensions",
     "sphinxcontrib.mermaid",
     "subprojecttoctree",
+    "sphinx.ext.viewcode",
     "sphinx_design"
 ]
 
 
 html_theme_options = {
     "repository_url": "https://github.com/robinmordasiewicz/f5-xc-iac",
+    "github_url": "https://github.com/robinmordasiewicz/f5-xc-iac",
+    "use_edit_page_button": True,
     "use_repository_button": True,
     "use_edit_page_button": True,
     "use_issues_button": True,
     "path_to_docs": "docs"
+}
+
+html_context = {
+    "github_url": "https://github.com", # or your GitHub Enterprise site
+    "github_user": "robinmordasiewicz",
+    "github_repo": "f5-xc-iac",
+    "github_version": "main",
+    "doc_path": "docs",
 }
 
 html_title = "Infrastructure As Code"
