@@ -78,7 +78,6 @@ extensions = [
 
 
 html_theme_options = {
-    "navbar_align": "left",
     "show_toc_level": 4,
     "show_prev_next": False,
     "footer_items": ["last-updated"],
@@ -203,7 +202,7 @@ html_theme = "pydata_sphinx_theme"
 #html_theme_path = f5_sphinx_theme.get_html_theme_path()
 #html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
 html_sidebars = {
-    "**": ["navbar-nav", "sidebar-nav-bs"]
+    "**": ["sidebar-nav-bs"]
 }
 #html_sidebars = {"**": ["custom-toc.html"]}
 html_codeblock_linenos_style = 'table'
