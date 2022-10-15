@@ -78,6 +78,7 @@ extensions = [
 
 
 html_theme_options = {
+    "show_toc_level": 4,
     "show_prev_next": False,
     "footer_items": ["last-updated"],
     "site_name": "Infrastructure As Code",
