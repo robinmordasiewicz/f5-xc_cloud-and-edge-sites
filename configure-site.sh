@@ -22,20 +22,20 @@ function is_in_remote() {
         echo 1
     fi
 }
-
+is_in_local foo
 currentbranch=`git branch --show-current`
 
 if [[ ${currentbranch} == "main" ]]; then
   # in main configure site
   read -p "Site Name: " sitename
   if [ ! "${sitename}" ]; then echo "Error: no sitename provided" ;exit; fi
-  if [[ `is_in_local ${sitename}` ]]; then
+  if [[ `is_in_local ${sitename}` == 1 ]]; then
     git switch ${sitename}
   else
     git checkout -b ${sitename}
   fi
 fi
-
+exit
 sitename=`jq -r ".sitename" manifests/site.json`
 
 if [[ ${sitename} == "main" ]]; then
