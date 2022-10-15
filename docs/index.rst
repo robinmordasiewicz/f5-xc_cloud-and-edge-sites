@@ -17,7 +17,6 @@ Infrastructure
 
 .. toctree::
    :titlesonly:
-   :hidden:
 
    intro.rst
    workstation.rst

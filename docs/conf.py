@@ -203,7 +203,7 @@ html_theme = "pydata_sphinx_theme"
 #html_theme_path = f5_sphinx_theme.get_html_theme_path()
 #html_sidebars = {"**": ["searchbox.html", "localtoc.html", "globaltoc.html"]}
 html_sidebars = {
-    "**": ["search-field", "sidebar-nav-bs"]
+    "**": ["navbar-nav", "sidebar-nav-bs"]
 }
 #html_sidebars = {"**": ["custom-toc.html"]}
 html_codeblock_linenos_style = 'table'
