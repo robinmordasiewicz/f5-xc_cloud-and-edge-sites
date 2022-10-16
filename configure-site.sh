@@ -114,15 +114,16 @@ currentgithubrepobranch=`jq -r ".rst_prolog.githubrepobranch" site.json`
 read -p "Github Org: [${currentgithubrepobranch}] " githubrepobranch
 githubrepobranch="${githubrepobranch:=${currentgithubrepobranch}}"
 
-
+githubuserfullname=`git config user.name`
+githubuseremail=`git config user.email`
+githubrepobranch=$currentbranch
+github_version=$currentbranch
 
       "githubrepo": "f5-xc-iac",
-      "githubrepobranch": "main",
-      "github_version": "main",
       "githubusername": "<github-username>",
-      "githubuseremail": "<email@example.com>",
-      "githubuserfullname": "<FirstName LastName>",
       "github_user": "robinmordasiewicz"
+
+
 
 echo "# Create manifests"
 
