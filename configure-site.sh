@@ -128,11 +128,11 @@ jq -r ".address = \"${address}\" | .latitude = \"${latitude}\" | .longitude = \"
 git add site.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create K8s cluster"
-jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
+jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"removed\" " k8s_cluster.json | sponge k8s_cluster.json
 git add k8s_cluster.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create an appstack site"
-jq -r ".metadata.name = \"${sitename}\" | .spec.k8s_cluster.name = \"${sitename}\" | .spec.master_nodes[] = \"${nodename}\" | .spec.address = \"${address}\" | .spec.coordinates.latitude = \"${latitude}\" | .spec.coordinates.longitude = \"${longitude}\" " appstack_site.json | sponge appstack_site.json
+jq -r ".metadata.name = \"${sitename}\" | .spec.k8s_cluster.name = \"${sitename}\" | .spec.master_nodes[] = \"${cenodename}\" | .spec.address = \"${address}\" | .spec.coordinates.latitude = \"${latitude}\" | .spec.coordinates.longitude = \"${longitude}\" " appstack_site.json | sponge appstack_site.json
 git add appstack_site.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create a token request"
@@ -140,7 +140,7 @@ jq -r ".metadata.name = \"${sitename}-token\" " token.json | sponge token.json
 git add token.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create CE registraion"
-jq -r ".cluster_name = \"${sitename}\" | .hostname = \"${nodename}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" " ce-register.json | sponge ce-register.json
+jq -r ".cluster_name = \"${sitename}\" | .hostname = \"${cenodename}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" " ce-register.json | sponge ce-register.json
 git add ce-register.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create a site registration approval"
