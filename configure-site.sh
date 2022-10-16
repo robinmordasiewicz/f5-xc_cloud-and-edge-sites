@@ -31,9 +31,9 @@ if [[ ${currentbranch} == "main" ]]; then
   read -p "Site Name: " sitename
   if [ ! "${sitename}" ]; then echo "Error: no sitename provided" ;exit; fi
   if [[ `is_in_local ${sitename}` == 1 ]]; then
-    git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit -m "configuring site manifest"
+    git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
   else
-    git checkout -b ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit -m "configuring site manifest"
+    git checkout -b ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
   fi
   currentbranch=`git branch --show-current`
 else
@@ -43,9 +43,9 @@ else
   sitename="${sitename:=${currentbranch}}"
   if [[ ${currentbranch} != ${sitename} ]]; then
     if [[ `is_in_local ${sitename}` == 1 ]]; then
-      git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit -m "configuring site manifest"
+      git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
     else
-      git checkout -b ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit -m "configuring site manifest"
+      git checkout -b ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
     fi
     currentbranch=`git branch --show-current`
   fi
@@ -99,39 +99,23 @@ read -p "Workstation SSH port: [${currentworkstationsshport}] " workstationsshpo
 workstationsshport="${workstationsshport:=${currentworkstationsshport}}"
 
 currentworkstationusername=`jq -r ".rst_prolog.workstationusername" site.json`
-read -p "Workstation Hostname: [${currentworkstationusername}] " workstationusername
+read -p "Workstation Username: [${currentworkstationusername}] " workstationusername
 workstationusername="${workstationusername:=${currentworkstationusername}}"
-
-currentgithuborgname=`jq -r ".rst_prolog.githuborgname" site.json`
-read -p "Github Org: [${currentgithuborgname}] " githuborgname
-githuborgname="${githuborgname:=${currentgithuborgname}}"
-
-currentgithubrepo=`jq -r ".rst_prolog.githubrepo" site.json`
-read -p "Github Org: [${currentgithubrepo}] " githubrepo
-githubrepo="${githubrepo:=${currentgithubrepo}}"
-
-currentgithubrepobranch=`jq -r ".rst_prolog.githubrepobranch" site.json`
-read -p "Github Org: [${currentgithubrepobranch}] " githubrepobranch
-githubrepobranch="${githubrepobranch:=${currentgithubrepobranch}}"
 
 githubuserfullname=`git config user.name`
 githubuseremail=`git config user.email`
 githubrepobranch=$currentbranch
-github_version=$currentbranch
-
-      "githubrepo": "f5-xc-iac",
-      "githubusername": "<github-username>",
-      "github_user": "robinmordasiewicz"
-
-
+gitremoteupstream=`git remote get-url upstream`
+githuborgname=`git remote get-url upstream | cut -f 4 -d "/"`
+githubrepo=`git remote get-url upstream | cut -f 5 -d "/" | cut -f 1 -d "."`
 
 echo "# Create manifests"
 
-echo "# Create K8s clsuter"
-jq -r ".address = \"${address}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" | .cenodeaddress = \"${cenodeaddress}\" | .cenodeport = \"${cenodeport}\" | .cenodename = \"${cenodename}\" " site.json | sponge site.json
+echo "# Create site config"
+jq -r ".address = \"${address}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" | .cenodeaddress = \"${cenodeaddress}\" | .cenodeport = \"${cenodeport}\" | .cenodename = \"${cenodename}\" | .rst_prolog.workstationhostname = \"${workstationhostname}\" | .rst_prolog.workstationusername = \"${workstationusername}\" | .rst_prolog.workstationsshport = \"${workstationsshport}\" | .rst_prolog.githuborgname = \"${githuborgname}\" | .rst_prolog.githubrepo = \"${githubrepo}\" | .rst_prolog.githubrepobranch = \"${githubrepobranch}\" | .rst_prolog.github_version = \"${githubrepobranch}\" | .rst_prolog.githubusername = \"${githuborgname}\" | .rst_prolog.githubuseremail = \"${githubuseremail}\" | .rst_prolog.githubuserfullname = \"${githubuserfullname}\" | .rst_prolog.github_user = \"${githuborgname}\"  " site.json | sponge site.json
 git add site.json && git commit --quiet -m "creating deployment manifests"
 
-echo "# Create K8s clsuter"
+echo "# Create K8s cluster"
 jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
 git add k8s_cluster.json && git commit --quiet -m "creating deployment manifests"
 
@@ -149,4 +133,11 @@ git add ce-register.json && git commit --quiet -m "creating deployment manifests
 
 echo "# Update documentation"
 
+cd -
+if [[ -e docs/rst_prolog.rst ]]; then rm docs/rst_prolog.rst; fi
+for keyfield in $(jq -r '.rst_prolog | keys[] as $k | "\($k)"' manifests/site.json); do
+  echo ".. |$keyfield| replace:: `jq -r ".rst_prolog.${keyfield}" manifests/site.json`" >> docs/rst_prolog.rst
+done
+
+git add docs/rst_prolog.rst && git commit --quiet -m "creating deployment manifests"
 
