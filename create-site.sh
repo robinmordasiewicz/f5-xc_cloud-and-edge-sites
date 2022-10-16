@@ -147,6 +147,7 @@ echo "# Approve the registration"
 
 echo '{ "namespace": "system", "state": "PENDING" }' > pending.json
 
+STATE=`vesctl configuration get site ${sitename} -n system --outfmt json | jq -r ".spec.site_state"`
 if [[ ${STATE} == "WAITING_FOR_REGISTRATION" ]]; then
   registration=`vesctl request rpc registration.CustomAPI.ListRegistrationsByState -i pending.json --uri /public/namespaces/system/listregistrationsbystate --http-method POST | yq -o=json | jq -r ".items[] | select(.getSpec.token == \"${token}\") | .name"`
   jq -r ".name = \"${registration}\" " approval_req.json | sponge approval_req.json
