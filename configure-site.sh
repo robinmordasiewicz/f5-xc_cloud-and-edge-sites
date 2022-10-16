@@ -127,27 +127,27 @@ echo "# Create manifests"
 
 echo "# Create site config"
 jq -r ".address = \"${address}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" | .cenodeaddress = \"${cenodeaddress}\" | .cenodeport = \"${cenodeport}\" | .cenodename = \"${cenodename}\" | .rst_prolog.workstationhostname = \"${workstationhostname}\" | .rst_prolog.workstationusername = \"${workstationusername}\" | .rst_prolog.workstationsshport = \"${workstationsshport}\" | .rst_prolog.githuborgname = \"${githuborgname}\" | .rst_prolog.githubrepo = \"${githubrepo}\" | .rst_prolog.githubrepobranch = \"${githubrepobranch}\" | .rst_prolog.github_version = \"${githubrepobranch}\" | .rst_prolog.githubusername = \"${githuborgname}\" | .rst_prolog.githubuseremail = \"${githubuseremail}\" | .rst_prolog.githubuserfullname = \"${githubuserfullname}\" | .rst_prolog.github_user = \"${githuborgname}\"  " site.json | sponge site.json
-git add site.json && git commit --quiet -m "creating deployment manifests"
+git add site.json &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create K8s cluster"
 jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
-git add k8s_cluster.json && git commit --quiet -m "creating deployment manifests"
+git add k8s_cluster.json &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create an appstack site"
 jq -r ".metadata.name = \"${sitename}\" | .spec.k8s_cluster.name = \"${sitename}\" | .spec.master_nodes[] = \"${cenodename}\" | .spec.address = \"${address}\" | .spec.coordinates.latitude = \"${latitude}\" | .spec.coordinates.longitude = \"${longitude}\" " appstack_site.json | sponge appstack_site.json
-git add appstack_site.json && git commit --quiet -m "creating deployment manifests"
+git add appstack_site.json &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create a token request"
 jq -r ".metadata.name = \"${sitename}-token\" " token.json | sponge token.json
-git add token.json && git commit --quiet -m "creating deployment manifests"
+git add token.json &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create CE registraion"
 jq -r ".cluster_name = \"${sitename}\" | .hostname = \"${cenodename}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" " ce-register.json | sponge ce-register.json
-git add ce-register.json && git commit --quiet -m "creating deployment manifests"
+git add ce-register.json &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create a site registration approval"
 jq -r ".name = \"<removed>\" | .passport.clustername = \"${sitename}\" | .passport.latitude = \"${latitude}\" | .passport.longitude = \"${longitude}\" " approval_req.json | sponge approval_req.json
-git add approval_req.json && git commit --quiet -m "creating deployment manifests"
+git add approval_req.json &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
 echo "# Update documentation"
 
@@ -157,6 +157,6 @@ for keyfield in $(jq -r '.rst_prolog | keys[] as $k | "\($k)"' manifests/site.js
   echo ".. |$keyfield| replace:: `jq -r ".rst_prolog.${keyfield}" manifests/site.json`" >> docs/rst_prolog.inc
 done
 
-git add docs/rst_prolog.inc && git commit --quiet -m "creating deployment manifests"
+git add docs/rst_prolog.inc &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
-git push
+git push --quiet
