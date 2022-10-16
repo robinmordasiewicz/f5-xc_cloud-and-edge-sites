@@ -148,12 +148,18 @@ echo "# Approve the registration"
 echo '{ "namespace": "system", "state": "PENDING" }' > pending.json
 
 registration=`vesctl request rpc registration.CustomAPI.ListRegistrationsByState -i pending.json --uri /public/namespaces/system/listregistrationsbystate --http-method POST | yq -o=json | jq -r ".items[] | select(.getSpec.token == \"${token}\") | .name"`
-jq -r ".name = \"${registration}\" " approval_req.json | sponge approval_req.json
-vesctl request rpc registration.CustomAPI.RegistrationApprove -i approval_req.json --uri /public/namespaces/system/registration/${registration}/approve --http-method POST
-rm pending.json
-git restore approval_req.json
 
-timeout 30 "Wait for the site to appear before provisioning %s"
+if [ -z "$pending" ]; then
+  echo "# Site is not waiting for approval"
+  rm pending.json
+  git restore approval_req.json
+else 
+  jq -r ".name = \"${registration}\" " approval_req.json | sponge approval_req.json
+  vesctl request rpc registration.CustomAPI.RegistrationApprove -i approval_req.json --uri /public/namespaces/system/registration/${registration}/approve --http-method POST
+  rm pending.json
+  git restore approval_req.json
+  timeout 30 "Wait for the site to appear before provisioning %s"
+fi
 
 echo "# Wait until the site is ONLINE - maxium 30 minutes"
 printstart=$(date +%r)
