@@ -7,17 +7,18 @@
   "cenodename": "master-0",
   "cenodeaddress": "10.1.1.5",
   "cenodeport": "65500",
-  "rst_prolog": {
-    "workstationhostname": "<workstation-hostname>",
-    "workstationusername": "ubuntu",
-    "workstationsshport": "<22>",
-    "githuborgname": "<github-org-name>",
-    "githubrepo": "f5-xc-iac",
-    "githubrepobranch": "main",
-    "github_version": "main",
-    "githubusername": "<github-username>",
-    "githubuseremail": "<email@example.com>",
-    "githubuserfullname": "<FirstName LastName>",
-    "github_user": "robinmordasiewicz"
-  }
+  "rst_prolog": 
+    {
+      "workstationhostname": "<workstation-hostname>",
+      "workstationusername": "ubuntu",
+      "workstationsshport": "<22>",
+      "githuborgname": "robinmordasiewicz",
+      "githubrepo": "f5-xc-iac",
+      "githubrepobranch": "main",
+      "github_version": "main",
+      "githubusername": "<github-username>",
+      "githubuseremail": "<email@example.com>",
+      "githubuserfullname": "<FirstName LastName>",
+      "github_user": "robinmordasiewicz"
+    }
 }

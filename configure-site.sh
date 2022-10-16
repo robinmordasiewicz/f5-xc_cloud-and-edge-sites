@@ -90,6 +90,40 @@ currentcenodeport=`jq -r ".cenodeport" site.json`
 read -p "CE Node Port: [${currentcenodeport}] " cenodeport
 cenodeport="${cenodeport:=${currentcenodeport}}"
 
+currentworkstationhostname=`jq -r ".rst_prolog.workstationhostname" site.json`
+read -p "Workstation Hostname: [${currentworkstationhostname}] " workstationhostname
+workstationhostname="${workstationhostname:=${currentworkstationhostname}}"
+
+currentworkstationsshport=`jq -r ".rst_prolog.workstationsshport" site.json`
+read -p "Workstation SSH port: [${currentworkstationsshport}] " workstationsshport
+workstationsshport="${workstationsshport:=${currentworkstationsshport}}"
+
+currentworkstationusername=`jq -r ".rst_prolog.workstationusername" site.json`
+read -p "Workstation Hostname: [${currentworkstationusername}] " workstationusername
+workstationusername="${workstationusername:=${currentworkstationusername}}"
+
+currentgithuborgname=`jq -r ".rst_prolog.githuborgname" site.json`
+read -p "Github Org: [${currentgithuborgname}] " githuborgname
+githuborgname="${githuborgname:=${currentgithuborgname}}"
+
+currentgithubrepo=`jq -r ".rst_prolog.githubrepo" site.json`
+read -p "Github Org: [${currentgithubrepo}] " githubrepo
+githubrepo="${githubrepo:=${currentgithubrepo}}"
+
+currentgithubrepobranch=`jq -r ".rst_prolog.githubrepobranch" site.json`
+read -p "Github Org: [${currentgithubrepobranch}] " githubrepobranch
+githubrepobranch="${githubrepobranch:=${currentgithubrepobranch}}"
+
+
+
+      "githubrepo": "f5-xc-iac",
+      "githubrepobranch": "main",
+      "github_version": "main",
+      "githubusername": "<github-username>",
+      "githubuseremail": "<email@example.com>",
+      "githubuserfullname": "<FirstName LastName>",
+      "github_user": "robinmordasiewicz"
+
 echo "# Create manifests"
 
 echo "# Create K8s clsuter"
