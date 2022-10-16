@@ -143,20 +143,17 @@ git restore ce-register.json
 
 timeout 20 "Wait for the registration to activate %s"
 
-echo "# Approve the registration"
-
-echo '{ "namespace": "system", "state": "PENDING" }' > pending.json
-
 STATE=`vesctl configuration get site ${sitename} -n system --outfmt json | jq -r ".spec.site_state"`
 if [[ ${STATE} == "WAITING_FOR_REGISTRATION" ]]; then
+  echo "# Approve the registration"
+  echo '{ "namespace": "system", "state": "PENDING" }' > pending.json
   registration=`vesctl request rpc registration.CustomAPI.ListRegistrationsByState -i pending.json --uri /public/namespaces/system/listregistrationsbystate --http-method POST | yq -o=json | jq -r ".items[] | select(.getSpec.token == \"${token}\") | .name"`
   jq -r ".name = \"${registration}\" " approval_req.json | sponge approval_req.json
   vesctl request rpc registration.CustomAPI.RegistrationApprove -i approval_req.json --uri /public/namespaces/system/registration/${registration}/approve --http-method POST
   git restore approval_req.json
+  rm pending.json
+  timeout 20 "Wait for the approval to activate %s"
 fi
-
-rm pending.json
-
 
 echo "# Wait until the site is ONLINE - maxium 30 minutes"
 printstart=$(date +%r)
