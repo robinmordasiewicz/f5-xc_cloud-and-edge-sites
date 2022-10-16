@@ -11,14 +11,14 @@
     {
       "workstationhostname": "<workstation-hostname>",
       "workstationusername": "ubuntu",
-      "workstationsshport": "<22>",
+      "workstationsshport": "22",
       "githuborgname": "robinmordasiewicz",
+      "github_user": "robinmordasiewicz",
       "githubrepo": "f5-xc-iac",
-      "githubrepobranch": "main",
+      "githubrepobranch": "blue-site",
       "github_version": "main",
-      "githubusername": "<github-username>",
-      "githubuseremail": "<email@example.com>",
-      "githubuserfullname": "<FirstName LastName>",
-      "github_user": "robinmordasiewicz"
+      "githubusername": "robinmordasiewicz",
+      "githubuseremail": "email@example.com",
+      "githubuserfullname": "FirstName LastName"
     }
 }
