@@ -88,9 +88,13 @@ git restore ce-register.json
 timeout 20 "Wait for the registration to activate %s"
 
 echo "# Approve the registration"
+
+echo '{ "namespace": "system", "state": "PENDING" }' > pending.json
+
 registration=`vesctl request rpc registration.CustomAPI.ListRegistrationsByState -i pending.json --uri /public/namespaces/system/listregistrationsbystate --http-method POST | yq -o=json | jq -r ".items[] | select(.getSpec.token == \"${token}\") | .name"`
 jq -r ".name = \"${registration}\" " approval_req.json | sponge approval_req.json
 vesctl request rpc registration.CustomAPI.RegistrationApprove -i approval_req.json --uri /public/namespaces/system/registration/${registration}/approve --http-method POST
+rm pending.json
 git restore approval_req.json
 
 timeout 30 "Wait for the site to appear before provisioning %s"
@@ -126,6 +130,6 @@ if [[ "${STATE}" == "ONLINE" ]]; then
     -d @download_kubeconfig.json \
     -o $HOME/.kube/ves_system_${sitename}_kubeconfig_global.yaml
 fi
-git restore download_kubeconfig.json
+rm download_kubeconfig.json
 
 kubectl --kubeconfig $HOME/.kube/ves_system_${sitename}_kubeconfig_global.yaml get pods -A
