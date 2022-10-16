@@ -116,7 +116,6 @@ encryptedpassword=`vesctl request secrets encrypt --policy-document secret-polic
 rm password.key f5-amer-ent-public-key.key secret-policy-ves-io-allow-volterra.crt
 
 echo "# Create manifests"
-cd manifests/
 
 echo "# Create a k8s cluster object"
 jq -r ".spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"string:///${encryptedpassword}\" " k8s_cluster.json | sponge k8s_cluster.json
