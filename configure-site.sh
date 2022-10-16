@@ -157,4 +157,4 @@ done
 
 git add docs/rst_prolog.inc && git commit --quiet -m "creating deployment manifests"
 
-git push -u origin ${sitename}
+git push
