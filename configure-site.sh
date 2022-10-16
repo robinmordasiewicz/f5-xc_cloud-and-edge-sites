@@ -32,6 +32,8 @@ if [[ ${currentbranch} == "main" ]]; then
   if [ ! "${sitename}" ]; then echo "Error: no sitename provided" ;exit; fi
   if [[ `is_in_local ${sitename}` == 1 ]]; then
     git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
+  elif [[ `is_in_remote ${sitename}` == 1 ]]; then
+    git pull origin ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
   else
     git checkout -b ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
   fi
