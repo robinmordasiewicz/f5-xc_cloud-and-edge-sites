@@ -105,9 +105,17 @@ workstationusername="${workstationusername:=${currentworkstationusername}}"
 githubuserfullname=`git config user.name`
 githubuseremail=`git config user.email`
 githubrepobranch=$currentbranch
-gitremoteupstream=`git remote get-url upstream`
-githuborgname=`git remote get-url upstream | cut -f 4 -d "/"`
-githubrepo=`git remote get-url upstream | cut -f 5 -d "/" | cut -f 1 -d "."`
+git remote get-url upstream 2>&1 >/dev/null
+
+if [[ $? == 0 ]]; then
+  gitremoteupstream=`git remote get-url upstream`
+  githuborgname=`git remote get-url upstream | cut -f 4 -d "/"`
+  githubrepo=`git remote get-url upstream | cut -f 5 -d "/" | cut -f 1 -d "."`
+else
+  gitremoteupstream=`git config --get remote.origin.url`
+  githuborgname=`git config --get remote.origin.url | cut -f 4 -d "/"`
+  githubrepo=`git config --get remote.origin.url | cut -f 5 -d "/" | cut -f 1 -d "."`
+fi
 
 echo "# Create manifests"
 
