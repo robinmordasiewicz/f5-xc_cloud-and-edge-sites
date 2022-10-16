@@ -4,7 +4,7 @@
   "latitude": "47.605199",
   "longitude": "-122.330996",
   "address": "801 5th Ave Seattle, WA 98104 United States",
-  "cenodename": "master-0",
+  "cenodename": "node-name",
   "cenodeaddress": "10.1.1.5",
   "cenodeport": "65500",
   "rst_prolog": 
@@ -15,7 +15,7 @@
       "githuborgname": "robinmordasiewicz",
       "github_user": "robinmordasiewicz",
       "githubrepo": "f5-xc-iac",
-      "githubrepobranch": "blue-site",
+      "githubrepobranch": "site-name",
       "github_version": "main",
       "githubusername": "robinmordasiewicz",
       "githubuseremail": "email@example.com",
