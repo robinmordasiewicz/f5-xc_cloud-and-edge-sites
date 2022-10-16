@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 
+git fetch
+
 function is_in_local() {
     local branch=${1}
     local existed_in_local=$(git branch --list ${branch})
@@ -33,7 +35,7 @@ if [[ ${currentbranch} == "main" ]]; then
   if [[ `is_in_local ${sitename}` == 1 ]]; then
     git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
   elif [[ `is_in_remote ${sitename}` == 1 ]]; then
-    git checkout ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
+    git switch -c ${sitename} origin/${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
   else
     git checkout -b ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
   fi
