@@ -65,10 +65,10 @@ timeout () {
 }
 
 cd manifests/
-address=`jq -r ".address" site.json`
 
-read -p "Site Address: [${address}] " address
-address="${address:=${address}}"
+currentaddress=`jq -r ".address" site.json`
+read -p "Site Address: [${currentaddress}] " address
+address="${address:=${currentaddress}}"
 
 currentlatitude=`jq -r ".latitude" site.json`
 read -p "Site Latitude: [${currentlatitude}] " latitude
@@ -149,3 +149,4 @@ done
 
 git add docs/rst_prolog.inc && git commit --quiet -m "creating deployment manifests"
 
+git push -u origin ${sitename}
