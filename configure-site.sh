@@ -142,10 +142,10 @@ git add ce-register.json && git commit --quiet -m "creating deployment manifests
 echo "# Update documentation"
 
 cd -
-if [[ -e docs/rst_prolog.rst ]]; then rm docs/rst_prolog.rst; fi
+if [[ -e docs/rst_prolog.inc ]]; then rm docs/rst_prolog.inc; fi
 for keyfield in $(jq -r '.rst_prolog | keys[] as $k | "\($k)"' manifests/site.json); do
-  echo ".. |$keyfield| replace:: `jq -r ".rst_prolog.${keyfield}" manifests/site.json`" >> docs/rst_prolog.rst
+  echo ".. |$keyfield| replace:: `jq -r ".rst_prolog.${keyfield}" manifests/site.json`" >> docs/rst_prolog.inc
 done
 
-git add docs/rst_prolog.rst && git commit --quiet -m "creating deployment manifests"
+git add docs/rst_prolog.inc && git commit --quiet -m "creating deployment manifests"
 
