@@ -76,7 +76,7 @@ cd manifests/
 echo "# Set up tenant name and check for credentials"
 currenttenantname=`jq -r ".tenantname" site.json`
 read -p "Tenant Name:: [${currenttenantname}] " tenantname
-address="${address:=${currenttenantname}}"
+tenantname="${tenantname:=${currenttenantname}}"
 
 echo "checking for p12 cert"
 openssl pkcs12 -in ~/${tenantname}.console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out ~/vescred.cert
