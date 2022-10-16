@@ -34,10 +34,10 @@ if [[ ${currentbranch} == "main" ]]; then
   if [ ! "${sitename}" ]; then echo "Error: no sitename provided" ;exit; fi
   if [[ `is_in_local ${sitename}` == 1 ]]; then
     git switch ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
-    git merge main
+    git merge main -m "Merge master"
   elif [[ `is_in_remote ${sitename}` == 1 ]]; then
     git switch -c ${sitename} origin/${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
-    git merge main
+    git merge main -m "Merge master"
   else
     git checkout -b ${sitename} && jq -r ".sitename = \"${sitename}\" " manifests/site.json | sponge manifests/site.json && git add manifests/site.json && git commit --quiet -m "configuring site manifest"
   fi
@@ -130,7 +130,7 @@ jq -r ".address = \"${address}\" | .latitude = \"${latitude}\" | .longitude = \"
 git add site.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create K8s cluster"
-jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"removed\" " k8s_cluster.json | sponge k8s_cluster.json
+jq -r ".metadata.name = \"${sitename}\" | .spec.cluster_wide_app_list.cluster_wide_apps[].argo_cd.local_domain.password.blindfold_secret_info.location = \"<removed>\" " k8s_cluster.json | sponge k8s_cluster.json
 git add k8s_cluster.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create an appstack site"
@@ -146,7 +146,7 @@ jq -r ".cluster_name = \"${sitename}\" | .hostname = \"${cenodename}\" | .latitu
 git add ce-register.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create a site registration approval"
-jq -r ".name = \"removed\" | .passport.clustername = \"${sitename}\" | .passport.latitude = ${latitude}\" | .passport.longitude = \"${longitude}\" " approval_req.json | sponge approval_req.json
+jq -r ".name = \"<removed>\" | .passport.clustername = \"${sitename}\" | .passport.latitude = $\"{latitude}\" | .passport.longitude = \"${longitude}\" " approval_req.json | sponge approval_req.json
 git add approval_req.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Update documentation"
