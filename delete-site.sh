@@ -91,8 +91,8 @@ read -s -p "CE node password: " newpassword
 if [ ! "${newpassword}" ]; then exit; fi
 echo "*********************"
 
-unset newpassword
 basicauth=`echo -n admin:${newpassword} | base64`
+unset newpassword
 
 cenodeaddress=`jq -r ".cenodeaddress" site.json`
 cenodeport=`jq -r ".cenodeport" site.json`
