@@ -131,13 +131,17 @@ echo "# Create an appstack site"
 jq -r ".metadata.name = \"${sitename}\" | .spec.k8s_cluster.name = \"${sitename}\" | .spec.master_nodes[] = \"${nodename}\" | .spec.address = \"${address}\" | .spec.coordinates.latitude = \"${latitude}\" | .spec.coordinates.longitude = \"${longitude}\" " appstack_site.json | sponge appstack_site.json
 git add appstack_site.json && git commit --quiet -m "creating deployment manifests"
 
-echo "# Create a site registration approval"
+echo "# Create a token request"
 jq -r ".metadata.name = \"${sitename}-token\" " token.json | sponge token.json
 git add token.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create CE registraion"
 jq -r ".cluster_name = \"${sitename}\" | .hostname = \"${nodename}\" | .latitude = \"${latitude}\" | .longitude = \"${longitude}\" " ce-register.json | sponge ce-register.json
 git add ce-register.json && git commit --quiet -m "creating deployment manifests"
+
+echo "# Create a site registration approval"
+jq -r ".name = \"<removed>\" | .passport.clustername = \"${sitename}\" | .passport.latitude = ${latitude}\" | .passport.longitude = \"${longitude}\" " approval_req.json | sponge approval_req.json
+git add approval_req.json && git commit --quiet -m "creating deployment manifests"
 
 echo "# Update documentation"
 
