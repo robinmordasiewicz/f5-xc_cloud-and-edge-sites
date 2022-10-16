@@ -158,5 +158,4 @@ for keyfield in $(jq -r '.rst_prolog | keys[] as $k | "\($k)"' manifests/site.js
 done
 
 git add docs/rst_prolog.inc &> /dev/null && git commit --quiet -m "creating deployment manifests"
-
-git push --quiet
+git push --quiet --set-upstream origin ${sitename}
