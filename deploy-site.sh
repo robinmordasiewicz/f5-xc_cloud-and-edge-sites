@@ -176,7 +176,7 @@ eval "echo $(date -ud "@$elapsedtime" +'  Elapsed time: %M:%S')"
 if [[ "${STATE}" == "ONLINE" ]]; then
   echo "# Download a kubeconfig"
   expiration_timestamp=`date -u --date=tomorrow +%FT%T.%NZ`
-  echo "{ \"site\": \"${sitename}\", \".expiration_timestamp\": \"${expiration_timestamp}\" }" > download_kubeconfig.json
+  echo "{ \"site\": \"${sitename}\", \"expiration_timestamp\": \"${expiration_timestamp}\" }" > download_kubeconfig.json
   [ -d $HOME/.kube ] || mkdir $HOME/.kube
   curl -sS -v "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
     --key $HOME/vesprivate.key \
