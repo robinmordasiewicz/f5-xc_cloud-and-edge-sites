@@ -146,7 +146,7 @@ jq -r ".cluster_name = \"${sitename}\" | .hostname = \"${cenodename}\" | .latitu
 git add ce-register.json &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
 echo "# Create a site registration approval"
-jq -r ".name = \"<removed>\" | .passport.clustername = \"${sitename}\" | .passport.latitude = \"${latitude}\" | .passport.longitude = \"${longitude}\" " approval_req.json | sponge approval_req.json
+jq -r ".name = \"<removed>\" | .passport.cluster_name = \"${sitename}\" | .passport.latitude = \"${latitude}\" | .passport.longitude = \"${longitude}\" " approval_req.json | sponge approval_req.json
 git add approval_req.json &> /dev/null && git commit --quiet -m "creating deployment manifests"
 
 echo "# Update documentation"
