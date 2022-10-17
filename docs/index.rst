@@ -15,5 +15,6 @@ Infrastructure
    intro.rst
    workstation.rst
    administration_personal-management_credentials.rst
+   prepare-manifests.rst
    cloud-and-edge-sites.rst
 
