@@ -70,6 +70,84 @@ timeout () {
     tput rc; tput ed;
 }
 
+choosestriporexport () {
+  if [[ ${p12location} == "0" ]]; then
+    echo "Download p12 certificate and retry"
+    exit 1
+  fi
+  # echo "Found ${p12location} - creating ${HOME}/.vesconfig"
+  PS3='p12 certificate found: choose to export or strip passphrase: '
+  choices=("Export" "Strip")
+  select choice in "${choices[@]}"; do
+    case $choice in
+        "Export")
+cat <<EOF > ~/.vesconfig
+server-urls: https://${tenantname}.console.ves.volterra.io/api
+p12-bundle: ${p12location}
+EOF
+            if [[ -z "${VES_P12_PASSWORD}" ]]; then
+              # VES_P12_PASSWORD does not exist - prompt for passphrase
+              read -s -p "Enter cert passphrase: " VES_P12_PASSWORD
+              if [ ! "${VES_P12_PASSWORD}" ]; then echo "Error: no cert passphrase: "; exit; fi
+              echo "*********************"
+              export VES_P12_PASSWORD
+              vesctl configuration list contact -n system &>/dev/null
+              if [[ $? != "0" ]]; then
+                echo "vesctl not working - download new p12 cert"
+                exit
+              fi
+            else
+              echo "WARNING: VES_P12_PASSWORD environment variable already set:"
+              vesctl configuration list contact -n system &>/dev/null
+              if [[ $? != "0" ]]; then
+                echo "vesctl not working - try new passphrase:"
+                unset VES_P12_PASSWORD
+                read -s -p "Enter cert passphrase: " VES_P12_PASSWORD
+                if [ ! "${VES_P12_PASSWORD}" ]; then echo "Error: no cert passphrase: "; exit; fi
+                echo "*********************"
+                export VES_P12_PASSWORD
+                vesctl configuration list contact -n system &>/dev/null
+                if [[ $? != "0" ]]; then
+                  echo "vesctl not working - download new p12 cert"
+                  exit
+                fi
+              fi
+            fi
+            break
+            ;;
+        "Strip")
+cat <<EOF > ~/.vesconfig
+server-urls: https://${tenantname}.console.ves.volterra.io/api
+key: $HOME/vesprivate.key
+cert: $HOME/vescred.cert
+EOF
+            if [[ -f ${HOME}/vescred.cert && -f ${HOME}/vesprivate.key ]]; then
+              vesctl configuration list contact -n system &>/dev/null
+              if [[ $? != "0" ]]; then
+                openssl pkcs12 -in ${p12location} -nodes -nokeys -out ${HOME}/vescred.cert
+                openssl pkcs12 -in ${p12location} -nodes -nocerts -out ${HOME}/vesprivate.key
+                vesctl configuration list contact -n system &>/dev/null
+                if [[ $? != "0" ]]; then
+                  echo "vesctl not working - download new p12 cert"
+                  exit
+                fi
+              fi
+            else
+              openssl pkcs12 -in ${p12location} -nodes -nokeys -out ${HOME}/vescred.cert
+              openssl pkcs12 -in ${p12location} -nodes -nocerts -out ${HOME}/vesprivate.key
+              vesctl configuration list contact -n system &>/dev/null
+              if [[ $? != "0" ]]; then
+                echo "vesctl not working - download new p12 cert"
+                exit
+              fi
+            fi
+            break
+            ;;
+        *) echo "invalid option";;
+    esac
+done
+}
+
 cd manifests/
 
 
@@ -78,15 +156,92 @@ currenttenantname=`jq -r ".tenantname" site.json`
 read -p "Tenant Name:: [${currenttenantname}] " tenantname
 tenantname="${tenantname:=${currenttenantname}}"
 
-echo "checking for p12 cert"
-openssl pkcs12 -in ~/${tenantname}.console.ves.volterra.io.api-creds.p12 -nodes -nokeys -out ~/vescred.cert
-openssl pkcs12 -in ~/${tenantname}.console.ves.volterra.io.api-creds.p12 -nodes -nocerts -out ~/vesprivate.key
+tenantname=f5-amer-ent
 
-cat <<EOF > ~/.vesconfig
-server-urls: https://${tenantname}.console.ves.volterra.io/api
-key: $HOME/vesprivate.key
-cert: $HOME/vescred.cert
-EOF
+if [[ -f "${HOME}/${tenantname}.console.ves.volterra.io.api-creds.p12" ]]; then
+  p12location="${HOME}/${tenantname}.console.ves.volterra.io.api-creds.p12"
+elif [[ -f "${HOME}/Downloads/${tenantname}.console.ves.volterra.io.api-creds.p12" ]]; then
+  p12location="${HOME}/Downloads/${tenantname}.console.ves.volterra.io.api-creds.p12"
+else
+  p12location=0
+fi
+
+# echo "check to see if ${HOME}/.vesconfig exists for ${tenantname}"
+if [[ -f "${HOME}/.vesconfig" ]] ; then
+  # echo "${HOME}/.vesconfig exists"
+  if grep -iq "server-urls: https://${tenantname}.console.ves.volterra.io/api" "${HOME}/.vesconfig"; then
+    # echo "${HOME}/.vesconfig has the correct tenant url"
+    if grep -iq "p12-bundle:" "${HOME}/.vesconfig" ; then
+      # echo "${HOME}/.vesconfig has a p12-bundle configured"
+      if [[ -z "${VES_P12_PASSWORD}" ]]; then
+        # echo " VES_P12_PASSWORD does not exist - prompt for passphrase"
+        read -s -p "Enter cert passphrase: " VES_P12_PASSWORD
+        if [ ! "${VES_P12_PASSWORD}" ]; then echo "Error: no cert passphrase: "; exit; fi
+        echo "*********************"
+        export VES_P12_PASSWORD
+      fi
+      # echo "VES_P12_PASSWORD environment variable already set"
+      vesctl configuration list contact -n system &>/dev/null
+      if [[ $? != "0" ]]; then
+        # echo "vesctl not working - try new passphrase"
+        read -s -p "Enter cert passphrase: " VES_P12_PASSWORD
+        if [ ! "${VES_P12_PASSWORD}" ]; then echo "Error: no cert passphrase: "; exit; fi
+        echo "*********************"
+        export VES_P12_PASSWORD
+        vesctl configuration list contact -n system &>/dev/null
+        if [[ $? != "0" ]]; then
+          echo "vesctl not working - download new p12 cert"
+          exit
+        fi
+      fi
+      # tenant p12 and passphrase configured
+    elif grep -iq "cert:" "${HOME}/.vesconfig" && grep -iq "key:" "${HOME}/.vesconfig"; then
+      # echo "${HOME}/.vesconfig has cert/key config"
+      certfile=`grep "cert:" "${HOME}/.vesconfig" | cut -f 2 -d " "`
+      keyfile=`grep "key:" "${HOME}/.vesconfig" | cut -f 2 -d " "`
+      # echo "cert: $certfile"
+      # echo "key: $keyfile"
+      if [[ -f $certfile && -f $keyfile ]]; then
+        # echo "cert/key already exist"
+        vesctl configuration list contact -n system &>/dev/null
+        if [[ $? != "0" ]]; then
+          # echo "vesctl not working - create new $certfile and $keyfile"
+          openssl pkcs12 -in ${p12location} -nodes -nokeys -out $certfile
+          openssl pkcs12 -in ${p12location} -nodes -nocerts -out $keyfile
+          vesctl configuration list contact -n system &>/dev/null
+          if [[ $? != "0" ]]; then
+            echo "vesctl not working - download new p12 cert"
+            echo "try to install cert again"
+            exit
+          fi
+        fi
+      else
+        # echo "cert and key not found - create new $certfile and $keyfile"
+        openssl pkcs12 -in ${p12location} -nodes -nokeys -out $certfile
+        openssl pkcs12 -in ${p12location} -nodes -nocerts -out $keyfile
+        vesctl configuration list contact -n system &>/dev/null
+        if [[ $? != "0" ]]; then
+          echo "vesctl not working - download new p12 cert"
+          echo "try to install cert again"
+          exit
+        fi
+      fi
+      # echo "tenant cert/key with stripped passphrase"
+    else
+      # right tenant but wrong certs
+      echo "Error: cert misconfigured ${HOME}/.vesconfig"
+      cat ${HOME}/.vesconfig
+      exit 1
+    fi
+  else
+    echo "Error: wrong tenant listed in ${HOME}/.vesconfig"
+    cat ${HOME}/.vesconfig
+    choosestriporexport
+  fi
+else
+  # no ${HOME}/.vesconfig - check for p12
+  choosestriporexport
+fi
 
 read -s -p "CE node new password: " newpassword
 if [ ! "${newpassword}" ]; then exit; fi
