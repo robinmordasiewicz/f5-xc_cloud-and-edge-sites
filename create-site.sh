@@ -156,7 +156,6 @@ currenttenantname=`jq -r ".tenantname" site.json`
 read -p "Tenant Name:: [${currenttenantname}] " tenantname
 tenantname="${tenantname:=${currenttenantname}}"
 
-tenantname=f5-amer-ent
 
 if [[ -f "${HOME}/${tenantname}.console.ves.volterra.io.api-creds.p12" ]]; then
   p12location="${HOME}/${tenantname}.console.ves.volterra.io.api-creds.p12"
