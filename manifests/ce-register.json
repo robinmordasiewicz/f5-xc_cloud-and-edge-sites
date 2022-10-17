@@ -1,9 +1,9 @@
 {
   "token": "<token>",
-  "cluster_name": "<site-name>",
-  "hostname": "<node-name>",
-  "latitude": "<latitude>",
-  "longitude": "<longitude>",
+  "cluster_name": "r-mordasiewicz-site",
+  "hostname": "node-name",
+  "latitude": "47.605199",
+  "longitude": "-122.330996",
   "certified_hardware": "kvm-volstack-combo",
   "primary_outside_nic": "eth0"
 }
