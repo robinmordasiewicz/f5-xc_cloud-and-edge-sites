@@ -84,7 +84,7 @@ Tenant Certificate
 
            $ cat <<EOF > ~/.vesconfig
            $ server-urls: https://|tenantname|.console.ves.volterra.io/api
-           $ p12-bundle: /home/ubuntu/|tenantname|.console.ves.volterra.io.volterra.us/api
+           $ p12-bundle: /home/ubuntu/|tenantname|.console.ves.volterra.io.api-creds.p12
            $ EOF
 
 Tenant API Token
