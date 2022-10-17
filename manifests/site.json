@@ -8,17 +8,17 @@
   "cenodeaddress": "10.1.1.5",
   "cenodeport": "65500",
   "rst_prolog": {
-    "workstationhostname": "<workstation-hostname>",
+    "workstationhostname": "workstration",
     "tenantname": "f5-amer-ent",
     "workstationusername": "ubuntu",
     "workstationsshport": "22",
     "githuborgname": "robinmordasiewicz",
     "github_user": "robinmordasiewicz",
     "githubrepo": "f5-xc-iac",
-    "githubrepobranch": "site-name",
-    "github_version": "main",
-    "githubusername": "<your-github-account>",
-    "githubuseremail": "email@example.com",
-    "githubuserfullname": "FirstName LastName"
+    "githubrepobranch": "f5-site",
+    "github_version": "f5-site",
+    "githubusername": "robinmordasiewicz",
+    "githubuseremail": "r.mordasiewicz@f5.com",
+    "githubuserfullname": "Robin Mordasiewicz"
   }
 }
