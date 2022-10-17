@@ -110,7 +110,7 @@ Github Account
    ? Paste your authentication token: ***************************************
    - gh config set -h github.com git_protocol https
    ✓ Configured git protocol
-   ✓ Logged in as |github-username|
+   ✓ Logged in as |githubusername|
 
 .. code-block:: console
    :substitutions:
