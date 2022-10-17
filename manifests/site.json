@@ -1,25 +1,24 @@
 {
   "tenantname": "f5-amer-ent",
-  "sitename": "main",
+  "sitename": "f5-site",
   "latitude": "47.605199",
   "longitude": "-122.330996",
   "address": "801 5th Ave Seattle, WA 98104 United States",
   "cenodename": "node-name",
   "cenodeaddress": "10.1.1.5",
   "cenodeport": "65500",
-  "rst_prolog": 
-    {
-      "workstationhostname": "<workstation-hostname>",
-      "tenantname": "f5-amer-ent",
-      "workstationusername": "ubuntu",
-      "workstationsshport": "22",
-      "githuborgname": "robinmordasiewicz",
-      "github_user": "robinmordasiewicz",
-      "githubrepo": "f5-xc-iac",
-      "githubrepobranch": "site-name",
-      "github_version": "main",
-      "githubusername": "<your-github-account>",
-      "githubuseremail": "email@example.com",
-      "githubuserfullname": "FirstName LastName"
-    }
+  "rst_prolog": {
+    "workstationhostname": "workstration",
+    "tenantname": "f5-amer-ent",
+    "workstationusername": "ubuntu",
+    "workstationsshport": "22",
+    "githuborgname": "robinmordasiewicz",
+    "github_user": "robinmordasiewicz",
+    "githubrepo": "f5-xc-iac",
+    "githubrepobranch": "f5-site",
+    "github_version": "f5-site",
+    "githubusername": "robinmordasiewicz",
+    "githubuseremail": "r.mordasiewicz@f5.com",
+    "githubuserfullname": "Robin Mordasiewicz"
+  }
 }
