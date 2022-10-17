@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "name": "<site-name>",
+    "name": "r-mordasiewicz-site",
     "namespace": "system",
     "labels": {},
     "annotations": {},
@@ -9,20 +9,20 @@
   "spec": {
     "volterra_certified_hw": "kvm-voltstack-combo",
     "master_nodes": [
-      "<node-name>"
+      "node-name"
     ],
     "no_bond_devices": {},
     "default_network_config": {},
     "default_storage_config": {},
     "disable_gpu": {},
-    "address": "<address>",
+    "address": "801 5th Ave Seattle, WA 98104 United States",
     "coordinates": {
-      "latitude": "<latitude>",
-      "longitude": "<longitude>"
+      "latitude": "47.605199",
+      "longitude": "-122.330996"
     },
     "k8s_cluster": {
       "namespace": "system",
-      "name": "<site-name>",
+      "name": "r-mordasiewicz-site",
       "kind": "k8s_cluster"
     },
     "logs_streaming_disabled": {},
