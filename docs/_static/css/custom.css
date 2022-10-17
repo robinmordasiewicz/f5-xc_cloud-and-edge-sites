@@ -452,6 +452,10 @@ pre,
   color: #d0d0d0;
 }
 
+.highlight .hll {
+  background-color: #156219;
+}
+
 span.l-Scalar-Plain, span.p , span.s2, span.pre {
   color: #47879a;
 }

@@ -10,6 +10,7 @@
   "rst_prolog": 
     {
       "workstationhostname": "<workstation-hostname>",
+      "tenantname": "f5-amer-ent",
       "workstationusername": "ubuntu",
       "workstationsshport": "22",
       "githuborgname": "robinmordasiewicz",
