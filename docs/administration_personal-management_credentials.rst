@@ -87,19 +87,6 @@ Tenant Certificate
            $ p12-bundle: /home/ubuntu/|tenantname|.console.ves.volterra.io.api-creds.p12
            $ EOF
 
-Tenant API Token
-----------------
-
-API requests using the API Token authentication method must provide the token in the Authorization request header. Requests using API Token authentication will have the same RBAC assigned as the user who created the API Token.
-
-.. image:: images/create-api-token.png
-   :class: no-scaled-link
-   :width: 100%
-
-.. image:: images/api-token-copy.png
-   :class: no-scaled-link
-   :width: 100%
-
 Github Account
 --------------
 
