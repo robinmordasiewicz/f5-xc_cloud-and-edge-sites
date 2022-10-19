@@ -38,7 +38,7 @@ Datacenter Edge
 
       .. literalinclude:: ../manifests/appstack_site.json
          :language: yaml
-         :emphasize-lines: 3,12,18,20,21,25
+         :emphasize-lines: 3,14,20,22,23,27
 
       .. code-block:: console
 
