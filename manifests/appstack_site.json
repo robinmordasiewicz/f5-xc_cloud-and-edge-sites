@@ -2,7 +2,10 @@
   "metadata": {
     "name": "<site-name>",
     "namespace": "system",
-    "labels": {},
+    "labels": {
+      "ves.io/provider": "ves-io-VMWARE-K8S",
+      "ves.io/siteName": "k8s_cluster"
+    },
     "annotations": {},
     "disable": false
   },
