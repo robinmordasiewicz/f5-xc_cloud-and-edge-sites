@@ -3,9 +3,9 @@
 Infrastructure
 ==============
 
-.. topic:: Infrastructure as Built
+.. topic:: Kubernetes Infrastructure
 
-    This documents the deployment of infrastructure, otherwise known as a site. A Site is a physical or virtual location with compute resources.
+    This documents the deployment of kubernetes infrastructure, otherwise known as an Appstack site.
 
 .. mermaid:: diagrams/gitgraph.mmd
 
