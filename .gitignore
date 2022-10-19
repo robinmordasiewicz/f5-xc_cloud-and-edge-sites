@@ -12,4 +12,3 @@ terraform.tfstate*
 *.p12
 *.key
 .virtualenv
-docs/class6/temp
