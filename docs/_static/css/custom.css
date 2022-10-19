@@ -449,7 +449,7 @@ pre,
 }
 
 .highlight .go {
-  color: #d0d0d0;
+  color: #e9e924;
 }
 
 .highlight .hll {
@@ -462,11 +462,9 @@ code.file {
   padding: 4px;
   border-width: 1px;
   border-radius: 4px;
+  color: rgb(0, 77, 255);
 }
 
-/*
-override bootstrap pre settings in sphinx literal blocks
- */
 div[class~='docutils'], code, .code.descname {
 width: auto;
 padding: 10px;
