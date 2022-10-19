@@ -456,10 +456,6 @@ pre,
   background-color: #156219;
 }
 
-span.l-Scalar-Plain, span.p , span.s2, span.pre {
-  color: #47879a;
-}
-
 code.file {
   border-style: solid;
   border-color: rgb(0, 77, 255);
