@@ -102,7 +102,7 @@ html_context = {
 }
 
 html_title = "Infrastructure As Code"
-html_logo = "logo_f5.svg"
+html_logo = "images/logo_f5.svg"
 
 graphviz_output_format = "svg"
 graphviz_font = "DejaVu Sans:style=Book"
