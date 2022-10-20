@@ -5,13 +5,13 @@ Cloud and Edge Sites
 
 .. toctree::
 
-.. topic:: Objective
-
-    Workspace guide for delivering a kubeconfig for managed kubernetes deployed on Appstack.
-
    managed-k8s.rst
    site-management.rst
    managed-k8s-kubeconfig.rst
+
+.. topic:: Objective
+
+    Workspace guide for delivering a kubeconfig for managed kubernetes deployed on Appstack.
 
 * Select :menuselection:`Cloud and Edge Sites` section from the Home screen.
 
