@@ -5,6 +5,7 @@ Cloud and Edge Sites
 
 .. toctree::
 
+   administration_personal-management_credentials.rst
    managed-k8s.rst
    site-management.rst
    managed-k8s-kubeconfig.rst
