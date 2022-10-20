@@ -6,6 +6,7 @@
 .. |githubuseremail| replace:: email@example.com
 .. |githubuserfullname| replace:: FirstName LastName
 .. |githubusername| replace:: <your-github-account>
+.. |tenantname| replace:: f5-amer-ent
 .. |workstationhostname| replace:: <workstation-hostname>
 .. |workstationsshport| replace:: 22
 .. |workstationusername| replace:: ubuntu
