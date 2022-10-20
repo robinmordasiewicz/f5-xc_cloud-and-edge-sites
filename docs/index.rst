@@ -1,19 +1,27 @@
-:sd_hide_title:
+.. _cloud-and-edge-sites:
 
-Infrastructure
-==============
-
-.. topic:: Kubernetes Infrastructure
-
-    This documents the deployment of kubernetes infrastructure, otherwise known as an Appstack site.
-
-.. mermaid:: diagrams/gitgraph.mmd
+Cloud and Edge Sites
+=====================
 
 .. toctree::
-   :titlesonly:
 
-   intro.rst
-   workstation.rst
-   administration_personal-management_credentials.rst
-   cloud-and-edge-sites.rst
+.. topic:: Objective
+
+    Workspace guide for delivering a kubeconfig for managed kubernetes deployed on Appstack.
+
+   managed-k8s.rst
+   site-management.rst
+   managed-k8s-kubeconfig.rst
+
+* Select :menuselection:`Cloud and Edge Sites` section from the Home screen.
+
+  .. image:: images/home-cloud-and-edge-sites.png
+     :class: no-scaled-link
+     :width: 100%
+
+* To view existing sites, eExpand and navigate :menuselection:`Sites --> Site List`. Expand :menuselection:`Management` and continue with the excercises.
+
+  .. image:: images/cloud-and-edge-sites-list.png
+     :class: no-scaled-link
+     :width: 100%
 
