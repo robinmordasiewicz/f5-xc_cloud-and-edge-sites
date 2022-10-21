@@ -332,13 +332,22 @@ if [[ "${STATE}" == "ONLINE" ]]; then
   expiration_timestamp=`date -u --date=tomorrow +%FT%T.%NZ`
   echo "{ \"site\": \"${sitename}\", \"expiration_timestamp\": \"${expiration_timestamp}\" }" > download_kubeconfig.json
   [ -d $HOME/.kube ] || mkdir $HOME/.kube
-  curl -sS -v "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
-    --key $HOME/vesprivate.key \
-    --cert $HOME/vescred.cert \
-    -H 'Content-Type: application/json' \
-    -X 'POST' \
-    -d @download_kubeconfig.json \
-    -o $HOME/.kube/ves_system_${sitename}_kubeconfig_global.yaml
+  if [[ -f ${HOME}/vescred.cert && -f ${HOME}/vesprivate.key ]]; then
+    curl -sS -v "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
+      --key $HOME/vesprivate.key \
+      --cert $HOME/vescred.cert \
+      -H 'Content-Type: application/json' \
+      -X 'POST' \
+      -d @download_kubeconfig.json \
+      -o $HOME/.kube/ves_system_${sitename}_kubeconfig_global.yaml
+  elif [[ ${p12location} != "0" ]]; then
+    curl -sS -v "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
+      --cert-type P12 --cert ${p12location}:${VES_P12_PASSWORD} \
+      -H 'Content-Type: application/json' \
+      -X 'POST' \
+      -d @download_kubeconfig.json \
+      -o $HOME/.kube/ves_system_${sitename}_kubeconfig_global.yaml
+  fi
 fi
 rm download_kubeconfig.json
 
