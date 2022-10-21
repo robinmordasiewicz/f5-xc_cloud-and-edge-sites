@@ -1,5 +1,5 @@
 {
-  "tenantname": "<tenant>",
+  "tenantname": "bny",
   "sitename": "main",
   "latitude": "47.605199",
   "longitude": "-122.330996",
@@ -10,7 +10,7 @@
   "rst_prolog": 
     {
       "workstationhostname": "<workstation-hostname>",
-      "tenantname": "<tenant>",
+      "tenantname": "bny",
       "workstationusername": "ubuntu",
       "workstationsshport": "22",
       "githuborgname": "robinmordasiewicz",
