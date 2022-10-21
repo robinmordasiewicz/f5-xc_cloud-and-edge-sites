@@ -124,8 +124,8 @@ EOF
             if [[ -f ${HOME}/vescred.cert && -f ${HOME}/vesprivate.key ]]; then
               vesctl configuration list contact -n system &>/dev/null
               if [[ $? != "0" ]]; then
-                openssl pkcs12 -in ${p12location} -nodes -nokeys -out ${HOME}/vescred.cert
-                openssl pkcs12 -in ${p12location} -nodes -nocerts -out ${HOME}/vesprivate.key
+                openssl pkcs12 -in ${p12location} -nodes -legacy -nokeys -out ${HOME}/vescred.cert
+                openssl pkcs12 -in ${p12location} -nodes -legacy -nocerts -out ${HOME}/vesprivate.key
                 vesctl configuration list contact -n system &>/dev/null
                 if [[ $? != "0" ]]; then
                   echo "vesctl not working - download new p12 cert"
@@ -133,8 +133,8 @@ EOF
                 fi
               fi
             else
-              openssl pkcs12 -in ${p12location} -nodes -nokeys -out ${HOME}/vescred.cert
-              openssl pkcs12 -in ${p12location} -nodes -nocerts -out ${HOME}/vesprivate.key
+              openssl pkcs12 -in ${p12location} -nodes -legacy -nokeys -out ${HOME}/vescred.cert
+              openssl pkcs12 -in ${p12location} -nodes -legacy -nocerts -out ${HOME}/vesprivate.key
               vesctl configuration list contact -n system &>/dev/null
               if [[ $? != "0" ]]; then
                 echo "vesctl not working - download new p12 cert"
@@ -205,8 +205,8 @@ if [[ -f "${HOME}/.vesconfig" ]] ; then
         vesctl configuration list contact -n system &>/dev/null
         if [[ $? != "0" ]]; then
           # echo "vesctl not working - create new $certfile and $keyfile"
-          openssl pkcs12 -in ${p12location} -nodes -nokeys -out $certfile
-          openssl pkcs12 -in ${p12location} -nodes -nocerts -out $keyfile
+          openssl pkcs12 -in ${p12location} -nodes -legacy -nokeys -out $certfile
+          openssl pkcs12 -in ${p12location} -nodes -legacy -nocerts -out $keyfile
           vesctl configuration list contact -n system &>/dev/null
           if [[ $? != "0" ]]; then
             echo "vesctl not working - download new p12 cert"
@@ -216,8 +216,8 @@ if [[ -f "${HOME}/.vesconfig" ]] ; then
         fi
       else
         # echo "cert and key not found - create new $certfile and $keyfile"
-        openssl pkcs12 -in ${p12location} -nodes -nokeys -out $certfile
-        openssl pkcs12 -in ${p12location} -nodes -nocerts -out $keyfile
+        openssl pkcs12 -in ${p12location} -nodes -legacy -nokeys -out $certfile
+        openssl pkcs12 -in ${p12location} -nodes -legacy -nocerts -out $keyfile
         vesctl configuration list contact -n system &>/dev/null
         if [[ $? != "0" ]]; then
           echo "vesctl not working - download new p12 cert"
