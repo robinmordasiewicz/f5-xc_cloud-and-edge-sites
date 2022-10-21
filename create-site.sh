@@ -153,7 +153,7 @@ cd manifests/
 
 echo "# Set up tenant name and check for credentials"
 currenttenantname=`jq -r ".tenantname" site.json`
-read -p "Tenant Name:: [${currenttenantname}] " tenantname
+read -p "Tenant Name: [${currenttenantname}] " tenantname
 tenantname="${tenantname:=${currenttenantname}}"
 
 
@@ -261,13 +261,13 @@ read -s -p "ArgoCD password: " argocdpassword
 echo "*********************"
 if [ ! "${argocdpassword}" ]; then exit; fi
 
-vesctl request secrets get-public-key > f5-amer-ent-public-key.key
+vesctl request secrets get-public-key > public-key.key
 vesctl request secrets get-policy-document --namespace shared --name ves-io-allow-volterra > secret-policy-ves-io-allow-volterra.crt
 echo -n ${argocdpassword} > password.key
 unset argocdpassword
-encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.crt --public-key f5-amer-ent-public-key.key password.key | grep "=$"`
+encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.crt --public-key public-key.key password.key | grep -v "Encrypted Secret"`
 
-rm password.key f5-amer-ent-public-key.key secret-policy-ves-io-allow-volterra.crt
+rm password.key public-key.key secret-policy-ves-io-allow-volterra.crt
 
 echo "# Create manifests"
 
