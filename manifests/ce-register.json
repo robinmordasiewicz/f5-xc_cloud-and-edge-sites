@@ -4,6 +4,6 @@
   "hostname": "<node-name>",
   "latitude": "<latitude>",
   "longitude": "<longitude>",
-  "certified_hardware": "kvm-volstack-combo",
+  "certified_hardware": "kvm-voltstack-combo",
   "primary_outside_nic": "eth0"
 }
