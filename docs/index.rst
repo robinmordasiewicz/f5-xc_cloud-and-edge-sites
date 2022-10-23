@@ -1,4 +1,4 @@
-Workspaces
+Cloud and Edge Sites
 ====================
 
 .. toctree::
