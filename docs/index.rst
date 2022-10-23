@@ -1,1 +1,6 @@
-.. include::   cloud-and-edge-sites.rst
+Cloud and Edge Sites
+====================
+
+.. toctree::
+
+   cloud-and-edge-sites.rst
