@@ -151,10 +151,10 @@ templates_path = ["_templates"]
 source_suffix = [".rst"]
 
 # The master toctree document.
-master_doc = "cloud-and-edge-sites"
+master_doc = "index"
 
 # General information about the project.
-project = "Infrastructure"
+project = "Cloud and Edge Sites"
 author = "Robin Mordasiewicz"
 
 # The version info for the project you're documenting, acts as replacement for
