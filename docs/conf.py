@@ -78,7 +78,7 @@ html_theme_options = {
     "show_toc_level": 4,
     "show_prev_next": False,
     "footer_items": ["last-updated"],
-    "site_name": "Infrastructure As Code",
+    "site_name": "Cloud and Edge Sites",
     "next_prev_link": True,
     "repository_url": "https://github.com/robinmordasiewicz/f5-xc-iac",
     "github_url": "https://github.com",
@@ -102,7 +102,7 @@ html_context = {
     "doc_path": "docs",
 }
 
-html_title = "Infrastructure As Code"
+html_title = "Cloud and Edge Sites"
 html_logo = "images/logo_f5.svg"
 
 graphviz_output_format = "svg"
@@ -151,7 +151,7 @@ templates_path = ["_templates"]
 source_suffix = [".rst"]
 
 # The master toctree document.
-master_doc = "index"
+master_doc = "cloud-and-edge-sites"
 
 # General information about the project.
 project = "Infrastructure"
