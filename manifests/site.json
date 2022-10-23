@@ -1,5 +1,5 @@
 {
-  "tenantname": "f5-amer-ent",
+  "tenantname": "bny",
   "sitename": "main",
   "latitude": "47.605199",
   "longitude": "-122.330996",
@@ -10,12 +10,12 @@
   "rst_prolog": 
     {
       "workstationhostname": "<workstation-hostname>",
-      "tenantname": "f5-amer-ent",
+      "tenantname": "bny",
       "workstationusername": "ubuntu",
       "workstationsshport": "22",
       "githuborgname": "robinmordasiewicz",
       "github_user": "robinmordasiewicz",
-      "githubrepo": "f5-xc-iac",
+      "githubrepo": "f5-xc_cloud-and-edge-sites",
       "githubrepobranch": "site-name",
       "github_version": "main",
       "githubusername": "<your-github-account>",

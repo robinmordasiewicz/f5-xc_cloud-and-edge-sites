@@ -124,8 +124,8 @@ EOF
             if [[ -f ${HOME}/vescred.cert && -f ${HOME}/vesprivate.key ]]; then
               vesctl configuration list contact -n system &>/dev/null
               if [[ $? != "0" ]]; then
-                openssl pkcs12 -in ${p12location} -nodes -nokeys -out ${HOME}/vescred.cert
-                openssl pkcs12 -in ${p12location} -nodes -nocerts -out ${HOME}/vesprivate.key
+                openssl pkcs12 -in ${p12location} -nodes -legacy -nokeys -out ${HOME}/vescred.cert
+                openssl pkcs12 -in ${p12location} -nodes -legacy -nocerts -out ${HOME}/vesprivate.key
                 vesctl configuration list contact -n system &>/dev/null
                 if [[ $? != "0" ]]; then
                   echo "vesctl not working - download new p12 cert"
@@ -133,8 +133,8 @@ EOF
                 fi
               fi
             else
-              openssl pkcs12 -in ${p12location} -nodes -nokeys -out ${HOME}/vescred.cert
-              openssl pkcs12 -in ${p12location} -nodes -nocerts -out ${HOME}/vesprivate.key
+              openssl pkcs12 -in ${p12location} -nodes -legacy -nokeys -out ${HOME}/vescred.cert
+              openssl pkcs12 -in ${p12location} -nodes -legacy -nocerts -out ${HOME}/vesprivate.key
               vesctl configuration list contact -n system &>/dev/null
               if [[ $? != "0" ]]; then
                 echo "vesctl not working - download new p12 cert"
@@ -153,7 +153,7 @@ cd manifests/
 
 echo "# Set up tenant name and check for credentials"
 currenttenantname=`jq -r ".tenantname" site.json`
-read -p "Tenant Name:: [${currenttenantname}] " tenantname
+read -p "Tenant Name: [${currenttenantname}] " tenantname
 tenantname="${tenantname:=${currenttenantname}}"
 
 
@@ -205,8 +205,8 @@ if [[ -f "${HOME}/.vesconfig" ]] ; then
         vesctl configuration list contact -n system &>/dev/null
         if [[ $? != "0" ]]; then
           # echo "vesctl not working - create new $certfile and $keyfile"
-          openssl pkcs12 -in ${p12location} -nodes -nokeys -out $certfile
-          openssl pkcs12 -in ${p12location} -nodes -nocerts -out $keyfile
+          openssl pkcs12 -in ${p12location} -nodes -legacy -nokeys -out $certfile
+          openssl pkcs12 -in ${p12location} -nodes -legacy -nocerts -out $keyfile
           vesctl configuration list contact -n system &>/dev/null
           if [[ $? != "0" ]]; then
             echo "vesctl not working - download new p12 cert"
@@ -216,8 +216,8 @@ if [[ -f "${HOME}/.vesconfig" ]] ; then
         fi
       else
         # echo "cert and key not found - create new $certfile and $keyfile"
-        openssl pkcs12 -in ${p12location} -nodes -nokeys -out $certfile
-        openssl pkcs12 -in ${p12location} -nodes -nocerts -out $keyfile
+        openssl pkcs12 -in ${p12location} -nodes -legacy -nokeys -out $certfile
+        openssl pkcs12 -in ${p12location} -nodes -legacy -nocerts -out $keyfile
         vesctl configuration list contact -n system &>/dev/null
         if [[ $? != "0" ]]; then
           echo "vesctl not working - download new p12 cert"
@@ -261,13 +261,13 @@ read -s -p "ArgoCD password: " argocdpassword
 echo "*********************"
 if [ ! "${argocdpassword}" ]; then exit; fi
 
-vesctl request secrets get-public-key > f5-amer-ent-public-key.key
+vesctl request secrets get-public-key > public-key.key
 vesctl request secrets get-policy-document --namespace shared --name ves-io-allow-volterra > secret-policy-ves-io-allow-volterra.crt
 echo -n ${argocdpassword} > password.key
 unset argocdpassword
-encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.crt --public-key f5-amer-ent-public-key.key password.key | grep "=$"`
+encryptedpassword=`vesctl request secrets encrypt --policy-document secret-policy-ves-io-allow-volterra.crt --public-key public-key.key password.key | grep -v "Encrypted Secret"`
 
-rm password.key f5-amer-ent-public-key.key secret-policy-ves-io-allow-volterra.crt
+rm password.key public-key.key secret-policy-ves-io-allow-volterra.crt
 
 echo "# Create manifests"
 
@@ -332,13 +332,22 @@ if [[ "${STATE}" == "ONLINE" ]]; then
   expiration_timestamp=`date -u --date=tomorrow +%FT%T.%NZ`
   echo "{ \"site\": \"${sitename}\", \"expiration_timestamp\": \"${expiration_timestamp}\" }" > download_kubeconfig.json
   [ -d $HOME/.kube ] || mkdir $HOME/.kube
-  curl -sS -v "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
-    --key $HOME/vesprivate.key \
-    --cert $HOME/vescred.cert \
-    -H 'Content-Type: application/json' \
-    -X 'POST' \
-    -d @download_kubeconfig.json \
-    -o $HOME/.kube/ves_system_${sitename}_kubeconfig_global.yaml
+  if [[ -f ${HOME}/vescred.cert && -f ${HOME}/vesprivate.key ]]; then
+    curl -sS -v "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
+      --key $HOME/vesprivate.key \
+      --cert $HOME/vescred.cert \
+      -H 'Content-Type: application/json' \
+      -X 'POST' \
+      -d @download_kubeconfig.json \
+      -o $HOME/.kube/ves_system_${sitename}_kubeconfig_global.yaml
+  elif [[ ${p12location} != "0" ]]; then
+    curl -sS -v "https://${tenantname}.console.ves.volterra.io/api/web/namespaces/system/sites/${sitename}/global-kubeconfigs" \
+      --cert-type P12 --cert ${p12location}:${VES_P12_PASSWORD} \
+      -H 'Content-Type: application/json' \
+      -X 'POST' \
+      -d @download_kubeconfig.json \
+      -o $HOME/.kube/ves_system_${sitename}_kubeconfig_global.yaml
+  fi
 fi
 rm download_kubeconfig.json
 
