@@ -4,7 +4,6 @@ Cloud and Edge Sites
 =====================
 
 .. toctree::
-   :hidden:
 
    managed-k8s.rst
    site-management.rst
