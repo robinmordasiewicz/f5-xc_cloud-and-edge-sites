@@ -47,8 +47,8 @@ sys.path.insert(0, os.path.abspath("."))
 rst_prolog = open(os.path.join(CURDIR, 'rst_prolog.inc'),'r').read()
 rst_epilog = open(os.path.join(CURDIR, 'rst_epilog.inc'),'r').read()
 
-is_subproject=True
-readthedocs_url="https://f5-xc-workspaces.readthedocs.io/"
+#is_subproject=True
+#readthedocs_url="https://f5-xc-workspaces.readthedocs.io/"
 
 extensions = [
     "sphinx_rtd_theme",
@@ -69,7 +69,7 @@ extensions = [
     "sphinx_substitution_extensions",
     "sphinxcontrib.mermaid",
     "sphinx.ext.viewcode",
-    "subprojecttoctree",
+#    "subprojecttoctree",
     "sphinx_design"
 ]
 
@@ -210,9 +210,9 @@ todo_include_todos = True
 # a list of builtin themes.
 
 # html4_writer = True
-#html_theme = "f5_sphinx_theme"
+html_theme = "f5_sphinx_theme"
 #html_theme = "pyramid"
-html_theme = "sphinx_rtd_theme"
+#html_theme = "sphinx_rtd_theme"
 #html_theme = "sphinx_book_theme"
 #html_theme = "pydata_sphinx_theme"
 #html_theme_path = f5_sphinx_theme.get_html_theme_path()
