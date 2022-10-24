@@ -92,7 +92,7 @@ html_theme_options = {
     'body_centered': False,
     'globaltoc_includehidden': True,
     'sidebarwidth': '250',
-    'titles_only': True
+    'titles_only': True,
     "show_toc_level": 4,
     "footer_items": ["last-updated"],
     "site_name": "Cloud and Edge Sites",
