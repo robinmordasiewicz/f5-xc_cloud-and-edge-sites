@@ -1,13 +1,7 @@
-:sd_hide_title:
-
 Cloud and Edge Sites
 ====================
 
 .. toctree::
-   :hidden:
 
+   administration_personal-management_credentials.rst
    cloud-and-edge-sites.rst
-
-.. topic:: Workspaces
-
-   Make a common workspace page
