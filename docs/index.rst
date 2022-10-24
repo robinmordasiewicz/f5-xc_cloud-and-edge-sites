@@ -1,4 +1,4 @@
-Cloud and Edge Sites
+Managed Kubernetes
 ====================
 
 .. toctree::
