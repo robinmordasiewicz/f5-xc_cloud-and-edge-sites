@@ -154,7 +154,7 @@ source_suffix = [".rst"]
 master_doc = "index"
 
 # General information about the project.
-project = "Cloud and Edge Sites"
+project = "Workspaces"
 author = "Robin Mordasiewicz"
 
 # The version info for the project you're documenting, acts as replacement for
