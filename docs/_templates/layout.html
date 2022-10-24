@@ -1,257 +1,140 @@
-{# TEMPLATE VAR SETTINGS #}
-{%- set url_root = pathto('', 1) %}
-{%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
-{%- if not embedded and docstitle %}
-  {%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
-{%- else %}
-  {%- set titlesuffix = "" %}
-{%- endif %}
-{%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
-{%- set sphinx_writer = 'writer-html5' if html5_doctype else 'writer-html4' -%}
-
-{# Build sphinx_version_info tuple from sphinx_version string in pure Jinja #}
-{%- set (_ver_major, _ver_minor) = (sphinx_version.split('.') | list)[:2] | map('int') -%}
-{%- set sphinx_version_info = (_ver_major, _ver_minor, -1) -%}
-
 <!DOCTYPE html>
-<html class="{{ sphinx_writer }}" lang="{{ lang_attr }}" >
-<head>
-  <meta charset="utf-8" />
-  {{- metatags }}
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {%- block htmltitle %}
-  <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
-  {%- endblock -%}
+{% extends "basic/layout.html" %}
+  {{ super() }}
 
-  {#- CSS #}
-  {%- if sphinx_version_info < (4, 0) -%}
-    <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
-    <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
-  {%- endif %}
-  {%- for css in css_files %}
-    {%- if css|attr("rel") %}
-      <link rel="{{ css.rel }}" href="{{ pathto(css.filename, 1) }}" type="text/css"{% if css.title is not none %} title="{{ css.title }}"{% endif %} />
-    {%- else %}
-      <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
-    {%- endif %}
-  {%- endfor %}
+{% set css_files = css_files +
+  [ "_static/css/bootstrap.min.css",
+    "_static/css/f5.css",
+    "_static/css/f5-theme.css",
+    "_static/css/CoveoFullSearch.css",
+    "_static/css/custom.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css",
+    "https://use.fontawesome.com/21fb8a09c3.css" ] %}
 
-  {%- for cssfile in extra_css_files %}
-    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
-  {%- endfor -%}
+{% set script_files = script_files + [
+  "https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"
+  ]%}
 
-  {#- FAVICON #}
-  {%- if favicon %}
-    {%- if sphinx_version_info < (4, 0) -%}
-    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
-    {%- else %}
-    <link rel="shortcut icon" href="{{ favicon_url }}"/>
-    {%- endif %}
-  {%- endif -%}
-
-  {#- CANONICAL URL (deprecated) #}
-  {%- if theme_canonical_url and not pageurl %}
-    <link rel="canonical" href="{{ theme_canonical_url }}{{ pagename }}.html"/>
-  {%- endif -%}
-
-  {#- CANONICAL URL #}
-  {%- if pageurl %}
-    <link rel="canonical" href="{{ pageurl|e }}" />
-  {%- endif -%}
-
-  {#- JAVASCRIPTS #}
-  {%- block scripts %}
-  <!--[if lt IE 9]>
-    <script src="{{ pathto('_static/js/html5shiv.min.js', 1) }}"></script>
-  <![endif]-->
-  {%- if not embedded %}
-  {# XXX Sphinx 1.8.0 made this an external js-file, quick fix until we refactor the template to inherert more blocks directly from sphinx #}
-    {%- if sphinx_version_info >= (1, 8) -%}
-      {%- if sphinx_version_info < (4, 0) -%}
-      <script id="documentation_options" data-url_root="{{ url_root }}" src="{{ pathto('_static/documentation_options.js', 1) }}"></script>
-      {%- endif -%}
-      {%- for scriptfile in script_files %}
-        {{ js_tag(scriptfile) }}
-      {%- endfor %}
-    {%- else %}
-      <script>
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'{{ url_root }}',
-              VERSION:'{{ release|e }}',
-              LANGUAGE:'{{ language }}',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'{{ '' if no_search_suffix else file_suffix }}',
-              HAS_SOURCE:  {{ has_source|lower }},
-              SOURCELINK_SUFFIX: '{{ sourcelink_suffix }}'
-          };
-      </script>
-      {%- for scriptfile in script_files %}
-        <script src="{{ pathto(scriptfile, 1) }}"></script>
-      {%- endfor %}
-    {%- endif %}
-    <script src="{{ pathto('_static/js/theme.js', 1) }}"></script>
-
-    {#- OPENSEARCH #}
-    {%- if use_opensearch %}
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
-          href="{{ pathto('_static/opensearch.xml', 1) }}"/>
-    {%- endif %}
-  {%- endif %}
-  {%- endblock %}
-
-  {%- block linktags %}
-    {%- if hasdoc('about') %}
-    <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
-    {%- endif %}
-    {%- if hasdoc('genindex') %}
-    <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
-    {%- endif %}
-    {%- if hasdoc('search') %}
-    <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
-    {%- endif %}
-    {%- if hasdoc('copyright') %}
-    <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
-    {%- endif %}
-    {%- if next %}
-    <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
-    {%- endif %}
-    {%- if prev %}
-    <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
-    {%- endif %}
-  {%- endblock %}
-  {%- block extrahead %} {% endblock %}
-</head>
-
-<body class="wy-body-for-nav">
-
-  {%- block extrabody %} {% endblock %}
-  <div class="wy-grid-for-nav">
-    {#- SIDE NAV, TOGGLES ON MOBILE #}
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
 <!--
-        <div class="wy-side-nav-search" {% if theme_style_nav_header_background %} style="background: {{theme_style_nav_header_background}}" {% endif %}>
-          {%- block sidebartitle %}
-          {%- if logo and theme_logo_only %}
-            <a href="{{ pathto(master_doc) }}">
-          {%- else %}
-            <a href="{{ pathto(master_doc) }}" class="icon icon-home"> {{ project }}
-          {%- endif %}
-
-          {%- if logo %}
-            {#- Not strictly valid HTML, but it's the only way to display/scale
-                it properly, without weird scripting or heaps of work
-            #}
-            {%- if sphinx_version_info < (4, 0) -%}
-            <img src="{{ pathto('_static/' + logo, 1) }}" class="logo" alt="{{ _('Logo') }}"/>
-            {%- else %}
-            <img src="{{ logo_url }}" class="logo" alt="{{ _('Logo') }}"/>
-            {%- endif %}
-          {%- endif %}
-          </a>
-
-          {%- if theme_display_version %}
-            {%- set nav_version = version %}
-            {%- if READTHEDOCS and current_version %}
-              {%- set nav_version = current_version %}
-            {%- endif %}
-            {%- if nav_version %}
-              <div class="version">
-                {{ nav_version }}
-              </div>
-            {%- endif %}
-          {%- endif %}
-
-          {%- include "searchbox.html" %}
-          {%- endblock %}
-        </div>
+{% include "head.html" %}
 -->
 
-        {%- block navigation %}
-        {#- Translators: This is an ARIA section label for the main navigation menu -#}
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="{{ _('Navigation menu') }}">
-          {%- block menu %}
-            {%- set toctree = toctree(maxdepth=theme_navigation_depth|int,
-                                      collapse=theme_collapse_navigation|tobool,
-                                      includehidden=theme_includehidden|tobool,
-                                      titles_only=theme_titles_only|tobool) %}
-            {%- if toctree %}
-              {{ toctree }}
-            {%- else %}
-              <!-- Local TOC -->
-              <div class="local-toc">{{ toc }}</div>
-            {%- endif %}
-          {%- endblock %}
-        </div>
-        {%- endblock %}
-      </div>
-    </nav>
+{# Do not create the standard relbars and sidebars #}
+{%- block relbar1 %}{% endblock %}
+{%- block relbar2 %}{% endblock %}
+{%- block sidebar1 %}{% endblock %}
+{%- block sidebar2 %}{% endblock %}
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+<!--
+{%- block header %}
+  <div id="clouddocs-header"></div>
+{% endblock %}
+-->
 
-      {#- MOBILE NAV, TRIGGLES SIDE NAV ON TOGGLE #}
-      {#- Translators: This is an ARIA section label for the navigation menu that is visible when viewing the page on mobile devices -#}
-      <nav class="wy-nav-top" aria-label="{{ _('Mobile navigation menu') }}" {% if theme_style_nav_header_background %} style="background: {{theme_style_nav_header_background}}" {% endif %}>
-        {%- block mobile_nav %}
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="{{ pathto(master_doc) }}">{{ project }}</a>
-        {%- endblock %}
-      </nav>
+<div class="wrapper">
 
-      <div class="wy-nav-content">
-      {%- block content %}
-        {%- if theme_style_external_links|tobool %}
-        <div class="rst-content style-external-links">
-        {%- else %}
-        <div class="rst-content">
-        {%- endif %}
-          {% include "breadcrumbs.html" %}
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-          {%- block document %}
-           <div itemprop="articleBody">
-             {% block body %}{% endblock %}
-           </div>
-           {%- if self.comments()|trim %}
-             <div class="articleComments">
-               {%- block comments %}{% endblock %}
-             </div>
-           {%- endif%}
-          </div>
-          {%- endblock %}
-          {% include "footer.html" %}
-        </div>
-      {%- endblock %}
-      </div>
-    </section>
+<div id="docs-wrapper" itemscope itemtype="http://schema.org/Article">
+
+{% block content %}
+
+  <div class="titlebar">
+      {%- block breadcrumb %}
+      {% include "breadcrumb.html" %}
+      {% endblock %}
+      {%- block navigationbuttons %}
+      {% include "navigationbuttons.html" %}
+      {% endblock %}
   </div>
-  {% include "versions.html" -%}
 
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable({{ 'true' if theme_sticky_navigation|tobool else 'false' }});
-      });
-  </script>
+  {%- if sidebars != None %}
+    {%- block f5sidebar %}
+    <div id="sidebar" class="section-nav">
+      {% if (theme_version_selector) %}
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      {%- endif %}
+<!--
+      {%- block searchbox %}
+      {% include "searchbox.html" %}
+      {% endblock %}
+-->
+      <nav class="nav-sidebartoc">
+        <hr>
+        <span class="nav-sidebartoc">
+            {{ toctree(includehidden=True, collapse=False, maxdepth=3) }}
+        </span>
+      {%- include "extralinks.html" %}
+      </nav>
+    </div>
 
-  {#- Do not conflict with RTD insertion of analytics script #}
-  {%- if not READTHEDOCS %}
-    {%- if theme_analytics_id %}
-    <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ theme_analytics_id }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', '{{ theme_analytics_id }}', {
-          'anonymize_ip': {{ 'true' if theme_analytics_anonymize_ip|tobool else 'false' }},
-      });
-    </script>
-
-    {%- endif %}
+    {%- endblock %}
   {%- endif %}
 
-  {%- block footer %} {% endblock %}
 
-</body>
-</html>
+
+
+
+  {% block main %}
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <!--<button type="button" id="export-pdf" class="btn btn-link right">PDF</button>-->
+
+
+    {% if (theme_version_selector) %}
+     {% if (theme_enable_version_warning_banner) %}
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+     {%- endif %}
+    {%- endif %}
+
+
+     <div role="main">
+        {% block body %}{% endblock %}
+     </div>
+
+<!--
+    {% if (next or prev) and (theme_next_prev_link) %}
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       {% if prev %}
+        <a href="{{ prev.link|e }}" title="{{ prev.title|striptags|e }}" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       {% endif %}
+       {% if next %}
+          <a href="{{ next.link|e }}" title="{{ next.title|striptags|e }}" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       {% endif %}
+     </div>
+     </div>
+    {% endif %}
+-->
+
+    </article>
+  </div>
+  {%- endblock %}
+
+</div>
+
+{% endblock %}
+</div>
+
+{%- block footer %}
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+{% if (theme_version_selector) %}
+  <script src="{{ pathto('_static/js/index.js', 1) }}"></script>
+{%- endif %}
+  <script src="{{ pathto('_static/js/jquery.appear.js', 1) }}"></script>
+  <script src="{{ pathto('_static/js/printThis.js', 1) }}"></script>
+  <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
+  <script src="{{ pathto('_static/js/clouddocs.js', 1) }}"></script>
+  <script src="{{ pathto('_static/js/CoveoJsSearch.Lazy.min.js', 1) }}"></script>
+
+{%- endblock %}
