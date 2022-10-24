@@ -75,8 +75,25 @@ extensions = [
 
 
 html_theme_options = {
+    'github_url': "https://github.com/robinmordasiewicz/f5-xc_cloud-and-edge-sites",
+    "use_repository_button": True,
+    'logo_only': False,
+    'display_version': True,
+    'prev_next_buttons_location': 'top',
+    'style_external_links': False,
+    'vcs_pageview_mode': 'edit',
+    'style_nav_header_background': '#f7f8fa',
+    # Toc options
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'breadcrumbs': True,
+    'body_centered': False,
+    'globaltoc_includehidden': True,
+    'sidebarwidth': '250',
+    'titles_only': True
     "show_toc_level": 4,
-    "show_prev_next": False,
     "footer_items": ["last-updated"],
     "site_name": "Cloud and Edge Sites",
     "next_prev_link": True,
@@ -193,9 +210,9 @@ todo_include_todos = True
 # a list of builtin themes.
 
 # html4_writer = True
-html_theme = "f5_sphinx_theme"
+#html_theme = "f5_sphinx_theme"
 #html_theme = "pyramid"
-#html_theme = "sphinx_rtd_theme"
+html_theme = "sphinx_rtd_theme"
 #html_theme = "sphinx_book_theme"
 #html_theme = "pydata_sphinx_theme"
 #html_theme_path = f5_sphinx_theme.get_html_theme_path()
