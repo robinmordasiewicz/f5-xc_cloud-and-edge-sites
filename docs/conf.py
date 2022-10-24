@@ -80,7 +80,7 @@ html_theme_options = {
     "footer_items": ["last-updated"],
     "site_name": "Cloud and Edge Sites",
     "next_prev_link": True,
-    "repository_url": "https://github.com/robinmordasiewicz/f5-xc-iac",
+    "repository_url": "https://github.com/robinmordasiewicz/f5-xc_cloud-and-edge-sites",
     "github_url": "https://github.com",
     "use_edit_page_button": True,
     "use_repository_button": True,
