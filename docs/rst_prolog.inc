@@ -10,3 +10,4 @@
 .. |workstationhostname| replace:: <workstation-hostname>
 .. |workstationsshport| replace:: 22
 .. |workstationusername| replace:: ubuntu
+.. |CE-IP-ADDRESS| replace:: 10.1.1.5
