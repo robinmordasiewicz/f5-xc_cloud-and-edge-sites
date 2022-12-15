@@ -5,8 +5,14 @@ Deploy CE
 
    .. group-tab:: UI
 
-      * Using a browser log-in to the CE https://<CE-IP-ADDRESS>:65500 with the default username:**admin** and password:**Volterra123**, and click :bdg-primary:`Configure Now`
+      * Using a browser log-in to the CE
 
+        * https://<CE-IP-ADDRESS>:65500
+        * default username:**admin**
+        * default password:**Volterra123**
+          
+      *. Click :bdg-primary:`Configure Now`
+      
         .. image:: images/cloud-and-edge-sites_site-management_deploy-appstack-ce-1.png
             :class: no-scaled-link
             :width: 100%
