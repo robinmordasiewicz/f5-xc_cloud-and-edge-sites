@@ -11,7 +11,7 @@ Deploy CE
         * default username:**admin**
         * default password:**Volterra123**
           
-      *. Click :bdg-primary:`Configure Now`
+      * Click :bdg-primary:`Configure Now`
       
         .. image:: images/cloud-and-edge-sites_site-management_deploy-appstack-ce-1.png
             :class: no-scaled-link
