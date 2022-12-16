@@ -8,8 +8,8 @@ Deploy CE
       * Using a browser log-in to the CE
 
         * https://|CE-IP-ADDRESS|:65500
-        * default username:**admin**
-        * default password:**Volterra123**
+        * default username: **admin**
+        * default password: **Volterra123**
           
       * Click :bdg-primary:`Configure Now`
       
