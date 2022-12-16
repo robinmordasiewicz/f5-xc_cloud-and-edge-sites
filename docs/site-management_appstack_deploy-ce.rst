@@ -7,7 +7,7 @@ Deploy CE
 
       * Using a browser log-in to the CE
 
-        * https://<CE-IP-ADDRESS>:65500
+        * https://|CE-IP-ADDRESS|:65500
         * default username:**admin**
         * default password:**Volterra123**
           
